@@ -144,13 +144,16 @@ h2{font-weight:900;font-stretch:118%;text-transform:uppercase;font-size:clamp(34
 
 /* ---------- SCHEDULE ---------- */
 .schedule{padding:110px 0;border-bottom:1px solid var(--line)}
-.sched-row{display:grid;grid-template-columns:110px 1fr 1fr 160px;gap:24px;align-items:center;padding:26px 0;border-top:1px solid var(--line);transition:background .2s}
+.sched-row{display:grid;grid-template-columns:90px 1.2fr 1.3fr 90px 120px;gap:20px;align-items:center;padding:26px 0;border-top:1px solid var(--line);transition:background .2s}
 .sched-row:last-of-type{border-bottom:1px solid var(--line)}
 .sched-row:hover{background:var(--night-2)}
 .sched-day{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--sodium)}
 .sched-title{font-weight:900;font-stretch:112%;text-transform:uppercase;font-size:22px}
 .sched-city{font-family:var(--mono);font-size:13px;opacity:.65;letter-spacing:.06em}
 .sched-time{font-family:var(--mono);font-size:15px;font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+.sched-row.rsvp{cursor:pointer}
+.sched-rsvp{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--azzurro);text-align:right;white-space:nowrap}
+.sched-row.rsvp:hover .sched-rsvp{text-decoration:underline}
 .sched-note{font-family:var(--mono);font-size:13px;letter-spacing:.08em;opacity:.7;padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .sched-note a{color:var(--azzurro)}
 
@@ -255,7 +258,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
   .proof-grid{grid-template-columns:repeat(2,1fr)}
   .mani-grid,.founder-grid{grid-template-columns:1fr;gap:40px}
   .tiers,.exp-grid{grid-template-columns:1fr}
-  .sched-row{grid-template-columns:90px 1fr 110px;gap:14px}
+  .sched-row{grid-template-columns:70px 1fr 78px 88px;gap:12px}
   .sched-city{display:none}
 }
 @media(max-width:560px){
@@ -410,17 +413,19 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
       </div>
       <a href="https://www.instagram.com/lacenapoli" target="_blank" rel="noopener" class="btn btn-sm" data-i18n="sched_btn">Follow on Instagram</a>
     </div>
-    <div class="sched-row">
+    <div class="sched-row rsvp" onclick="window.open('https://www.lacenapoli.com/event-details/sprint-work-17','_blank','noopener')">
       <div class="sched-day" data-i18n="d_wed">Wed</div>
       <div><div class="sched-title" data-i18n="s1_title">Sprint Work</div></div>
       <div class="sched-city">Via Enrico Alvino 14 · Vomero, Napoli</div>
       <div class="sched-time">20:00</div>
+      <a class="sched-rsvp" href="https://www.lacenapoli.com/event-details/sprint-work-17" target="_blank" rel="noopener" onclick="event.stopPropagation()" data-i18n="rsvp">RSVP →</a>
     </div>
-    <div class="sched-row">
+    <div class="sched-row rsvp" onclick="window.open('https://www.lacenapoli.com/event-details/sprint-work-caserta-1','_blank','noopener')">
       <div class="sched-day" data-i18n="d_thu">Thu</div>
       <div><div class="sched-title" data-i18n="s2_title">Sprint Work — Caserta</div></div>
       <div class="sched-city">Via Vincenzo Crispo 18 · Caserta</div>
       <div class="sched-time">20:00</div>
+      <a class="sched-rsvp" href="https://www.lacenapoli.com/event-details/sprint-work-caserta-1" target="_blank" rel="noopener" onclick="event.stopPropagation()" data-i18n="rsvp">RSVP →</a>
     </div>
     <div class="sched-note" data-i18n-html="sched_note">More sessions run every week in Napoli, Milano and Salerno — times and meeting points change by season. DM <a href="https://www.instagram.com/lacenapoli" target="_blank" rel="noopener">@lacenapoli</a> or email <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a> for this week's full schedule.</div>
   </div>
@@ -637,7 +642,7 @@ en: {
   t3_btn:"Request invite", t3_note:"First 50 members only. Rate locked for life.",
   mem_foot:"We don't gate the run. We gate the inside. Anyone can train with us for free every week. Core exists for the people who want to build this with us, and it stays small on purpose. Caserta, Milano and Salerno intakes open after Napoli fills.",
   sched_tag:"Weekly runs — free, open, no signup", sched_h2:"The week", sched_btn:"Follow on Instagram",
-  d_wed:"Wed", d_thu:"Thu",
+  d_wed:"Wed", d_thu:"Thu", rsvp:"RSVP →",
   s1_title:"Sprint Work", s2_title:"Sprint Work — Caserta",
   sched_note:'More sessions run every week in Napoli, Milano and Salerno — times and meeting points change by season. DM <a href="https://www.instagram.com/lacenapoli" target="_blank" rel="noopener">@lacenapoli</a> or email <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a> for this week\'s full schedule.',
   exp_tag:"Experiences — priority to Core", exp_h2:"Beyond the weekly", exp_badge:"Capped",
@@ -698,7 +703,7 @@ it: {
   t3_btn:"Richiedi l'invito", t3_note:"Solo i primi 50 membri. Prezzo bloccato a vita.",
   mem_foot:"Non chiudiamo la corsa. Chiudiamo l'interno. Chiunque può allenarsi con noi gratis ogni settimana. Il Core esiste per chi vuole costruire questo progetto con noi, e resta piccolo di proposito. Le iscrizioni per Caserta, Milano e Salerno aprono dopo Napoli.",
   sched_tag:"Corse settimanali — gratuite, aperte, senza iscrizione", sched_h2:"La settimana", sched_btn:"Seguici su Instagram",
-  d_wed:"Mer", d_thu:"Gio",
+  d_wed:"Mer", d_thu:"Gio", rsvp:"Iscriviti →",
   s1_title:"Sprint Work", s2_title:"Sprint Work — Caserta",
   sched_note:'Ogni settimana ci sono altre sessioni a Napoli, Milano e Salerno — orari e punti di ritrovo cambiano con la stagione. Scrivici su <a href="https://www.instagram.com/lacenapoli" target="_blank" rel="noopener">@lacenapoli</a> o via email a <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a> per il programma completo della settimana.',
   exp_tag:"Esperienze — priorità ai Core", exp_h2:"Oltre la settimana", exp_badge:"Numero chiuso",
