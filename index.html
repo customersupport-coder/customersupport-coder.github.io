@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LACE — Naples Running Club</title>
-<meta name="description" content="LACE is a running network born in the streets of Naples. Weekly runs in Napoli, Caserta, Milano and Salerno. Free to run. Limited Core membership.">
+<meta name="description" content="LACE is a running network born in the streets of Naples. Weekly runs in Napoli, Caserta, Milano and Salerno. Free to run. Founding membership capped at 100.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -125,7 +125,7 @@ h2{font-weight:900;font-stretch:118%;text-transform:uppercase;font-size:clamp(34
 /* ---------- MEMBERSHIP (light section) ---------- */
 .membership{background:var(--paper);color:var(--ink);padding:110px 0}
 .membership .sec-tag{color:#1774ab}
-.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.tiers{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:900px}
 .tier{border:1px solid var(--line-dark);padding:36px 32px;display:flex;flex-direction:column;background:#fff}
 .tier.featured{border:2px solid var(--ink);position:relative}
 .tier-flag{position:absolute;top:-13px;left:28px;background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:5px 12px}
@@ -293,7 +293,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
           <option value="it">IT</option>
         </select>
       </div>
-      <a href="https://buy.stripe.com/eVq5kv1ZR5tG1vp7O6bZe02" target="_blank" rel="noopener" class="btn btn-sm btn-solid" data-i18n="nav_apply">Join Core</a>
+      <a href="https://buy.stripe.com/8x200b33Vg8k1vpd8qbZe09" target="_blank" rel="noopener" class="btn btn-sm btn-solid" data-i18n="nav_apply">Join Founding</a>
     </div>
   </div>
 </nav>
@@ -305,11 +305,11 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
   <div class="hero-in">
     <div class="hero-eyebrow" data-i18n="hero_eyebrow">Napoli · Caserta · Milano · Salerno</div>
     <h1 data-i18n-html="hero_h1">When we run,<br>we move <em>the city.</em></h1>
-    <p class="hero-sub" data-i18n="hero_sub">LACE is a running network born in the streets of Naples. 3,000+ runners across four cities. Weekly sessions are free and open. Core membership is limited.</p>
+    <p class="hero-sub" data-i18n="hero_sub">LACE is a running network born in the streets of Naples. 3,000+ runners across four cities. Weekly sessions are free and open. Founding membership is capped at 100.</p>
     <div class="hero-row">
       <div class="hero-ctas">
         <a href="#runs" class="btn" data-i18n="hero_cta1">Run with us — free</a>
-        <a href="https://buy.stripe.com/eVq5kv1ZR5tG1vp7O6bZe02" target="_blank" rel="noopener" class="btn btn-solid" data-i18n="hero_cta2">Join Core</a>
+        <a href="https://buy.stripe.com/8x200b33Vg8k1vpd8qbZe09" target="_blank" rel="noopener" class="btn btn-solid" data-i18n="hero_cta2">Join Founding</a>
       </div>
       <div class="clock" aria-live="off">
         <div class="clock-label" data-i18n="clock_label">Next start line</div>
@@ -374,33 +374,23 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
         <a href="#runs" class="btn" data-i18n="t1_btn">Show up Wednesday</a>
       </div>
       <div class="tier featured">
-        <div class="tier-flag" data-i18n="t2_flag">Napoli — intake open</div>
-        <div class="tier-name" data-i18n="t2_name">Core</div>
-        <div class="tier-price"><b>€20</b> <span data-i18n="t2_per">/ month</span></div>
-        <ul>
-          <li data-i18n="t2_li1">Priority access to island experiences and capped events</li>
-          <li data-i18n="t2_li2">Member kit + early access to merch drops</li>
-          <li data-i18n="t2_li3">Partner perks and discounts</li>
-          <li data-i18n="t2_li4">Monthly Core-only socials and brunches</li>
-          <li data-i18n="t2_li5">Structured training blocks and race prep</li>
-        </ul>
-        <a href="https://buy.stripe.com/eVq5kv1ZR5tG1vp7O6bZe02" target="_blank" rel="noopener" class="btn" data-i18n="t2_btn">Join Core — €20/month</a>
-        <div class="tier-note" data-i18n="t2_note">First wave: 25 of 100 Napoli places. Next wave opens when this one fills.</div>
-      </div>
-      <div class="tier">
+        <div class="tier-flag" data-i18n="t3_flag">Napoli — 100 places</div>
         <div class="tier-name" data-i18n="t3_name">Founding</div>
         <div class="tier-price"><b>€70</b> <span data-i18n="t3_per">/ year</span></div>
         <ul>
-          <li data-i18n="t3_li1">Everything in Core</li>
-          <li data-i18n="t3_li2">Founding member number, permanent</li>
-          <li data-i18n="t3_li3">Guaranteed spot at every experience</li>
-          <li data-i18n="t3_li4">A voice in where LACE goes next</li>
+          <li data-i18n="t3_li1">Founding member number, permanent</li>
+          <li data-i18n="t3_li2">Guaranteed spot at every experience, Ischia included</li>
+          <li data-i18n="t3_li3">Member kit and early access to every merch drop</li>
+          <li data-i18n="t3_li4">Member pricing at every capped event</li>
+          <li data-i18n="t3_li5">Partner perks: RunKD, NEVERSECOND, Naturale Beach Club</li>
+          <li data-i18n="t3_li6">Structured training blocks and race prep</li>
+          <li data-i18n="t3_li7">A voice in where LACE goes next</li>
         </ul>
-        <a href="https://buy.stripe.com/8x200b33Vg8k1vpd8qbZe09" target="_blank" rel="noopener" class="btn" data-i18n="t3_btn">Join Founding — €70/year</a>
-        <div class="tier-note" data-i18n="t3_note">First 50 members only. Rate locked for life.</div>
+        <a href="https://buy.stripe.com/8x200b33Vg8k1vpd8qbZe09" target="_blank" rel="noopener" class="btn btn-solid" data-i18n="t3_btn">Join Founding — €70/year</a>
+        <div class="tier-note" data-i18n="t3_note">First 100 only. €120/year after that. Your rate is locked for life.</div>
       </div>
     </div>
-    <p class="membership-foot" data-i18n="mem_foot">We don't gate the run. We gate the inside. Anyone can train with us for free every week. Core exists for the people who want to build this with us, and it stays small on purpose. Caserta, Milano and Salerno intakes open after Napoli fills.</p>
+    <p class="membership-foot" data-i18n="mem_foot">We don't gate the run. We gate the inside. Anyone can train with us for free every week. Founding is for the people building this with us. 100 places, then the price goes to €120. Caserta, Milano and Salerno open after Napoli fills.</p>
   </div>
 </section>
 
@@ -435,7 +425,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
   <div class="wrap">
     <div class="sec-head">
       <div>
-        <div class="sec-tag" data-i18n="exp_tag">Experiences — priority to Core</div>
+        <div class="sec-tag" data-i18n="exp_tag">Experiences — priority to Founding members</div>
         <h2 data-i18n="exp_h2">Beyond the weekly</h2>
       </div>
     </div>
@@ -557,7 +547,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
   <div class="apply-in">
     <div class="sec-tag" style="margin-bottom:16px" data-i18n="a_tag">Waitlist — Founding &amp; other cities</div>
     <h2 data-i18n-html="a_h2">The run is free.<br>The inside is earned.</h2>
-    <p data-i18n="a_p">Core Napoli is open above. Leave your email for Founding invites and for when Caserta, Milano and Salerno open. Until then: Wednesday, 20:00. Just show up.</p>
+    <p data-i18n="a_p">Founding is open above, 100 places only. Leave your email for when Caserta, Milano and Salerno open. Until then: Wednesday, 20:00. Just show up.</p>
     <form class="apply-form" id="apply-form">
       <input type="email" required placeholder="your@email.com" aria-label="Email address">
       <button class="btn btn-solid" type="submit" data-i18n="a_btn">Apply</button>
@@ -618,11 +608,11 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 /* ---------- TRANSLATIONS ---------- */
 const I18N = {
 en: {
-  nav_runs:"Weekly Runs", nav_membership:"Membership", nav_exp:"Experiences", nav_about:"About", nav_apply:"Join Core",
+  nav_runs:"Weekly Runs", nav_membership:"Membership", nav_exp:"Experiences", nav_about:"About", nav_apply:"Join Founding",
   hero_eyebrow:"Napoli · Caserta · Milano · Salerno",
   hero_h1:'When we run,<br>we move <em>the city.</em>',
-  hero_sub:"LACE is a running network born in the streets of Naples. 3,000+ runners across four cities. Weekly sessions are free and open. Core membership is limited.",
-  hero_cta1:"Run with us — free", hero_cta2:"Join Core",
+  hero_sub:"LACE is a running network born in the streets of Naples. 3,000+ runners across four cities. Weekly sessions are free and open. Founding membership is capped at 100.",
+  hero_cta1:"Run with us — free", hero_cta2:"Join Founding",
   clock_label:"Next start line",
   ticker:"Napoli <b>·</b> Caserta <b>·</b> Milano <b>·</b> Salerno <b>·</b> Sprint Work Every Wednesday 20:00 <b>·</b> Every Run Ends With Aperitivo <b>·</b> Free To Run, Hard To Leave <b>·</b> ",
   proof1:"Runners in the network", proof2:"Cities · NAP / CE / MI / SA", proof3:"Monthly views", proof4:"Runs hosted per year",
@@ -634,18 +624,15 @@ en: {
   t1_name:"Community", t1_per:"/ forever",
   t1_li1:"All weekly runs in Napoli, Caserta, Milano and Salerno", t1_li2:"Post-run aperitivo, always", t1_li3:"Community chat access", t1_li4:"Open pace groups — all levels",
   t1_btn:"Show up Wednesday",
-  t2_flag:"Napoli — intake open", t2_name:"Core", t2_per:"/ month",
-  t2_li1:"Priority access to island experiences and capped events", t2_li2:"Member kit + early access to merch drops", t2_li3:"Partner perks and discounts", t2_li4:"Monthly Core-only socials and brunches", t2_li5:"Structured training blocks and race prep",
-  t2_btn:"Join Core — €20/month", t2_note:"First wave: 25 of 100 Napoli places. Next wave opens when this one fills.",
-  t3_name:"Founding", t3_per:"/ year",
-  t3_li1:"Everything in Core", t3_li2:"Founding member number, permanent", t3_li3:"Guaranteed spot at every experience", t3_li4:"A voice in where LACE goes next",
-  t3_btn:"Join Founding — €70/year", t3_note:"First 50 members only. Rate locked for life.",
-  mem_foot:"We don't gate the run. We gate the inside. Anyone can train with us for free every week. Core exists for the people who want to build this with us, and it stays small on purpose. Caserta, Milano and Salerno intakes open after Napoli fills.",
+  t3_flag:"Napoli — 100 places", t3_name:"Founding", t3_per:"/ year",
+  t3_li1:"Founding member number, permanent", t3_li2:"Guaranteed spot at every experience, Ischia included", t3_li3:"Member kit and early access to every merch drop", t3_li4:"Member pricing at every capped event", t3_li5:"Partner perks: RunKD, NEVERSECOND, Naturale Beach Club", t3_li6:"Structured training blocks and race prep", t3_li7:"A voice in where LACE goes next",
+  t3_btn:"Join Founding — €70/year", t3_note:"First 100 only. €120/year after that. Your rate is locked for life.",
+  mem_foot:"We don't gate the run. We gate the inside. Anyone can train with us for free every week. Founding is for the people building this with us. 100 places, then the price goes to €120. Caserta, Milano and Salerno open after Napoli fills.",
   sched_tag:"Weekly runs — free, open, no signup", sched_h2:"The week", sched_btn:"Follow on Instagram",
   d_wed:"Wed", d_thu:"Thu", rsvp:"RSVP →",
   s1_title:"Sprint Work — Wine Edition", s2_title:"Sprint Work — Caserta",
   sched_note:'More sessions run every week in Napoli, Milano and Salerno — times and meeting points change by season. DM <a href="https://www.instagram.com/lacenapoli" target="_blank" rel="noopener">@lacenapoli</a> or email <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a> for this week\'s full schedule.',
-  exp_tag:"Experiences — priority to Core", exp_h2:"Beyond the weekly", exp_badge:"Capped",
+  exp_tag:"Experiences — priority to Founding members", exp_h2:"Beyond the weekly", exp_badge:"Capped",
   e1_date:"July 2026 · Ischia", e1_title:"The Island Experience",
   e1_p:"A full day on Ischia. Coastal run, sea swim, long table at Kiwi Bar. One boat, one crew, capped numbers.",
   e1_link:"Request a spot →",
@@ -671,7 +658,7 @@ en: {
   ft_team:"Team",
   p_tag:"Runs and events built with",
   a_tag:"Waitlist — Founding & other cities", a_h2:"The run is free.<br>The inside is earned.",
-  a_p:"Core Napoli is open above. Leave your email for Founding invites and for when Caserta, Milano and Salerno open. Until then: Wednesday, 20:00. Just show up.",
+  a_p:"Founding is open above, 100 places only. Leave your email for when Caserta, Milano and Salerno open. Until then: Wednesday, 20:00. Just show up.",
   a_btn:"Apply",
   a_note:'25 places this wave, reviewed monthly. Questions? <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a>',
   a_done:"YOU'RE ON THE LIST. SEE YOU WEDNESDAY.",
@@ -679,11 +666,11 @@ en: {
   ft_cities:"Cities", ft_club:"Club", ft_contact:"Contact", ft_line:"Free to run. Hard to leave."
 },
 it: {
-  nav_runs:"Corse settimanali", nav_membership:"Membership", nav_exp:"Esperienze", nav_about:"Chi siamo", nav_apply:"Entra nel Core",
+  nav_runs:"Corse settimanali", nav_membership:"Membership", nav_exp:"Esperienze", nav_about:"Chi siamo", nav_apply:"Entra come Founding",
   hero_eyebrow:"Napoli · Caserta · Milano · Salerno",
   hero_h1:'Quando corriamo,<br>muoviamo <em>la città.</em>',
-  hero_sub:"LACE è un network di running nato nelle strade di Napoli. Oltre 3.000 runner in quattro città. Le corse settimanali sono gratuite e aperte a tutti. I posti Core sono limitati.",
-  hero_cta1:"Corri con noi — gratis", hero_cta2:"Entra nel Core",
+  hero_sub:"LACE è un network di running nato nelle strade di Napoli. Oltre 3.000 runner in quattro città. Le corse settimanali sono gratuite e aperte a tutti. I posti Founding sono 100.",
+  hero_cta1:"Corri con noi — gratis", hero_cta2:"Entra come Founding",
   clock_label:"Prossima partenza",
   ticker:"Napoli <b>·</b> Caserta <b>·</b> Milano <b>·</b> Salerno <b>·</b> Sprint Work Ogni Mercoledì 20:00 <b>·</b> Ogni Corsa Finisce Con L'Aperitivo <b>·</b> Correre È Gratis, Andarsene È Difficile <b>·</b> ",
   proof1:"Runner nel network", proof2:"Città · NAP / CE / MI / SA", proof3:"Visualizzazioni mensili", proof4:"Corse organizzate all'anno",
@@ -695,18 +682,15 @@ it: {
   t1_name:"Community", t1_per:"/ per sempre",
   t1_li1:"Tutte le corse settimanali a Napoli, Caserta, Milano e Salerno", t1_li2:"Aperitivo dopo ogni corsa, sempre", t1_li3:"Accesso alla chat della community", t1_li4:"Gruppi per ogni ritmo — tutti i livelli",
   t1_btn:"Presentati mercoledì",
-  t2_flag:"Napoli — iscrizioni aperte", t2_name:"Core", t2_per:"/ mese",
-  t2_li1:"Priorità per le esperienze sulle isole e gli eventi a numero chiuso", t2_li2:"Kit membro + accesso anticipato ai drop", t2_li3:"Vantaggi e sconti dei partner", t2_li4:"Eventi e brunch mensili solo per i Core", t2_li5:"Blocchi di allenamento strutturati e preparazione gare",
-  t2_btn:"Entra nel Core — 20€/mese", t2_note:"Prima ondata: 25 dei 100 posti per Napoli. La prossima apre quando questa si riempie.",
-  t3_name:"Founding", t3_per:"/ anno",
-  t3_li1:"Tutto ciò che è incluso nel Core", t3_li2:"Numero di socio fondatore, permanente", t3_li3:"Posto garantito a ogni esperienza", t3_li4:"Voce in capitolo sul futuro di LACE",
-  t3_btn:"Entra come Founding — 70€/anno", t3_note:"Solo i primi 50 membri. Prezzo bloccato a vita.",
-  mem_foot:"Non chiudiamo la corsa. Chiudiamo l'interno. Chiunque può allenarsi con noi gratis ogni settimana. Il Core esiste per chi vuole costruire questo progetto con noi, e resta piccolo di proposito. Le iscrizioni per Caserta, Milano e Salerno aprono dopo Napoli.",
+  t3_flag:"Napoli — 100 posti", t3_name:"Founding", t3_per:"/ anno",
+  t3_li1:"Numero da socio fondatore, per sempre", t3_li2:"Posto garantito a ogni esperienza, Ischia inclusa", t3_li3:"Member kit e accesso anticipato a ogni drop", t3_li4:"Prezzo riservato ai soci a ogni evento a numero chiuso", t3_li5:"Vantaggi partner: RunKD, NEVERSECOND, Naturale Beach Club", t3_li6:"Programmi di allenamento e preparazione gare", t3_li7:"Voce in capitolo su dove va LACE",
+  t3_btn:"Entra come Founding — 70€/anno", t3_note:"Solo i primi 100. Poi 120€/anno. Il tuo prezzo resta bloccato a vita.",
+  mem_foot:"Non mettiamo cancelli sulla corsa. Li mettiamo su ciò che c'è dentro. Chiunque può allenarsi con noi gratis ogni settimana. Founding è per chi vuole costruire questa cosa con noi. 100 posti, poi il prezzo sale a 120€. Caserta, Milano e Salerno aprono quando Napoli è piena.",
   sched_tag:"Corse settimanali — gratuite, aperte, senza iscrizione", sched_h2:"La settimana", sched_btn:"Seguici su Instagram",
   d_wed:"Mer", d_thu:"Gio", rsvp:"Iscriviti →",
   s1_title:"Sprint Work — Wine Edition", s2_title:"Sprint Work — Caserta",
   sched_note:'Ogni settimana ci sono altre sessioni a Napoli, Milano e Salerno — orari e punti di ritrovo cambiano con la stagione. Scrivici su <a href="https://www.instagram.com/lacenapoli" target="_blank" rel="noopener">@lacenapoli</a> o via email a <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a> per il programma completo della settimana.',
-  exp_tag:"Esperienze — priorità ai Core", exp_h2:"Oltre la settimana", exp_badge:"Numero chiuso",
+  exp_tag:"Esperienze — priorità ai soci Founding", exp_h2:"Oltre la settimana", exp_badge:"Numero chiuso",
   e1_date:"Luglio 2026 · Ischia", e1_title:"The Island Experience",
   e1_p:"Una giornata intera a Ischia. Corsa sulla costa, bagno a mare, tavolata al Kiwi Bar. Una barca, un gruppo, posti limitati.",
   e1_link:"Richiedi un posto →",
@@ -732,7 +716,7 @@ it: {
   ft_team:"Team",
   p_tag:"Corse ed eventi realizzati con",
   a_tag:"Lista d'attesa — Founding e altre città", a_h2:"La corsa è gratis.<br>L'interno si conquista.",
-  a_p:"Il Core Napoli è aperto qui sopra. Lascia la tua email per gli inviti Founding e per l'apertura di Caserta, Milano e Salerno. Nel frattempo: mercoledì, 20:00. Presentati e basta.",
+  a_p:"Founding è aperto qui sopra, solo 100 posti. Lascia la tua email per l'apertura di Caserta, Milano e Salerno. Nel frattempo: mercoledì, 20:00. Presentati e basta.",
   a_btn:"Candidati",
   a_note:'25 posti in questa ondata, valutati ogni mese. Domande? <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a>',
   a_done:"SEI IN LISTA. CI VEDIAMO MERCOLEDÌ.",
