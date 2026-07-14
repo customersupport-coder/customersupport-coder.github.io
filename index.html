@@ -91,6 +91,11 @@ h1 em{font-style:normal;color:var(--azzurro)}
 .clock-label{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.6;margin-bottom:10px}
 .clock-time{font-family:var(--mono);font-size:40px;font-weight:600;letter-spacing:.04em;color:var(--azzurro);font-variant-numeric:tabular-nums;line-height:1}
 .clock-meta{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;opacity:.7;margin-top:10px}
+.drop-clock{border:1px solid rgba(255,255,255,.18);padding:16px 20px;margin:22px 0;background:rgba(0,0,0,.25);max-width:440px}
+.drop-clock .dc-label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.6;margin-bottom:8px}
+.drop-clock .dc-time{font-family:var(--mono);font-size:30px;font-weight:600;letter-spacing:.04em;font-variant-numeric:tabular-nums;line-height:1}
+.drop-clock .dc-units{font-family:var(--mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;opacity:.45;margin-top:6px}
+.drop-clock.closed .dc-time{font-size:20px;letter-spacing:.08em}
 
 /* ---------- TICKER ---------- */
 .ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;background:var(--night-2)}
@@ -456,7 +461,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
   <div class="wrap">
     <div class="sec-head">
       <div>
-        <div class="sec-tag" data-i18n="sh_tag">Merch — Drop 001 · Pre-order</div>
+        <div class="sec-tag" data-i18n="sh_tag">Merch — Drop 001 · 26 July</div>
         <h2 data-i18n="sh_h2">House of Lace</h2>
       </div>
       <div class="sec-tag" style="color:var(--paper);opacity:.6" data-i18n="sh_note">Limited run. Gone is gone.</div>
@@ -469,10 +474,15 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
       </div>
       <div class="shop-card" style="border:none;background:none">
         <div class="shop-body" style="padding:0;justify-content:center">
-          <div class="shop-label" data-i18n="sh_pre">Pre-order</div>
+          <div class="shop-label" data-i18n="sh_pre">Drop 001 · 100 made</div>
           <div class="shop-name" style="font-size:clamp(26px,3vw,38px)" data-i18n="sh1_name">Naples Division Crop Top</div>
-          <p class="shop-desc" style="font-size:16px;max-width:440px" data-i18n="sh1_desc">Heavyweight cotton crop. Naples Division crest with the corno on the chest, "Built where nothing was promised" over Vesuvius on the back. Pre-order now, produced in limited numbers.</p>
-          <a class="btn btn-solid" style="align-self:flex-start" href="https://buy.stripe.com/00w6oz8of09mb5Zd8qbZe08" target="_blank" rel="noopener" data-i18n="sh_buy">Pre-order now</a>
+          <p class="shop-desc" style="font-size:16px;max-width:440px" data-i18n="sh1_desc">Heavyweight cotton crop. Naples Division crest with the corno on the chest, "Built where nothing was promised" over Vesuvius on the back. €50. One hundred made. When they are gone there is no second run.</p>
+          <div class="drop-clock" id="drop-clock">
+            <div class="dc-label" data-i18n="sh_cd">Drop 001 closes in</div>
+            <div class="dc-time" id="drop-time">00:00:00:00</div>
+            <div class="dc-units" data-i18n="sh_units">days · hrs · min · sec</div>
+          </div>
+          <a class="btn btn-solid" style="align-self:flex-start" href="https://buy.stripe.com/00w6oz8of09mb5Zd8qbZe08" target="_blank" rel="noopener" data-i18n="sh_buy">Order now — €50</a>
         </div>
       </div>
     </div>
@@ -640,10 +650,10 @@ en: {
   e2_p:"A day-long takeover at Naturale Beach Club. Sprint heats on sand, hybrid stations, music until the light goes.",
   e2_link:"RSVP →",
   nav_shop:"Shop",
-  sh_tag:"Merch — Drop 001 · Pre-order", sh_h2:"House of Lace", sh_note:"Limited run. Gone is gone.", sh_pre:"Pre-order",
+  sh_tag:"Merch — Drop 001 · 26 July", sh_h2:"House of Lace", sh_note:"Limited run. Gone is gone.", sh_pre:"Drop 001 · 100 made",
   sh1_name:"Naples Division Crop Top",
-  sh1_desc:"Heavyweight cotton crop. Naples Division crest with the corno on the chest, \"Built where nothing was promised\" over Vesuvius on the back. Pre-order now, produced in limited numbers.",
-  sh_buy:"Pre-order now", sh_front:"Front", sh_back:"Back", sh_flip:"tap to flip",
+  sh1_desc:"Heavyweight cotton crop. Naples Division crest with the corno on the chest, \"Built where nothing was promised\" over Vesuvius on the back. €50. One hundred made. When they are gone there is no second run.",
+  sh_buy:"Order now — €50", sh_cd:"Drop 001 closes in", sh_units:"days · hrs · min · sec", sh_front:"Front", sh_back:"Back", sh_flip:"tap to flip",
   team_tag:"The team", team_h2:"The people who set the pace",
   f_quote:'"We didn\'t start LACE to be a run club. We started it so that anyone in this city could find their people at <em>20:00 on a Wednesday</em> — and never let go of them."',
   f_role:"Founder — LACE Napoli, LACE Milano & the LACE Network",
@@ -698,10 +708,10 @@ it: {
   e2_p:"Una giornata intera al Naturale Beach Club. Sprint sulla sabbia, stazioni hybrid, musica fino al tramonto.",
   e2_link:"RSVP →",
   nav_shop:"Shop",
-  sh_tag:"Merch — Drop 001 · Pre-order", sh_h2:"House of Lace", sh_note:"Serie limitata. Finita, è finita.", sh_pre:"Pre-order",
+  sh_tag:"Merch — Drop 001 · 26 luglio", sh_h2:"House of Lace", sh_note:"Serie limitata. Finita, è finita.", sh_pre:"Drop 001 · 100 pezzi",
   sh1_name:"Naples Division Crop Top",
-  sh1_desc:"Crop in cotone pesante. Stemma Naples Division con il corno sul petto, \"Built where nothing was promised\" sopra il Vesuvio sulla schiena. In pre-order, prodotta in numero limitato.",
-  sh_buy:"Pre-ordina ora", sh_front:"Fronte", sh_back:"Retro", sh_flip:"tocca per girare",
+  sh1_desc:"Crop in cotone pesante. Stemma Naples Division con il corno sul petto, \"Built where nothing was promised\" sopra il Vesuvio sulla schiena. 50€. Cento pezzi. Quando finiscono non si ristampa.",
+  sh_buy:"Ordina ora — 50€", sh_cd:"Il Drop 001 chiude tra", sh_units:"giorni · ore · min · sec", sh_front:"Fronte", sh_back:"Retro", sh_flip:"tocca per girare",
   team_tag:"Il team", team_h2:"Le persone che fanno il ritmo",
   f_quote:'"Non abbiamo creato LACE per essere un run club. L\'abbiamo creato perché chiunque in questa città potesse trovare le sue persone alle <em>20:00 di un mercoledì</em> — e non lasciarle più."',
   f_role:"Fondatore — LACE Napoli, LACE Milano e il LACE Network",
@@ -777,6 +787,26 @@ function renderClockMeta(){
   }
   tick();setInterval(tick,1000);
   renderClockMeta();setInterval(renderClockMeta,6e4);
+})();
+
+/* ---------- DROP 001 COUNTDOWN ---------- */
+const DROP_END = new Date('2026-07-26T23:59:00+02:00');
+(function(){
+  const box=document.getElementById('drop-clock');
+  const el=document.getElementById('drop-time');
+  if(!box||!el) return;
+  function tick(){
+    const t=DROP_END-new Date();
+    if(t<=0){
+      box.classList.add('closed');
+      el.textContent = (currentLang==='it') ? 'DROP CHIUSO' : 'DROP CLOSED';
+      const u=box.querySelector('.dc-units'); if(u) u.style.display='none';
+      return;
+    }
+    const dd=Math.floor(t/864e5), hh=Math.floor(t%864e5/36e5), mm=Math.floor(t%36e5/6e4), ss=Math.floor(t%6e4/1e3);
+    el.textContent=[dd,hh,mm,ss].map(n=>String(n).padStart(2,'0')).join(':');
+  }
+  tick();setInterval(tick,1000);
 })();
 
 /* ---------- COMING SOON MODAL ---------- */
