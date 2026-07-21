@@ -154,6 +154,7 @@ h2{font-weight:900;font-stretch:118%;text-transform:uppercase;font-size:clamp(34
 .sched-row:hover{background:var(--night-2)}
 .sched-day{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--sodium)}
 .sched-title{font-weight:900;font-stretch:112%;text-transform:uppercase;font-size:22px}
+.sched-date{font-family:var(--mono);font-size:12px;opacity:.55;letter-spacing:.06em;margin-top:3px}
 .sched-city{font-family:var(--mono);font-size:13px;opacity:.65;letter-spacing:.06em}
 .sched-time{font-family:var(--mono);font-size:15px;font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
 .sched-row.rsvp{cursor:pointer}
@@ -248,6 +249,15 @@ blockquote em{font-style:normal;color:var(--azzurro)}
 .cs-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .cs-x{position:absolute;top:20px;right:24px;background:none;border:1px solid var(--line);color:var(--paper);width:44px;height:44px;font-size:20px;cursor:pointer;z-index:2}
 .cs-x:hover{background:var(--paper);color:var(--night)}
+.fm-modal{position:fixed;inset:0;z-index:210;display:none;align-items:center;justify-content:center;padding:24px}
+.fm-modal.open{display:flex}
+.fm-bg{position:absolute;inset:0;background:rgba(13,16,23,.92)}
+.fm-x{position:absolute;top:20px;right:24px;background:none;border:1px solid var(--line);color:var(--paper);width:44px;height:44px;font-size:20px;cursor:pointer;z-index:2}
+.fm-x:hover{background:var(--paper);color:var(--night)}
+.fm-box{position:relative;text-align:center;padding:40px 32px;max-width:440px;background:var(--night);border:1px solid var(--line)}
+.fm-q{font-weight:900;font-stretch:112%;text-transform:uppercase;font-size:clamp(22px,4vw,28px);color:var(--paper);margin-bottom:26px}
+.fm-p{font-weight:300;font-size:15px;line-height:1.5;opacity:.85;margin-bottom:26px;color:var(--paper)}
+.fm-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 
 /* ---------- FOOTER ---------- */
 footer{border-top:1px solid var(--line);padding:56px 0 40px}
@@ -410,14 +420,14 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
     </div>
     <div class="sched-row rsvp" onclick="window.open('https://luma.com/p6zg38po','_blank','noopener')">
       <div class="sched-day" data-i18n="d_wed">Wed</div>
-      <div><div class="sched-title" data-i18n="s1_title">Sprint Work — Wine Edition</div></div>
+      <div><div class="sched-title" data-i18n="s1_title">Sprint Work</div><div class="sched-date" id="sched-date-wed"></div></div>
       <div class="sched-city">Via Enrico Alvino 14 · Vomero, Napoli</div>
       <div class="sched-time">20:00</div>
       <a class="sched-rsvp" href="https://luma.com/p6zg38po" target="_blank" rel="noopener" onclick="event.stopPropagation()" data-i18n="rsvp">RSVP →</a>
     </div>
     <div class="sched-row rsvp" onclick="window.open('https://luma.com/hc521auq','_blank','noopener')">
       <div class="sched-day" data-i18n="d_thu">Thu</div>
-      <div><div class="sched-title" data-i18n="s2_title">Sprint Work — Caserta</div></div>
+      <div><div class="sched-title" data-i18n="s2_title">Sprint Work — Caserta</div><div class="sched-date" id="sched-date-thu"></div></div>
       <div class="sched-city">Via Vincenzo Crispo 18 · Caserta</div>
       <div class="sched-time">20:00</div>
       <a class="sched-rsvp" href="https://luma.com/hc521auq" target="_blank" rel="noopener" onclick="event.stopPropagation()" data-i18n="rsvp">RSVP →</a>
@@ -605,6 +615,27 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
   </div>
 </div>
 
+<div class="fm-modal" id="fm-modal" role="dialog" aria-modal="true" aria-labelledby="fm-q">
+  <div class="fm-bg"></div>
+  <button class="fm-x" id="fm-x" aria-label="Close">×</button>
+  <div class="fm-box">
+    <div id="fm-ask">
+      <div class="fm-q" id="fm-q" data-i18n="fm_q">Are you a Founding member?</div>
+      <div class="fm-actions">
+        <button class="btn btn-solid" id="fm-yes" data-i18n="fm_yes">Yes</button>
+        <button class="btn" id="fm-no" data-i18n="fm_no">No</button>
+      </div>
+    </div>
+    <div id="fm-follow" hidden>
+      <p class="fm-p" data-i18n="fm_follow_p">Founding is capped at 100 places and locks your rate at €70/year for life. Take a look before it fills.</p>
+      <div class="fm-actions">
+        <a class="btn btn-solid" href="https://buy.stripe.com/8x200b33Vg8k1vpd8qbZe09" target="_blank" rel="noopener" id="fm-join" data-i18n="fm_join">See Founding — €70/year</a>
+        <button class="btn" id="fm-dismiss" data-i18n="fm_dismiss">Not now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 /* ---------- TRANSLATIONS ---------- */
 const I18N = {
@@ -631,7 +662,7 @@ en: {
   mem_foot:"We don't gate the run. We gate the inside. Anyone can train with us for free every week. Founding is for the people building this with us. 100 places, then the price goes to €120. Caserta, Milano and Salerno open after Napoli fills.",
   sched_tag:"Weekly runs — free, open, no signup", sched_h2:"The week", sched_btn:"Follow on Instagram",
   d_wed:"Wed", d_thu:"Thu", rsvp:"RSVP →",
-  s1_title:"Sprint Work — Wine Edition", s2_title:"Sprint Work — Caserta",
+  s1_title:"Sprint Work", s2_title:"Sprint Work — Caserta",
   sched_note:'More sessions run every week in Napoli, Milano and Salerno — times and meeting points change by season. DM <a href="https://www.instagram.com/lacenapoli" target="_blank" rel="noopener">@lacenapoli</a> or email <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a> for this week\'s full schedule.',
   exp_tag:"Experiences — priority to Founding members", exp_h2:"Beyond the weekly", exp_badge:"Capped",
   e1_date:"July 2026 · Ischia", e1_title:"The Island Experience",
@@ -661,6 +692,7 @@ en: {
   a_note:'25 places this wave, reviewed monthly. Questions? <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a>',
   a_done:"YOU'RE ON THE LIST. SEE YOU WEDNESDAY.",
   cs_coming:"Coming soon", cs_p:"Membership and the full schedule for this city are announcing soon. Follow @lacenapoli and you'll be the first to know.", cs_follow:"Follow on Instagram", cs_close:"Back to Napoli",
+  fm_q:"Are you a Founding member?", fm_yes:"Yes", fm_no:"No", fm_follow_p:"Founding is capped at 100 places and locks your rate at €70/year for life. Take a look before it fills.", fm_join:"See Founding — €70/year", fm_dismiss:"Not now",
   ft_cities:"Cities", ft_club:"Club", ft_contact:"Contact", ft_line:"Free to run. Hard to leave."
 },
 it: {
@@ -686,7 +718,7 @@ it: {
   mem_foot:"Non mettiamo cancelli sulla corsa. Li mettiamo su ciò che c'è dentro. Chiunque può allenarsi con noi gratis ogni settimana. Founding è per chi vuole costruire questa cosa con noi. 100 posti, poi il prezzo sale a 120€. Caserta, Milano e Salerno aprono quando Napoli è piena.",
   sched_tag:"Corse settimanali — gratuite, aperte, senza iscrizione", sched_h2:"La settimana", sched_btn:"Seguici su Instagram",
   d_wed:"Mer", d_thu:"Gio", rsvp:"Iscriviti →",
-  s1_title:"Sprint Work — Wine Edition", s2_title:"Sprint Work — Caserta",
+  s1_title:"Sprint Work", s2_title:"Sprint Work — Caserta",
   sched_note:'Ogni settimana ci sono altre sessioni a Napoli, Milano e Salerno — orari e punti di ritrovo cambiano con la stagione. Scrivici su <a href="https://www.instagram.com/lacenapoli" target="_blank" rel="noopener">@lacenapoli</a> o via email a <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a> per il programma completo della settimana.',
   exp_tag:"Esperienze — priorità ai soci Founding", exp_h2:"Oltre la settimana", exp_badge:"Numero chiuso",
   e1_date:"Luglio 2026 · Ischia", e1_title:"The Island Experience",
@@ -716,6 +748,7 @@ it: {
   a_note:'25 posti in questa ondata, valutati ogni mese. Domande? <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a>',
   a_done:"SEI IN LISTA. CI VEDIAMO MERCOLEDÌ.",
   cs_coming:"Prossimamente", cs_p:"Membership e calendario completo per questa città in arrivo. Segui @lacenapoli e sarai il primo a saperlo.", cs_follow:"Seguici su Instagram", cs_close:"Torna a Napoli",
+  fm_q:"Sei un socio Founding?", fm_yes:"Sì", fm_no:"No", fm_follow_p:"Founding è limitato a 100 posti e blocca la tua quota a 70€/anno per sempre. Dai un'occhiata prima che si riempia.", fm_join:"Vedi Founding — 70€/anno", fm_dismiss:"Non ora",
   ft_cities:"Città", ft_club:"Club", ft_contact:"Contatti", ft_line:"Correre è gratis. Andarsene è difficile."
 }
 };
@@ -736,6 +769,7 @@ function setLang(lang){
   document.querySelectorAll('.ticker-track span').forEach(el=>{ el.innerHTML = I18N[lang].ticker; });
   document.getElementById("lang-select").value = lang;
   if(document.getElementById("clock-meta") && typeof renderClockMeta==="function"){try{renderClockMeta()}catch(e){}}
+  if(typeof renderSchedDates==="function"){try{renderSchedDates()}catch(e){}}
 }
 
 // Default: English. Browsers set to Italian get Italian automatically.
@@ -776,6 +810,24 @@ function renderClockMeta(){
   renderClockMeta();setInterval(renderClockMeta,6e4);
 })();
 
+/* ---------- SCHEDULE DATES: next occurrence, self-updating ---------- */
+function nextWeekday(targetDay){
+  const now=new Date();
+  const d=new Date(now);
+  let add=(targetDay-d.getDay()+7)%7;
+  d.setDate(d.getDate()+add);
+  d.setHours(20,0,0,0);
+  if(d<=now){d.setDate(d.getDate()+7);}
+  return d;
+}
+function renderSchedDates(){
+  const wed=nextWeekday(3), thu=nextWeekday(4);
+  const wedEl=document.getElementById("sched-date-wed"), thuEl=document.getElementById("sched-date-thu");
+  if(wedEl) wedEl.textContent=wed.getDate()+" "+MONTHS[currentLang][wed.getMonth()];
+  if(thuEl) thuEl.textContent=thu.getDate()+" "+MONTHS[currentLang][thu.getMonth()];
+}
+renderSchedDates();
+
 /* ---------- DROP 001 COUNTDOWN ---------- */
 const DROP_END = new Date('2026-07-26T23:59:00+02:00');
 (function(){
@@ -815,6 +867,33 @@ const DROP_END = new Date('2026-07-26T23:59:00+02:00');
   document.getElementById("cs-close").addEventListener("click",close);
   modal.addEventListener("click",e=>{if(e.target===modal||e.target.closest(".cs-bg"))close();});
   document.addEventListener("keydown",e=>{if(e.key==="Escape")close();});
+})();
+
+/* ---------- FOUNDING MEMBER PROMPT ---------- */
+(function(){
+  const modal=document.getElementById("fm-modal");
+  if(!modal) return;
+  const KEY="lace_fm_asked";
+  let asked=false;
+  try{asked=!!localStorage.getItem(KEY);}catch(e){}
+  if(asked) return;
+  function close(){
+    modal.classList.remove("open");
+    document.body.style.overflow="";
+    try{localStorage.setItem(KEY,"1");}catch(e){}
+  }
+  document.getElementById("fm-yes").addEventListener("click",close);
+  document.getElementById("fm-no").addEventListener("click",()=>{
+    document.getElementById("fm-ask").hidden=true;
+    document.getElementById("fm-follow").hidden=false;
+  });
+  document.getElementById("fm-dismiss").addEventListener("click",close);
+  document.getElementById("fm-join").addEventListener("click",close);
+  document.getElementById("fm-x").addEventListener("click",close);
+  modal.addEventListener("click",e=>{if(e.target===modal||e.target.closest(".fm-bg"))close();});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape"&&modal.classList.contains("open"))close();});
+  modal.classList.add("open");
+  document.body.style.overflow="hidden";
 })();
 
 /* ---------- MOBILE MENU ---------- */
