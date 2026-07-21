@@ -760,7 +760,9 @@ function nextRun(){
 }
 function renderClockMeta(){
   const d=nextRun();
-  const s=DAYS[currentLang][d.getDay()]+" "+d.getDate()+" "+MONTHS[currentLang][d.getMonth()]+" · 20:00 — Vomero, Napoli";
+  const isBeepTest=d.getFullYear()===2026&&d.getMonth()===6&&d.getDate()===22;
+  const loc=isBeepTest?"Anzio — HOKA Beep Test":"Vomero, Napoli";
+  const s=DAYS[currentLang][d.getDay()]+" "+d.getDate()+" "+MONTHS[currentLang][d.getMonth()]+" · 20:00 — "+loc;
   document.getElementById("clock-meta").textContent=s;
 }
 (function(){
