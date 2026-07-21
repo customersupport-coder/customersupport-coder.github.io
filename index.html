@@ -874,6 +874,7 @@ const DROP_END = new Date('2026-07-26T23:59:00+02:00');
     modal.classList.add("open");
     document.body.style.overflow="hidden";
     try{localStorage.setItem(KEY,"1");}catch(e){}
+    window.removeEventListener("scroll", checkScroll);
   }
   function close(){
     modal.classList.remove("open");
