@@ -619,19 +619,11 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
   <div class="fm-bg"></div>
   <button class="fm-x" id="fm-x" aria-label="Close">×</button>
   <div class="fm-box">
-    <div id="fm-ask">
-      <div class="fm-q" id="fm-q" data-i18n="fm_q">Are you a Founding member?</div>
-      <div class="fm-actions">
-        <button class="btn btn-solid" id="fm-yes" data-i18n="fm_yes">Yes</button>
-        <button class="btn" id="fm-no" data-i18n="fm_no">No</button>
-      </div>
-    </div>
-    <div id="fm-follow" hidden>
-      <p class="fm-p" data-i18n="fm_follow_p">Founding is capped at 100 places and locks your rate at €70/year for life. Take a look before it fills.</p>
-      <div class="fm-actions">
-        <a class="btn btn-solid" href="https://buy.stripe.com/8x200b33Vg8k1vpd8qbZe09" target="_blank" rel="noopener" id="fm-join" data-i18n="fm_join">See Founding — €70/year</a>
-        <button class="btn" id="fm-dismiss" data-i18n="fm_dismiss">Not now</button>
-      </div>
+    <div class="fm-q" id="fm-q" data-i18n="fm_q">Founding closes at 100.</div>
+    <p class="fm-p" data-i18n="fm_p">First 100 only. €120/year after that. Your rate is locked for life.</p>
+    <div class="fm-actions">
+      <a class="btn btn-solid" href="https://buy.stripe.com/8x200b33Vg8k1vpd8qbZe09" target="_blank" rel="noopener" id="fm-join" data-i18n="fm_join">Join Founding — €70/year</a>
+      <button class="btn" id="fm-dismiss" data-i18n="fm_dismiss">Not now</button>
     </div>
   </div>
 </div>
@@ -692,7 +684,7 @@ en: {
   a_note:'25 places this wave, reviewed monthly. Questions? <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a>',
   a_done:"YOU'RE ON THE LIST. SEE YOU WEDNESDAY.",
   cs_coming:"Coming soon", cs_p:"Membership and the full schedule for this city are announcing soon. Follow @lacenapoli and you'll be the first to know.", cs_follow:"Follow on Instagram", cs_close:"Back to Napoli",
-  fm_q:"Are you a Founding member?", fm_yes:"Yes", fm_no:"No", fm_follow_p:"Founding is capped at 100 places and locks your rate at €70/year for life. Take a look before it fills.", fm_join:"See Founding — €70/year", fm_dismiss:"Not now",
+  fm_q:"Founding closes at 100.", fm_p:"First 100 only. €120/year after that. Your rate is locked for life.", fm_join:"Join Founding — €70/year", fm_dismiss:"Not now",
   ft_cities:"Cities", ft_club:"Club", ft_contact:"Contact", ft_line:"Free to run. Hard to leave."
 },
 it: {
@@ -748,7 +740,7 @@ it: {
   a_note:'25 posti in questa ondata, valutati ogni mese. Domande? <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a>',
   a_done:"SEI IN LISTA. CI VEDIAMO MERCOLEDÌ.",
   cs_coming:"Prossimamente", cs_p:"Membership e calendario completo per questa città in arrivo. Segui @lacenapoli e sarai il primo a saperlo.", cs_follow:"Seguici su Instagram", cs_close:"Torna a Napoli",
-  fm_q:"Sei un socio Founding?", fm_yes:"Sì", fm_no:"No", fm_follow_p:"Founding è limitato a 100 posti e blocca la tua quota a 70€/anno per sempre. Dai un'occhiata prima che si riempia.", fm_join:"Vedi Founding — 70€/anno", fm_dismiss:"Non ora",
+  fm_q:"Founding chiude a 100.", fm_p:"Solo i primi 100. Poi 120€/anno. Il tuo prezzo resta bloccato a vita.", fm_join:"Entra come Founding — 70€/anno", fm_dismiss:"Non ora",
   ft_cities:"Città", ft_club:"Club", ft_contact:"Contatti", ft_line:"Correre è gratis. Andarsene è difficile."
 }
 };
@@ -869,31 +861,34 @@ const DROP_END = new Date('2026-07-26T23:59:00+02:00');
   document.addEventListener("keydown",e=>{if(e.key==="Escape")close();});
 })();
 
-/* ---------- FOUNDING MEMBER PROMPT ---------- */
+/* ---------- FOUNDING MEMBER PROMPT: fires on scroll engagement, not on landing ---------- */
 (function(){
   const modal=document.getElementById("fm-modal");
   if(!modal) return;
-  const KEY="lace_fm_asked";
-  let asked=false;
-  try{asked=!!localStorage.getItem(KEY);}catch(e){}
-  if(asked) return;
+  const KEY="lace_fm_shown";
+  let shown=false;
+  try{shown=!!localStorage.getItem(KEY);}catch(e){}
+  if(shown) return;
+  function open(){
+    if(modal.classList.contains("open")) return;
+    modal.classList.add("open");
+    document.body.style.overflow="hidden";
+    try{localStorage.setItem(KEY,"1");}catch(e){}
+  }
   function close(){
     modal.classList.remove("open");
     document.body.style.overflow="";
-    try{localStorage.setItem(KEY,"1");}catch(e){}
   }
-  document.getElementById("fm-yes").addEventListener("click",close);
-  document.getElementById("fm-no").addEventListener("click",()=>{
-    document.getElementById("fm-ask").hidden=true;
-    document.getElementById("fm-follow").hidden=false;
-  });
   document.getElementById("fm-dismiss").addEventListener("click",close);
   document.getElementById("fm-join").addEventListener("click",close);
   document.getElementById("fm-x").addEventListener("click",close);
   modal.addEventListener("click",e=>{if(e.target===modal||e.target.closest(".fm-bg"))close();});
   document.addEventListener("keydown",e=>{if(e.key==="Escape"&&modal.classList.contains("open"))close();});
-  modal.classList.add("open");
-  document.body.style.overflow="hidden";
+  function checkScroll(){
+    if(window.scrollY > window.innerHeight*0.6) open();
+  }
+  window.addEventListener("scroll", checkScroll, {passive:true});
+  checkScroll();
 })();
 
 /* ---------- MOBILE MENU ---------- */
