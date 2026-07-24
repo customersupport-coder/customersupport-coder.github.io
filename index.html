@@ -425,12 +425,12 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
       <div class="sched-time">20:00</div>
       <a class="sched-rsvp" href="https://luma.com/p6zg38po" target="_blank" rel="noopener" onclick="event.stopPropagation()" data-i18n="rsvp">RSVP →</a>
     </div>
-    <div class="sched-row rsvp" onclick="window.open('https://luma.com/hc521auq','_blank','noopener')">
+    <div class="sched-row rsvp" onclick="window.open('https://luma.com/st3xu2eb','_blank','noopener')">
       <div class="sched-day" data-i18n="d_thu">Thu</div>
       <div><div class="sched-title" data-i18n="s2_title">Sprint Work — Caserta</div><div class="sched-date" id="sched-date-thu"></div></div>
       <div class="sched-city">Via Vincenzo Crispo 18 · Caserta</div>
       <div class="sched-time">20:00</div>
-      <a class="sched-rsvp" href="https://luma.com/hc521auq" target="_blank" rel="noopener" onclick="event.stopPropagation()" data-i18n="rsvp">RSVP →</a>
+      <a class="sched-rsvp" href="https://luma.com/st3xu2eb" target="_blank" rel="noopener" onclick="event.stopPropagation()" data-i18n="rsvp">RSVP →</a>
     </div>
     <div class="sched-note" data-i18n-html="sched_note">More sessions run every week in Napoli, Milano and Salerno — times and meeting points change by season. DM <a href="https://www.instagram.com/lacenapoli" target="_blank" rel="noopener">@lacenapoli</a> or email <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a> for this week's full schedule.</div>
   </div>
@@ -786,8 +786,7 @@ function nextRun(){
 }
 function renderClockMeta(){
   const d=nextRun();
-  const isBeepTest=d.getFullYear()===2026&&d.getMonth()===6&&d.getDate()===22;
-  const loc=isBeepTest?"Anzio — HOKA Beep Test":"Vomero, Napoli";
+  const loc="Vomero, Napoli";
   const s=DAYS[currentLang][d.getDay()]+" "+d.getDate()+" "+MONTHS[currentLang][d.getMonth()]+" · 20:00 — "+loc;
   document.getElementById("clock-meta").textContent=s;
 }
