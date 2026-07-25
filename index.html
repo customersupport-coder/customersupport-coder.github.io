@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LACE — Naples Running Club</title>
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B7Z8K7R6M2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-B7Z8K7R6M2');
+</script>
 <meta name="description" content="LACE is a running network born in the streets of Naples. Weekly runs in Napoli, Caserta, Milano and Salerno. Free to run. Founding membership capped at 100.">
 <link rel="canonical" href="https://lacenapoli.com/">
 <meta name="theme-color" content="#0d1017">
@@ -977,6 +986,33 @@ const DROP_END = new Date('2026-07-26T23:59:00+02:00');
   update();
 })();
 
+/* ---------- GA4 CONVERSION EVENTS ---------- */
+(function(){
+  if (typeof gtag !== "function") return;
+  const FOUNDING_URL = "buy.stripe.com/8x200b33Vg8k1vpd8qbZe09";
+  const WHATSAPP_URL = "chat.whatsapp.com";
+  function locate(el){
+    if (el.closest("nav")) return "nav";
+    if (el.closest("header")) return "hero";
+    if (el.closest(".tier.featured")) return "founding_tier";
+    if (el.closest(".tier")) return "community_tier";
+    if (el.closest(".fm-modal")) return "founding_modal";
+    if (el.closest(".sticky-cta")) return "sticky_bar";
+    if (el.closest(".schedule")) return "schedule_note";
+    if (el.closest("footer")) return "footer";
+    return "other";
+  }
+  document.addEventListener("click", function(e){
+    const a = e.target.closest("a[href]");
+    if (!a) return;
+    if (a.href.indexOf(FOUNDING_URL) > -1){
+      gtag("event", "join_founding_click", {location: locate(a)});
+    } else if (a.href.indexOf(WHATSAPP_URL) > -1){
+      gtag("event", "whatsapp_click", {location: locate(a)});
+    }
+  }, {passive:true});
+})();
+
 /* ---------- MOBILE MENU ---------- */
 (function(){
   const btn=document.getElementById("menu-btn"), links=document.querySelector(".nav-links");
@@ -1021,6 +1057,7 @@ document.getElementById("apply-form").addEventListener("submit", function(e){
     "New waitlist signup from lacenapoli.com\n\nEmail: "+email+"\nCity of interest: "+city+"\nLang: "+currentLang
   );
   window.location.href = "mailto:customersupport@lacenapoli.com?subject="+subject+"&body="+body;
+  if (typeof gtag === "function") gtag("event", "waitlist_signup", {method: "mailto", lang: currentLang});
   this.innerHTML = '<p style="font-family:var(--mono);padding:14px;letter-spacing:.1em">'+I18N[currentLang].a_done+'</p>';
 });
 </script>
