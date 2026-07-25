@@ -5,6 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LACE — Naples Running Club</title>
 <meta name="description" content="LACE is a running network born in the streets of Naples. Weekly runs in Napoli, Caserta, Milano and Salerno. Free to run. Founding membership capped at 100.">
+<link rel="canonical" href="https://lacenapoli.com/">
+<meta name="theme-color" content="#0d1017">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon.svg">
+
+<!-- Open Graph / social share preview (Instagram bio link, WhatsApp, iMessage, Facebook) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LACE">
+<meta property="og:title" content="LACE — Naples Running Club">
+<meta property="og:description" content="A running network born in the streets of Naples. 3,000+ runners across four cities. Weekly sessions are free and open. Founding membership capped at 100.">
+<meta property="og:url" content="https://lacenapoli.com/">
+<meta property="og:image" content="https://lacenapoli.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="it_IT">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LACE — Naples Running Club">
+<meta name="twitter:description" content="Free weekly runs in Napoli, Caserta, Milano and Salerno. Founding membership capped at 100.">
+<meta name="twitter:image" content="https://lacenapoli.com/og-image.jpg">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"SportsClub",
+  "name":"LACE",
+  "url":"https://lacenapoli.com/",
+  "description":"LACE is a running network born in the streets of Naples, with weekly runs in Napoli, Caserta, Milano and Salerno.",
+  "sameAs":["https://www.instagram.com/lacenapoli","https://www.strava.com/clubs/1325540"],
+  "areaServed":[{"@type":"City","name":"Naples"},{"@type":"City","name":"Caserta"},{"@type":"City","name":"Milan"},{"@type":"City","name":"Salerno"}]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -236,6 +270,12 @@ blockquote em{font-style:normal;color:var(--azzurro)}
 .apply-note{font-family:var(--mono);font-size:12px;letter-spacing:.1em;opacity:.5;margin-top:18px}
 .apply-note a{color:var(--azzurro)}
 
+/* ---------- STICKY MOBILE CTA ---------- */
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:150;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(13,16,23,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);transform:translateY(100%);transition:transform .3s ease;display:none}
+.sticky-cta.show{transform:translateY(0)}
+.sticky-cta .btn{width:100%;text-align:center}
+@media(max-width:960px){.sticky-cta{display:block}}
+
 /* ---------- COMING SOON MODAL ---------- */
 .cs-modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center}
 .cs-modal.open{display:flex}
@@ -454,7 +494,16 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
           <a href="#apply" class="exp-link" data-i18n="e1_link">Request a spot →</a>
         </div>
       </div>
-          </div>
+      <div class="exp-card">
+        <div class="exp-img amber"><span class="exp-badge" data-i18n="exp_badge2" style="z-index:2">Save the date</span></div>
+        <div class="exp-body">
+          <div class="exp-date" data-i18n="e2_date">13 September 2026 · Napoli</div>
+          <div class="exp-title" data-i18n="e2_title">Lace Napoli 10K</div>
+          <p data-i18n="e2_p">Our first structured road race. Start and finish at Stadio Maradona. Paced by the same crew you train with every week.</p>
+          <a href="https://www.strava.com/clubs/1325540" target="_blank" rel="noopener" class="exp-link" data-i18n="e2_link">Follow prep on Strava →</a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -560,7 +609,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
     <h2 data-i18n-html="a_h2">The run is free.<br>The inside is earned.</h2>
     <p data-i18n="a_p">Founding is open above, 100 places only. Leave your email for when Caserta, Milano and Salerno open. Until then: Wednesday, 20:00. Just show up.</p>
     <form class="apply-form" id="apply-form">
-      <input type="email" required placeholder="your@email.com" aria-label="Email address">
+      <input type="email" id="apply-email" required placeholder="your@email.com" aria-label="Email address">
       <button class="btn btn-solid" type="submit" data-i18n="a_btn">Apply</button>
     </form>
     <div class="apply-note" data-i18n-html="a_note">25 places this wave, reviewed monthly. Questions? <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a></div>
@@ -590,6 +639,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
         <div class="foot-col">
           <h4 data-i18n="ft_contact">Contact</h4>
           <a href="https://www.instagram.com/lacenapoli" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.strava.com/clubs/1325540" target="_blank" rel="noopener">Strava Club</a>
           <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a>
         </div>
       </div>
@@ -628,6 +678,10 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
   </div>
 </div>
 
+<div class="sticky-cta" id="sticky-cta">
+  <a href="https://buy.stripe.com/8x200b33Vg8k1vpd8qbZe09" target="_blank" rel="noopener" class="btn btn-solid" data-i18n="nav_apply">Join Founding</a>
+</div>
+
 <script>
 /* ---------- TRANSLATIONS ---------- */
 const I18N = {
@@ -660,6 +714,10 @@ en: {
   e1_date:"July 2026 · Ischia", e1_title:"The Island Experience",
   e1_p:"A full day on Ischia. Coastal run, sea swim, long table at Kiwi Bar. One boat, one crew, capped numbers.",
   e1_link:"Request a spot →",
+  exp_badge2:"Save the date",
+  e2_date:"13 September 2026 · Napoli", e2_title:"Lace Napoli 10K",
+  e2_p:"Our first structured road race. Start and finish at Stadio Maradona. Paced by the same crew you train with every week.",
+  e2_link:"Follow prep on Strava →",
   nav_shop:"Shop",
   sh_tag:"Merch — Drop 001 · 26 July", sh_h2:"House of Lace", sh_note:"Limited run. Gone is gone.", sh_pre:"Drop 001 · 100 made",
   sh1_name:"Naples Division Crop Top",
@@ -716,6 +774,10 @@ it: {
   e1_date:"Luglio 2026 · Ischia", e1_title:"The Island Experience",
   e1_p:"Una giornata intera a Ischia. Corsa sulla costa, bagno a mare, tavolata al Kiwi Bar. Una barca, un gruppo, posti limitati.",
   e1_link:"Richiedi un posto →",
+  exp_badge2:"Segna la data",
+  e2_date:"13 settembre 2026 · Napoli", e2_title:"Lace Napoli 10K",
+  e2_p:"La nostra prima gara su strada strutturata. Partenza e arrivo allo Stadio Maradona. Il ritmo lo danno le stesse persone con cui ti alleni ogni settimana.",
+  e2_link:"Segui la preparazione su Strava →",
   nav_shop:"Shop",
   sh_tag:"Merch — Drop 001 · 26 luglio", sh_h2:"House of Lace", sh_note:"Serie limitata. Finita, è finita.", sh_pre:"Drop 001 · 100 pezzi",
   sh1_name:"Naples Division Crop Top",
@@ -891,6 +953,28 @@ const DROP_END = new Date('2026-07-26T23:59:00+02:00');
   checkScroll();
 })();
 
+/* ---------- STICKY MOBILE CTA: shown past the hero, hidden while
+   Membership or Apply (which already carry this CTA) are on screen ---------- */
+(function(){
+  const bar=document.getElementById("sticky-cta");
+  if(!bar) return;
+  const membership=document.getElementById("membership");
+  const apply=document.getElementById("apply");
+  function inView(el){
+    if(!el) return false;
+    const r=el.getBoundingClientRect();
+    return r.top < window.innerHeight*0.7 && r.bottom > 0;
+  }
+  function update(){
+    const pastHero = window.scrollY > window.innerHeight*0.85;
+    const overlapping = inView(membership) || inView(apply);
+    bar.classList.toggle("show", pastHero && !overlapping);
+  }
+  window.addEventListener("scroll", update, {passive:true});
+  window.addEventListener("resize", update);
+  update();
+})();
+
 /* ---------- MOBILE MENU ---------- */
 (function(){
   const btn=document.getElementById("menu-btn"), links=document.querySelector(".nav-links");
@@ -921,9 +1005,20 @@ const DROP_END = new Date('2026-07-26T23:59:00+02:00');
   box.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();flip();}});
 })();
 
-/* ---------- APPLY FORM ---------- */
+/* ---------- APPLY FORM ----------
+   Static site, no backend: we deliver the lead by opening a pre-filled
+   email to customersupport@lacenapoli.com so nothing gets lost.
+   Swap this for a real form endpoint (Formspree, Web3Forms, Google Form
+   POST) as soon as one exists — mailto is a stopgap, not a database. */
 document.getElementById("apply-form").addEventListener("submit", function(e){
   e.preventDefault();
+  const email = document.getElementById("apply-email").value.trim();
+  const city = "Napoli"; // page is Napoli-only for now
+  const subject = encodeURIComponent("LACE waitlist — "+email);
+  const body = encodeURIComponent(
+    "New waitlist signup from lacenapoli.com\n\nEmail: "+email+"\nCity of interest: "+city+"\nLang: "+currentLang
+  );
+  window.location.href = "mailto:customersupport@lacenapoli.com?subject="+subject+"&body="+body;
   this.innerHTML = '<p style="font-family:var(--mono);padding:14px;letter-spacing:.1em">'+I18N[currentLang].a_done+'</p>';
 });
 </script>
