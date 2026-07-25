@@ -208,7 +208,7 @@ h2{font-weight:900;font-stretch:118%;text-transform:uppercase;font-size:clamp(34
 
 /* ---------- EXPERIENCES ---------- */
 .exp{padding:110px 0;border-bottom:1px solid var(--line)}
-.exp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.exp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,590px));gap:24px;justify-content:center}
 .exp-card{border:1px solid var(--line);display:flex;flex-direction:column;transition:border-color .2s}
 .exp-card:hover{border-color:var(--azzurro)}
 .exp-img{aspect-ratio:16/8;overflow:hidden;background:linear-gradient(150deg,#182238,#0e1320);display:flex;align-items:flex-end;padding:16px;position:relative}
@@ -504,15 +504,6 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
           <a href="#apply" class="exp-link" data-i18n="e1_link">Request a spot →</a>
         </div>
       </div>
-      <div class="exp-card">
-        <div class="exp-img amber"><span class="exp-badge" data-i18n="exp_badge2" style="z-index:2">Save the date</span></div>
-        <div class="exp-body">
-          <div class="exp-date" data-i18n="e2_date">13 September 2026 · Napoli</div>
-          <div class="exp-title" data-i18n="e2_title">Lace Napoli 10K</div>
-          <p data-i18n="e2_p">Our first structured road race. Start and finish at Stadio Maradona. Paced by the same crew you train with every week.</p>
-          <a href="https://www.strava.com/clubs/1325540" target="_blank" rel="noopener" class="exp-link" data-i18n="e2_link">Follow prep on Strava →</a>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -725,10 +716,6 @@ en: {
   e1_date:"Ischia · Capri", e1_title:"The Island Experience",
   e1_p:"Full days on Ischia and Capri. Coastal run, sea swim, long table by the water. One boat, one crew, capped numbers — dates confirmed as they land.",
   e1_link:"Request a spot →",
-  exp_badge2:"Save the date",
-  e2_date:"13 September 2026 · Napoli", e2_title:"Lace Napoli 10K",
-  e2_p:"Our first structured road race. Start and finish at Stadio Maradona. Paced by the same crew you train with every week.",
-  e2_link:"Follow prep on Strava →",
   nav_shop:"Shop",
   sh_tag:"Merch — Drop 001 · 26 July", sh_h2:"House of Lace", sh_note:"Limited run. Gone is gone.", sh_pre:"Drop 001 · 100 made",
   sh1_name:"Naples Division Crop Top",
@@ -785,10 +772,6 @@ it: {
   e1_date:"Ischia · Capri", e1_title:"The Island Experience",
   e1_p:"Giornate intere a Ischia e Capri. Corsa sulla costa, bagno a mare, tavolata a bordo mare. Una barca, un gruppo, posti limitati — le date si confermano man mano.",
   e1_link:"Richiedi un posto →",
-  exp_badge2:"Segna la data",
-  e2_date:"13 settembre 2026 · Napoli", e2_title:"Lace Napoli 10K",
-  e2_p:"La nostra prima gara su strada strutturata. Partenza e arrivo allo Stadio Maradona. Il ritmo lo danno le stesse persone con cui ti alleni ogni settimana.",
-  e2_link:"Segui la preparazione su Strava →",
   nav_shop:"Shop",
   sh_tag:"Merch — Drop 001 · 26 luglio", sh_h2:"House of Lace", sh_note:"Serie limitata. Finita, è finita.", sh_pre:"Drop 001 · 100 pezzi",
   sh1_name:"Naples Division Crop Top",
