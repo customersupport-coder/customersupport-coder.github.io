@@ -1044,21 +1044,52 @@ const DROP_END = new Date('2026-07-26T23:59:00+02:00');
 })();
 
 /* ---------- APPLY FORM ----------
-   Static site, no backend: we deliver the lead by opening a pre-filled
-   email to customersupport@lacenapoli.com so nothing gets lost.
-   Swap this for a real form endpoint (Formspree, Web3Forms, Google Form
-   POST) as soon as one exists — mailto is a stopgap, not a database. */
-document.getElementById("apply-form").addEventListener("submit", function(e){
-  e.preventDefault();
-  const email = document.getElementById("apply-email").value.trim();
-  const city = "Napoli"; // page is Napoli-only for now
+   Sends to Web3Forms (web3forms.com) — free static-site form backend,
+   no login, delivers straight to customersupport@lacenapoli.com.
+   WEB3FORMS_ACCESS_KEY is safe to keep in public client-side code —
+   Web3Forms treats it as an alias for the destination inbox, not a secret.
+   If the key is missing/invalid or the request fails for any reason,
+   this falls back to opening a pre-filled email so a lead never gets lost. */
+const WEB3FORMS_ACCESS_KEY = "REPLACE_WITH_WEB3FORMS_ACCESS_KEY";
+
+function mailtoFallback(email){
   const subject = encodeURIComponent("LACE waitlist — "+email);
   const body = encodeURIComponent(
-    "New waitlist signup from lacenapoli.com\n\nEmail: "+email+"\nCity of interest: "+city+"\nLang: "+currentLang
+    "New waitlist signup from lacenapoli.com\n\nEmail: "+email+"\nCity of interest: Napoli\nLang: "+currentLang
   );
   window.location.href = "mailto:customersupport@lacenapoli.com?subject="+subject+"&body="+body;
-  if (typeof gtag === "function") gtag("event", "waitlist_signup", {method: "mailto", lang: currentLang});
-  this.innerHTML = '<p style="font-family:var(--mono);padding:14px;letter-spacing:.1em">'+I18N[currentLang].a_done+'</p>';
+}
+
+document.getElementById("apply-form").addEventListener("submit", async function(e){
+  e.preventDefault();
+  const form = this;
+  const email = document.getElementById("apply-email").value.trim();
+  const submitBtn = form.querySelector("button[type=submit]");
+  if (submitBtn) submitBtn.disabled = true;
+
+  let delivered = false, method = "mailto_fallback";
+  if (WEB3FORMS_ACCESS_KEY && WEB3FORMS_ACCESS_KEY.indexOf("REPLACE_WITH") === -1) {
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {"Content-Type": "application/json", "Accept": "application/json"},
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: "LACE waitlist signup",
+          from_name: "lacenapoli.com waitlist",
+          email: email,
+          city_of_interest: "Napoli",
+          lang: currentLang
+        })
+      });
+      const data = await res.json();
+      if (data && data.success) { delivered = true; method = "web3forms"; }
+    } catch (err) { /* fall through to mailto */ }
+  }
+  if (!delivered) mailtoFallback(email);
+
+  if (typeof gtag === "function") gtag("event", "waitlist_signup", {method: method, lang: currentLang});
+  form.innerHTML = '<p style="font-family:var(--mono);padding:14px;letter-spacing:.1em">'+I18N[currentLang].a_done+'</p>';
 });
 </script>
 </body>
