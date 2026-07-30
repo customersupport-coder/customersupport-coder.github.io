@@ -16,6 +16,10 @@
 <meta name="description" content="LACE is a running network born in the streets of Naples. Weekly runs in Napoli, Caserta, Milano and Salerno. Free to run. Founding membership capped at 100.">
 <link rel="canonical" href="https://lacenapoli.com/">
 <meta name="theme-color" content="#0d1017">
+<link rel="canonical" href="https://lacenapoli.com/">
+<meta name="robots" content="index,follow">
+<meta name="author" content="LACE Napoli">
+<meta name="publisher" content="LACE Napoli">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="favicon.svg">
 
@@ -250,7 +254,9 @@ blockquote em{font-style:normal;color:var(--azzurro)}
 .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:56px}
 .tm-card{border:1px solid var(--line);display:flex;flex-direction:column;transition:border-color .2s}
 .tm-card:hover{border-color:var(--azzurro)}
-.tm-photo{aspect-ratio:4/5;overflow:hidden;position:relative;background:var(--night-2)}
+.tm-photo{aspect-ratio:4/5;overflow:hidden;position:relative;background:linear-gradient(150deg,var(--night-2),var(--night))}
+.tm-photo::before{content:attr(data-initials);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:900;font-stretch:118%;font-size:44px;letter-spacing:.06em;color:var(--paper);opacity:.14}
+.tm-photo img{position:relative;z-index:1}
 .tm-photo img{width:100%;height:100%;object-fit:cover;display:block}
 .tm-body{padding:22px 20px 26px;flex:1;display:flex;flex-direction:column}
 .tm-name{font-weight:900;font-stretch:112%;text-transform:uppercase;font-size:19px;line-height:1.1}
@@ -262,6 +268,8 @@ blockquote em{font-style:normal;color:var(--azzurro)}
 /* ---------- PARTNERS ---------- */
 .partners{padding:70px 0;border-bottom:1px solid var(--line)}
 .partners-row{display:flex;flex-wrap:wrap;gap:16px 56px;align-items:center;justify-content:center}
+.partners-note{max-width:640px;margin:26px auto 0;text-align:center;font-size:12px;line-height:1.6;opacity:.4}
+.foot-official{opacity:.55}
 .partner{font-weight:900;font-stretch:118%;text-transform:uppercase;font-size:22px;letter-spacing:.04em;opacity:.35;transition:opacity .2s}
 .partner:hover{opacity:.85}
 .partners-tag{text-align:center;font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;opacity:.5;margin-bottom:36px}
@@ -552,7 +560,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
     <div class="founder-sig">— <b>Jamal Allen</b> · <span data-i18n="f_role">Founder — LACE Napoli, LACE Milano &amp; the LACE Network</span></div>
     <div class="team-grid">
       <div class="tm-card">
-        <div class="tm-photo"><img src="https://static.wixstatic.com/media/7a6f36_c2b2355c78e34eb2aa858a0dacc2125b~mv2.jpg" alt="Jamal Allen" loading="lazy"></div>
+        <div class="tm-photo" data-initials="JA"><img src="img/team-jamal.jpg" alt="Jamal Allen" loading="lazy" onerror="this.remove()"></div>
         <div class="tm-body">
           <div class="tm-name">Jamal Allen</div>
           <div class="tm-role" data-i18n="tm1_role">Founder — LACE Network</div>
@@ -561,7 +569,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
         </div>
       </div>
       <div class="tm-card">
-        <div class="tm-photo"><img src="https://static.wixstatic.com/media/7a6f36_e6effba08ced4228aa63e498f7ac9cfd~mv2.jpg" alt="Simone Palumbo" loading="lazy"></div>
+        <div class="tm-photo" data-initials="SP"><img src="img/team-simone.jpg" alt="Simone Palumbo" loading="lazy" onerror="this.remove()"></div>
         <div class="tm-body">
           <div class="tm-name">Simone Palumbo</div>
           <div class="tm-role" data-i18n="tm2_role">Pacer</div>
@@ -570,7 +578,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
         </div>
       </div>
       <div class="tm-card">
-        <div class="tm-photo"><img src="https://static.wixstatic.com/media/7a6f36_fc20a173547244e185397018949b50e6~mv2.jpg" alt="Aquileo Reyes Jr." loading="lazy"></div>
+        <div class="tm-photo" data-initials="AR"><img src="img/team-aquileo.jpg" alt="Aquileo Reyes Jr." loading="lazy" onerror="this.remove()"></div>
         <div class="tm-body">
           <div class="tm-name">Aquileo Reyes Jr.</div>
           <div class="tm-role" data-i18n="tm3_role">Trail Coach · Pacer</div>
@@ -579,7 +587,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
         </div>
       </div>
       <div class="tm-card">
-        <div class="tm-photo"><img src="https://static.wixstatic.com/media/7a6f36_b16b570652604478b9b4e04c9281bcb5~mv2.jpeg" alt="Victoriya Mauriello" loading="lazy"></div>
+        <div class="tm-photo" data-initials="VM"><img src="img/team-victoriya.jpg" alt="Victoriya Mauriello" loading="lazy" onerror="this.remove()"></div>
         <div class="tm-body">
           <div class="tm-name">Victoriya Mauriello</div>
           <div class="tm-role" data-i18n="tm4_role">Head of Lace Women · Pacer</div>
@@ -593,7 +601,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 
 <section class="partners">
   <div class="wrap">
-    <div class="partners-tag" data-i18n="p_tag">Runs and events built with</div>
+    <div class="partners-tag" data-i18n="p_tag">Activations we have produced for</div>
     <div class="partners-row">
       <span class="partner">Nike</span>
       <span class="partner">Adidas</span>
@@ -601,6 +609,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
       <span class="partner">On</span>
       <span class="partner">Saucony</span>
     </div>
+    <div class="partners-note" data-i18n="p_note">Past client work. All trademarks belong to their owners. LACE is independent and not sponsored by, endorsed by or affiliated with these brands.</div>
   </div>
 </section>
 
@@ -644,17 +653,24 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
           <a href="https://www.strava.com/clubs/1325540" target="_blank" rel="noopener">Strava Club</a>
           <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a>
         </div>
+        <div class="foot-col">
+          <h4 data-i18n="ft_legal">Legal</h4>
+          <a href="/contact.html" data-i18n="ft_contactpage">Contact &amp; about</a>
+          <a href="/privacy.html" data-i18n="ft_privacy">Privacy policy</a>
+          <a href="/terms.html" data-i18n="ft_terms">Terms &amp; refunds</a>
+        </div>
       </div>
     </div>
     <div class="foot-bottom">
       <span>© 2026 LACE — Naples, Italy</span>
+      <span class="foot-official" data-i18n="ft_official">lacenapoli.com is the official LACE website.</span>
       <span data-i18n="ft_line">Free to run. Hard to leave.</span>
     </div>
   </div>
 </footer>
 
 <div class="cs-modal" id="cs-modal" role="dialog" aria-modal="true" aria-labelledby="cs-city">
-  <div class="cs-bg"><img src="https://static.wixstatic.com/media/7a6f36_a0620cb6bfb54dbabeb21467448cdc92~mv2.jpeg/v1/fill/w_1600,h_1000,al_c,q_80/community.jpg" alt="" loading="lazy"></div>
+  <div class="cs-bg"></div>
   <button class="cs-x" id="cs-x" aria-label="Close">×</button>
   <div class="cs-box">
     <div class="cs-city" id="cs-city">Milano</div>
@@ -733,7 +749,7 @@ en: {
   tm4_role:"Head of Lace Women · Pacer",
   tm4_bio:"Former Serie B2 volleyball professional and competitive swimmer. She now combines powerlifting, running and HYROX prep, and leads more women into running, strength and hybrid sport.",
   ft_team:"Team",
-  p_tag:"Runs and events built with",
+  p_tag:"Activations we have produced for",
   a_tag:"Waitlist — Founding & other cities", a_h2:"The run is free.<br>The inside is earned.",
   a_p:"Founding is open above, 100 places only. Leave your email for when Caserta, Milano and Salerno open. Until then: Wednesday, 20:00. Just show up.",
   a_btn:"Apply",
@@ -741,7 +757,10 @@ en: {
   a_done:"YOU'RE ON THE LIST. SEE YOU WEDNESDAY.",
   cs_coming:"Coming soon", cs_p:"Membership and the full schedule for this city are announcing soon. Follow @lacenapoli and you'll be the first to know.", cs_follow:"Follow on Instagram", cs_close:"Back to Napoli",
   fm_q:"Founding closes at 100.", fm_p:"First 100 only. €120/year after that. Your rate is locked for life.", fm_join:"Join Founding — €70/year", fm_dismiss:"Not now",
-  ft_cities:"Cities", ft_club:"Club", ft_contact:"Contact", ft_line:"Free to run. Hard to leave."
+  ft_cities:"Cities", ft_club:"Club", ft_contact:"Contact", ft_line:"Free to run. Hard to leave.",
+  ft_legal:"Legal", ft_contactpage:"Contact & about", ft_privacy:"Privacy policy", ft_terms:"Terms & refunds",
+  ft_official:"lacenapoli.com is the official LACE website.",
+  p_note:"Past client work. All trademarks belong to their owners. LACE is independent and not sponsored by, endorsed by or affiliated with these brands."
 },
 it: {
   nav_runs:"Corse settimanali", nav_membership:"Membership", nav_exp:"Esperienze", nav_about:"Chi siamo", nav_apply:"Entra come Founding",
@@ -789,7 +808,7 @@ it: {
   tm4_role:"Head of Lace Women · Pacer",
   tm4_bio:"Ex pallavolista professionista in Serie B2 e nuotatrice agonista. Oggi unisce powerlifting, corsa e preparazione HYROX, e porta sempre più donne nella corsa, nella forza e nello sport ibrido.",
   ft_team:"Team",
-  p_tag:"Corse ed eventi realizzati con",
+  p_tag:"Attivazioni che abbiamo prodotto per",
   a_tag:"Lista d'attesa — Founding e altre città", a_h2:"La corsa è gratis.<br>L'interno si conquista.",
   a_p:"Founding è aperto qui sopra, solo 100 posti. Lascia la tua email per l'apertura di Caserta, Milano e Salerno. Nel frattempo: mercoledì, 20:00. Presentati e basta.",
   a_btn:"Candidati",
@@ -797,7 +816,10 @@ it: {
   a_done:"SEI IN LISTA. CI VEDIAMO MERCOLEDÌ.",
   cs_coming:"Prossimamente", cs_p:"Membership e calendario completo per questa città in arrivo. Segui @lacenapoli e sarai il primo a saperlo.", cs_follow:"Seguici su Instagram", cs_close:"Torna a Napoli",
   fm_q:"Founding chiude a 100.", fm_p:"Solo i primi 100. Poi 120€/anno. Il tuo prezzo resta bloccato a vita.", fm_join:"Entra come Founding — 70€/anno", fm_dismiss:"Non ora",
-  ft_cities:"Città", ft_club:"Club", ft_contact:"Contatti", ft_line:"Correre è gratis. Andarsene è difficile."
+  ft_cities:"Città", ft_club:"Club", ft_contact:"Contatti", ft_line:"Correre è gratis. Andarsene è difficile.",
+  ft_legal:"Note legali", ft_contactpage:"Contatti e chi siamo", ft_privacy:"Informativa privacy", ft_terms:"Termini e rimborsi",
+  ft_official:"lacenapoli.com è il sito ufficiale di LACE.",
+  p_note:"Lavori già realizzati per questi clienti. Tutti i marchi appartengono ai rispettivi proprietari. LACE è indipendente e non è sponsorizzata, approvata o affiliata a questi brand."
 }
 };
 
