@@ -1,0 +1,5 @@
+Contact: mailto:customersupport@lacenapoli.com
+Expires: 2027-07-30T00:00:00.000Z
+Preferred-Languages: en, it
+Canonical: https://lacenapoli.com/.well-known/security.txt
+Policy: https://lacenapoli.com/contact.html
