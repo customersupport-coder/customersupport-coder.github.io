@@ -270,12 +270,6 @@ blockquote em{font-style:normal;color:var(--azzurro)}
 /* ---------- SHOP ---------- */
 .shop{padding:110px 0;border-bottom:1px solid var(--line)}
 /* ---- shop conversion block ---- */
-.stock-bar{max-width:440px;margin:20px 0 4px}
-.sb-head{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
-.sb-left{color:var(--azzurro);font-weight:600}
-.sb-total{opacity:.45}
-.sb-track{height:3px;background:rgba(255,255,255,.12);overflow:hidden}
-.sb-fill{height:100%;background:var(--azzurro);width:0;transition:width .9s ease}
 .size-pick{max-width:440px;margin:24px 0 22px}
 .sp-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
 .sp-label{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.6}
@@ -609,14 +603,6 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
           <div class="shop-label" data-i18n="sh_pre">Drop 001 · 100 made</div>
           <div class="shop-name" style="font-size:clamp(26px,3vw,38px)" data-i18n="sh1_name">Naples Division Crop Top</div>
           <p class="shop-desc" style="font-size:16px;max-width:440px" data-i18n="sh1_desc">Heavyweight cotton crop. Naples Division crest with the corno on the chest, "Built where nothing was promised" over Vesuvius on the back. €50. One hundred made. When they are gone there is no second run.</p>
-          <div class="stock-bar" id="stock-bar">
-            <div class="sb-head">
-              <span class="sb-left" id="sb-left"></span>
-              <span class="sb-total" id="sb-total"></span>
-            </div>
-            <div class="sb-track"><div class="sb-fill" id="sb-fill"></div></div>
-          </div>
-
           <div class="drop-clock" id="drop-clock">
             <div class="dc-label" data-i18n="sh_cd">Drop 001 closes in</div>
             <div class="dc-time" id="drop-time">00:00:00:00</div>
@@ -650,6 +636,10 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
           </ul>
 
           <div class="faq">
+            <details>
+              <summary data-i18n="sh_q1">When will it arrive?</summary>
+              <p data-i18n="sh_a1">Drop 001 is made to order. Production takes three weeks from the day the drop closes, then your piece ships from Naples. We email you when it leaves.</p>
+            </details>
             <details>
               <summary data-i18n="sh_q2">What if it does not fit?</summary>
               <p data-i18n="sh_a2">Send it back unworn within 14 days and we refund the full item price. If we sent the wrong size, we cover return postage and reship free. Email customersupport@lacenapoli.com.</p>
@@ -882,6 +872,7 @@ en: {
   sh_size:"Select your size", sh_chart:"Not sure? Ask us", sh_fit:"Tell us your usual size by email and we will confirm which to take.",
   sh_buy_pick:"Select a size first",
   sh_t1:"Secure checkout by Stripe", sh_t2:"Ships from Naples", sh_t3:"14-day returns",
+  sh_q1:"When will it arrive?", sh_a1:"Drop 001 is made to order. Production takes three weeks from the day the drop closes, then your piece ships from Naples. We email you when it leaves.",
   sh_q2:"What if it does not fit?", sh_a2:"Send it back unworn within 14 days and we refund the full item price. If we sent the wrong size, we cover return postage and reship free. Email customersupport@lacenapoli.com.",
   sh_q3:"What is it made of?", sh_a3:"Heavyweight 100% cotton, 300gsm.",
   sh_q4:"Will there be a restock?", sh_a4:"No. One hundred pieces exist and that is the whole run. Drop 002 will be a different design.",
@@ -948,6 +939,7 @@ it: {
   sh_size:"Scegli la taglia", sh_chart:"Hai un dubbio? Scrivici", sh_fit:"Scrivici la tua taglia abituale e ti confermiamo quale prendere.",
   sh_buy_pick:"Scegli prima una taglia",
   sh_t1:"Pagamento sicuro con Stripe", sh_t2:"Spedizione da Napoli", sh_t3:"Reso entro 14 giorni",
+  sh_q1:"Quando arriva?", sh_a1:"Il Drop 001 è prodotto su ordinazione. La produzione richiede tre settimane dal giorno in cui il drop chiude, poi il tuo pezzo parte da Napoli. Ti avvisiamo via email quando spedisce.",
   sh_q2:"E se non mi va bene?", sh_a2:"Rimandalo indietro non indossato entro 14 giorni e rimborsiamo l'intero prezzo del capo. Se abbiamo sbagliato taglia, paghiamo noi il reso e rispediamo gratis. Scrivi a customersupport@lacenapoli.com.",
   sh_q3:"Di cosa è fatto?", sh_a3:"Cotone 100% pesante, 300gsm.",
   sh_q4:"Ci sarà un restock?", sh_a4:"No. Esistono cento pezzi e la tiratura finisce lì. Il Drop 002 sarà un design diverso.",
@@ -1037,27 +1029,9 @@ renderSchedDates();
    DROP 001 — edit these four lines and nothing else
    ============================================================ */
 const DROP_END   = null;  // set to new Date('2026-09-30T23:59:00+02:00') when you fix the close date
-const UNITS_TOTAL = 100;   // size of the run
-const UNITS_SOLD  = 12;    // update as orders come in
 const SOLD_OUT_SIZES = []; // e.g. ['XS','S'] to grey them out
 /* ========================================================== */
 
-/* ---- stock bar ---- */
-(function(){
-  const bar=document.getElementById('stock-bar');
-  if(!bar) return;
-  const left=Math.max(0, UNITS_TOTAL-UNITS_SOLD);
-  const pct=Math.min(100,(UNITS_SOLD/UNITS_TOTAL)*100);
-  function render(){
-    document.getElementById('sb-left').textContent =
-      (currentLang==='it') ? left+' rimaste' : left+' left';
-    document.getElementById('sb-total').textContent =
-      (currentLang==='it') ? 'su '+UNITS_TOTAL+' prodotte' : 'of '+UNITS_TOTAL+' made';
-  }
-  render();
-  document.addEventListener('langchange', render);
-  setTimeout(()=>{document.getElementById('sb-fill').style.width=pct+'%';},250);
-})();
 
 /* ---- countdown: hide when past, never contradict a live buy button ---- */
 (function(){
