@@ -18,6 +18,41 @@
 <meta name="theme-color" content="#0d1017">
 <link rel="canonical" href="https://lacenapoli.com/">
 <meta name="robots" content="index,follow">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Product",
+ "name": "Naples Division Crop Top",
+ "description": "Heavyweight 100% cotton crop top by House of LACE. Naples Division crest with the corno on the chest, 'Built where nothing was promised' over Vesuvius on the back. Limited run of 100.",
+ "brand": {
+  "@type": "Brand",
+  "name": "House of LACE"
+ },
+ "sku": "LACE-DROP001-CROP",
+ "material": "100% cotton",
+ "url": "https://lacenapoli.com/#shop",
+ "image": "https://lacenapoli.com/og-image.jpg",
+ "offers": {
+  "@type": "Offer",
+  "price": "50.00",
+  "priceCurrency": "EUR",
+  "availability": "https://schema.org/LimitedAvailability",
+  "url": "https://lacenapoli.com/#shop",
+  "seller": {
+   "@type": "Organization",
+   "name": "LACE Napoli"
+  },
+  "hasMerchantReturnPolicy": {
+   "@type": "MerchantReturnPolicy",
+   "applicableCountry": "IT",
+   "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+   "merchantReturnDays": 14,
+   "returnMethod": "https://schema.org/ReturnByMail",
+   "returnFees": "https://schema.org/ReturnShippingFees"
+  }
+ }
+}
+</script>
 <meta name="author" content="LACE Napoli">
 <meta name="publisher" content="LACE Napoli">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -234,6 +269,57 @@ blockquote em{font-style:normal;color:var(--azzurro)}
 
 /* ---------- SHOP ---------- */
 .shop{padding:110px 0;border-bottom:1px solid var(--line)}
+/* ---- shop conversion block ---- */
+.stock-bar{max-width:440px;margin:20px 0 4px}
+.sb-head{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.sb-left{color:var(--azzurro);font-weight:600}
+.sb-total{opacity:.45}
+.sb-track{height:3px;background:rgba(255,255,255,.12);overflow:hidden}
+.sb-fill{height:100%;background:var(--azzurro);width:0;transition:width .9s ease}
+.size-pick{max-width:440px;margin:24px 0 22px}
+.sp-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.sp-label{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.6}
+.sp-chart-btn{background:none;border:none;padding:0;cursor:pointer;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--azzurro);text-decoration:underline;text-underline-offset:3px}
+.sp-row{display:flex;gap:8px;flex-wrap:wrap}
+.sp-btn{flex:1;min-width:56px;padding:14px 0;background:none;border:1px solid var(--line);color:var(--paper);font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.08em;cursor:pointer;transition:all .18s}
+.sp-btn:hover{border-color:var(--sodium)}
+.sp-btn.sel{background:var(--paper);border-color:var(--paper);color:var(--night)}
+.sp-btn.out{opacity:.28;cursor:not-allowed;text-decoration:line-through}
+.sp-fit{font-family:var(--mono);font-size:11px;letter-spacing:.04em;opacity:.45;margin-top:12px;line-height:1.6}
+.btn-buy.is-locked{opacity:.4;pointer-events:none}
+.trust-strip{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 22px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.55}
+.trust-strip li{position:relative;padding-left:16px}
+.trust-strip li::before{content:"";position:absolute;left:0;top:5px;width:6px;height:6px;background:var(--azzurro)}
+.trust-strip a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.ship-line{font-size:13px;line-height:1.65;opacity:.6;margin-top:14px;max-width:440px}
+.faq{margin-top:30px;max-width:520px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;padding:15px 0;font-size:14px;font-weight:700;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--mono);font-size:18px;opacity:.5;flex:none}
+.faq details[open] summary::after{content:"–"}
+.faq p{font-size:13.5px;line-height:1.7;opacity:.62;padding:0 0 16px}
+.sc-modal{position:fixed;inset:0;background:rgba(5,7,11,.88);display:none;align-items:center;justify-content:center;z-index:200;padding:22px}
+.sc-modal.open{display:flex}
+.sc-box{background:var(--night-2);border:1px solid var(--line);max-width:520px;width:100%;padding:34px 30px;position:relative;max-height:88vh;overflow:auto}
+.sc-close{position:absolute;top:12px;right:16px;background:none;border:none;color:var(--paper);font-size:28px;line-height:1;cursor:pointer;opacity:.55}
+.sc-close:hover{opacity:1}
+.sc-tag{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--azzurro);margin-bottom:10px}
+.sc-box h3{font-weight:900;font-stretch:112%;text-transform:uppercase;font-size:24px;margin-bottom:10px}
+.sc-sub{font-size:13px;opacity:.6;line-height:1.6;margin-bottom:20px}
+.sc-table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:13px}
+.sc-table th{text-align:left;font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.5;padding:0 0 10px;font-weight:500;border-bottom:1px solid var(--line)}
+.sc-table td{padding:11px 0;border-bottom:1px solid var(--line);opacity:.85}
+.sc-table tr:last-child td{border-bottom:none}
+.sc-note{font-size:12px;opacity:.5;margin-top:18px;line-height:1.6}
+.buy-bar{position:fixed;left:0;right:0;bottom:0;z-index:150;display:none;align-items:center;justify-content:space-between;gap:14px;padding:12px 18px;background:rgba(13,16,23,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line);transform:translateY(100%);transition:transform .3s}
+.buy-bar.show{transform:translateY(0)}
+.bb-info{display:flex;flex-direction:column;gap:2px;min-width:0}
+.bb-name{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;opacity:.55;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bb-price{font-weight:900;font-size:18px;line-height:1}
+.bb-btn{flex:none;background:var(--azzurro);color:var(--night);font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:13px 22px;text-decoration:none}
+@media(max-width:860px){.buy-bar{display:flex}.trust-strip{gap:8px 16px}}
+
 .shop-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
 .shop-flip{position:relative;aspect-ratio:1/1;border:1px solid var(--line);overflow:hidden;cursor:pointer;background:#000}
 .shop-flip img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .35s}
@@ -536,12 +622,66 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
           <div class="shop-label" data-i18n="sh_pre">Drop 001 · 100 made</div>
           <div class="shop-name" style="font-size:clamp(26px,3vw,38px)" data-i18n="sh1_name">Naples Division Crop Top</div>
           <p class="shop-desc" style="font-size:16px;max-width:440px" data-i18n="sh1_desc">Heavyweight cotton crop. Naples Division crest with the corno on the chest, "Built where nothing was promised" over Vesuvius on the back. €50. One hundred made. When they are gone there is no second run.</p>
+          <div class="stock-bar" id="stock-bar">
+            <div class="sb-head">
+              <span class="sb-left" id="sb-left"></span>
+              <span class="sb-total" id="sb-total"></span>
+            </div>
+            <div class="sb-track"><div class="sb-fill" id="sb-fill"></div></div>
+          </div>
+
           <div class="drop-clock" id="drop-clock">
             <div class="dc-label" data-i18n="sh_cd">Drop 001 closes in</div>
             <div class="dc-time" id="drop-time">00:00:00:00</div>
             <div class="dc-units" data-i18n="sh_units">days · hrs · min · sec</div>
           </div>
-          <a class="btn btn-solid" style="align-self:flex-start" href="https://buy.stripe.com/00w6oz8of09mb5Zd8qbZe08" target="_blank" rel="noopener" data-i18n="sh_buy">Order now — €50</a>
+
+          <div class="size-pick">
+            <div class="sp-head">
+              <span class="sp-label" data-i18n="sh_size">Select your size</span>
+              <button type="button" class="sp-chart-btn" id="size-chart-btn" data-i18n="sh_chart">Size guide</button>
+            </div>
+            <div class="sp-row" id="size-row" role="radiogroup" aria-label="Size">
+              <button type="button" class="sp-btn" data-size="XS" role="radio" aria-checked="false">XS</button>
+              <button type="button" class="sp-btn" data-size="S"  role="radio" aria-checked="false">S</button>
+              <button type="button" class="sp-btn" data-size="M"  role="radio" aria-checked="false">M</button>
+              <button type="button" class="sp-btn" data-size="L"  role="radio" aria-checked="false">L</button>
+              <button type="button" class="sp-btn" data-size="XL" role="radio" aria-checked="false">XL</button>
+            </div>
+            <div class="sp-fit" data-i18n="sh_fit">Cropped fit, true to size. Between sizes? Size up for a looser crop.</div>
+          </div>
+
+          <a class="btn btn-solid btn-buy is-locked" id="buy-btn" style="align-self:flex-start"
+             href="https://buy.stripe.com/00w6oz8of09mb5Zd8qbZe08" target="_blank" rel="noopener"
+             data-base="https://buy.stripe.com/00w6oz8of09mb5Zd8qbZe08"
+             data-i18n="sh_buy_pick">Select a size first</a>
+
+          <ul class="trust-strip">
+            <li data-i18n="sh_t1">Secure checkout by Stripe</li>
+            <li data-i18n="sh_t2">Ships from Naples, tracked</li>
+            <li><a href="/terms.html" data-i18n="sh_t3">14-day returns</a></li>
+          </ul>
+
+          <div class="ship-line" data-i18n="sh_ship">Italy €5 · EU €10 · rest of world €18. Free shipping on two or more pieces. Dispatch within 3 weeks of the drop closing.</div>
+
+          <div class="faq">
+            <details>
+              <summary data-i18n="sh_q1">When will it arrive?</summary>
+              <p data-i18n="sh_a1">Drop 001 is made to order. Production starts the day the drop closes and pieces ship within three weeks. You get a tracking number by email the moment yours leaves Naples.</p>
+            </details>
+            <details>
+              <summary data-i18n="sh_q2">What if it does not fit?</summary>
+              <p data-i18n="sh_a2">Send it back unworn within 14 days and we refund the full item price. If we sent the wrong size, we cover return postage and reship free. Email customersupport@lacenapoli.com.</p>
+            </details>
+            <details>
+              <summary data-i18n="sh_q3">What is it made of?</summary>
+              <p data-i18n="sh_a3">Heavyweight 100% cotton, 240gsm, with a ribbed hem that holds its shape. Screen printed, not vinyl, so the crest will not crack. Machine wash cold, inside out.</p>
+            </details>
+            <details>
+              <summary data-i18n="sh_q4">Will there be a restock?</summary>
+              <p data-i18n="sh_a4">No. One hundred pieces exist and that is the whole run. Drop 002 will be a different design.</p>
+            </details>
+          </div>
         </div>
       </div>
     </div>
@@ -758,6 +898,18 @@ en: {
   cs_coming:"Coming soon", cs_p:"Membership and the full schedule for this city are announcing soon. Follow @lacenapoli and you'll be the first to know.", cs_follow:"Follow on Instagram", cs_close:"Back to Napoli",
   fm_q:"Founding closes at 100.", fm_p:"First 100 only. €120/year after that. Your rate is locked for life.", fm_join:"Join Founding — €70/year", fm_dismiss:"Not now",
   ft_cities:"Cities", ft_club:"Club", ft_contact:"Contact", ft_line:"Free to run. Hard to leave.",
+  sh_size:"Select your size", sh_chart:"Size guide", sh_fit:"Cropped fit, true to size. Between sizes? Size up for a looser crop.",
+  sh_buy_pick:"Select a size first",
+  sh_t1:"Secure checkout by Stripe", sh_t2:"Ships from Naples, tracked", sh_t3:"14-day returns",
+  sh_ship:"Italy €5 · EU €10 · rest of world €18. Free shipping on two or more pieces. Dispatch within 3 weeks of the drop closing.",
+  sh_q1:"When will it arrive?", sh_a1:"Drop 001 is made to order. Production starts the day the drop closes and pieces ship within three weeks. You get a tracking number by email the moment yours leaves Naples.",
+  sh_q2:"What if it does not fit?", sh_a2:"Send it back unworn within 14 days and we refund the full item price. If we sent the wrong size, we cover return postage and reship free. Email customersupport@lacenapoli.com.",
+  sh_q3:"What is it made of?", sh_a3:"Heavyweight 100% cotton, 240gsm, with a ribbed hem that holds its shape. Screen printed, not vinyl, so the crest will not crack. Machine wash cold, inside out.",
+  sh_q4:"Will there be a restock?", sh_a4:"No. One hundred pieces exist and that is the whole run. Drop 002 will be a different design.",
+  sc_tag:"Naples Division Crop Top", sc_h:"Size guide", sc_sub:"Measurements are the garment laid flat, in centimetres. Lay a top you already own flat and compare.",
+  sc_size:"Size", sc_chest:"Chest width", sc_len:"Length", sc_eu:"Fits EU",
+  sc_note:"Still unsure? Email customersupport@lacenapoli.com with your usual size and we will tell you which to take.",
+  bb_name:"Naples Division Crop Top", bb_cta:"Choose size",
   ft_legal:"Legal", ft_contactpage:"Contact & about", ft_privacy:"Privacy policy", ft_terms:"Terms & refunds",
   ft_official:"lacenapoli.com is the official LACE website.",
   p_note:"Past client work. All trademarks belong to their owners. LACE is independent and not sponsored by, endorsed by or affiliated with these brands."
@@ -817,6 +969,18 @@ it: {
   cs_coming:"Prossimamente", cs_p:"Membership e calendario completo per questa città in arrivo. Segui @lacenapoli e sarai il primo a saperlo.", cs_follow:"Seguici su Instagram", cs_close:"Torna a Napoli",
   fm_q:"Founding chiude a 100.", fm_p:"Solo i primi 100. Poi 120€/anno. Il tuo prezzo resta bloccato a vita.", fm_join:"Entra come Founding — 70€/anno", fm_dismiss:"Non ora",
   ft_cities:"Città", ft_club:"Club", ft_contact:"Contatti", ft_line:"Correre è gratis. Andarsene è difficile.",
+  sh_size:"Scegli la taglia", sh_chart:"Guida alle taglie", sh_fit:"Vestibilità corta, conforme alla taglia. Sei tra due taglie? Prendi la più grande per un crop più morbido.",
+  sh_buy_pick:"Scegli prima una taglia",
+  sh_t1:"Pagamento sicuro con Stripe", sh_t2:"Spedizione tracciata da Napoli", sh_t3:"Reso entro 14 giorni",
+  sh_ship:"Italia €5 · UE €10 · resto del mondo €18. Spedizione gratuita da due pezzi in su. Spedizione entro 3 settimane dalla chiusura del drop.",
+  sh_q1:"Quando arriva?", sh_a1:"Il Drop 001 è prodotto su ordinazione. La produzione parte il giorno in cui il drop chiude e i pezzi partono entro tre settimane. Ricevi il numero di tracking via email appena il tuo lascia Napoli.",
+  sh_q2:"E se non mi va bene?", sh_a2:"Rimandalo indietro non indossato entro 14 giorni e rimborsiamo l'intero prezzo del capo. Se abbiamo sbagliato taglia, paghiamo noi il reso e rispediamo gratis. Scrivi a customersupport@lacenapoli.com.",
+  sh_q3:"Di cosa è fatto?", sh_a3:"Cotone 100% pesante, 240gsm, con orlo a costine che tiene la forma. Stampa serigrafica, non vinile, quindi lo stemma non si crepa. Lavaggio a freddo, al rovescio.",
+  sh_q4:"Ci sarà un restock?", sh_a4:"No. Esistono cento pezzi e la tiratura finisce lì. Il Drop 002 sarà un design diverso.",
+  sc_tag:"Naples Division Crop Top", sc_h:"Guida alle taglie", sc_sub:"Le misure sono del capo steso in piano, in centimetri. Stendi un top che già hai e confronta.",
+  sc_size:"Taglia", sc_chest:"Larghezza petto", sc_len:"Lunghezza", sc_eu:"Corrisponde a EU",
+  sc_note:"Ancora un dubbio? Scrivi a customersupport@lacenapoli.com con la tua taglia abituale e ti diciamo quale prendere.",
+  bb_name:"Naples Division Crop Top", bb_cta:"Scegli la taglia",
   ft_legal:"Note legali", ft_contactpage:"Contatti e chi siamo", ft_privacy:"Informativa privacy", ft_terms:"Termini e rimborsi",
   ft_official:"lacenapoli.com è il sito ufficiale di LACE.",
   p_note:"Lavori già realizzati per questi clienti. Tutti i marchi appartengono ai rispettivi proprietari. LACE è indipendente e non è sponsorizzata, approvata o affiliata a questi brand."
@@ -898,23 +1062,121 @@ function renderSchedDates(){
 renderSchedDates();
 
 /* ---------- DROP 001 COUNTDOWN ---------- */
-const DROP_END = new Date('2026-07-26T23:59:00+02:00');
+/* ============================================================
+   DROP 001 — edit these four lines and nothing else
+   ============================================================ */
+const DROP_END   = new Date('2026-08-31T23:59:00+02:00'); // when the drop closes
+const UNITS_TOTAL = 100;   // size of the run
+const UNITS_SOLD  = 12;    // update as orders come in
+const SOLD_OUT_SIZES = []; // e.g. ['XS','S'] to grey them out
+/* ========================================================== */
+
+/* ---- stock bar ---- */
+(function(){
+  const bar=document.getElementById('stock-bar');
+  if(!bar) return;
+  const left=Math.max(0, UNITS_TOTAL-UNITS_SOLD);
+  const pct=Math.min(100,(UNITS_SOLD/UNITS_TOTAL)*100);
+  function render(){
+    document.getElementById('sb-left').textContent =
+      (currentLang==='it') ? left+' rimaste' : left+' left';
+    document.getElementById('sb-total').textContent =
+      (currentLang==='it') ? 'su '+UNITS_TOTAL+' prodotte' : 'of '+UNITS_TOTAL+' made';
+  }
+  render();
+  document.addEventListener('langchange', render);
+  setTimeout(()=>{document.getElementById('sb-fill').style.width=pct+'%';},250);
+})();
+
+/* ---- countdown: hide when past, never contradict a live buy button ---- */
 (function(){
   const box=document.getElementById('drop-clock');
   const el=document.getElementById('drop-time');
   if(!box||!el) return;
   function tick(){
     const t=DROP_END-new Date();
-    if(t<=0){
-      box.classList.add('closed');
-      el.textContent = (currentLang==='it') ? 'DROP CHIUSO' : 'DROP CLOSED';
-      const u=box.querySelector('.dc-units'); if(u) u.style.display='none';
-      return;
-    }
+    if(t<=0){ box.style.display='none'; return; }
     const dd=Math.floor(t/864e5), hh=Math.floor(t%864e5/36e5), mm=Math.floor(t%36e5/6e4), ss=Math.floor(t%6e4/1e3);
     el.textContent=[dd,hh,mm,ss].map(n=>String(n).padStart(2,'0')).join(':');
   }
   tick();setInterval(tick,1000);
+})();
+
+/* ---- size selection, passed to Stripe as client_reference_id ---- */
+(function(){
+  const row=document.getElementById('size-row');
+  const buy=document.getElementById('buy-btn');
+  const bb=document.getElementById('bb-btn');
+  if(!row||!buy) return;
+  let chosen=null;
+
+  row.querySelectorAll('.sp-btn').forEach(b=>{
+    if(SOLD_OUT_SIZES.includes(b.dataset.size)){
+      b.classList.add('out'); b.disabled=true; return;
+    }
+    b.addEventListener('click',()=>{
+      row.querySelectorAll('.sp-btn').forEach(x=>{x.classList.remove('sel');x.setAttribute('aria-checked','false');});
+      b.classList.add('sel'); b.setAttribute('aria-checked','true');
+      chosen=b.dataset.size;
+      buy.href=buy.dataset.base+'?client_reference_id=SIZE_'+chosen;
+      buy.classList.remove('is-locked');
+      buy.textContent=(currentLang==='it')
+        ? 'Ordina taglia '+chosen+' — €50'
+        : 'Order size '+chosen+' — €50';
+      if(bb){ bb.href=buy.href; bb.target='_blank'; bb.rel='noopener';
+        bb.textContent=(currentLang==='it') ? 'Ordina '+chosen : 'Order '+chosen; }
+      if(typeof gtag==='function') gtag('event','select_item',{item_name:'Naples Division Crop Top',size:chosen});
+    });
+  });
+
+  buy.addEventListener('click',()=>{
+    if(typeof gtag==='function') gtag('event','begin_checkout',{currency:'EUR',value:50,item_name:'Naples Division Crop Top',size:chosen||'none'});
+  });
+})();
+
+/* ---- size guide modal ---- */
+(function(){
+  const m=document.getElementById('sc-modal');
+  const open=document.getElementById('size-chart-btn');
+  const close=document.getElementById('sc-close');
+  if(!m||!open) return;
+  function show(){m.classList.add('open');document.body.style.overflow='hidden';
+    if(typeof gtag==='function') gtag('event','view_size_guide',{item_name:'Naples Division Crop Top'});}
+  function hide(){m.classList.remove('open');document.body.style.overflow='';}
+  open.addEventListener('click',show);
+  close.addEventListener('click',hide);
+  m.addEventListener('click',e=>{if(e.target===m)hide();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&m.classList.contains('open'))hide();});
+})();
+
+/* ---- sticky buy bar on mobile, after the shop scrolls into view ---- */
+(function(){
+  const bar=document.getElementById('buy-bar');
+  const shop=document.getElementById('shop');
+  const bb=document.getElementById('bb-btn');
+  if(!bar||!shop) return;
+  if(bb) bb.addEventListener('click',()=>{
+    if(bb.getAttribute('href')==='#shop'){
+      document.getElementById('size-row').scrollIntoView({behavior:'smooth',block:'center'});
+    }
+  });
+  window.addEventListener('scroll',()=>{
+    const past = shop.getBoundingClientRect().top < window.innerHeight*0.4;
+    bar.classList.toggle('show', past);
+  },{passive:true});
+})();
+
+/* ---- fire view_item once the product is actually seen ---- */
+(function(){
+  const shop=document.getElementById('shop');
+  if(!shop||!('IntersectionObserver' in window)) return;
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){
+      if(typeof gtag==='function') gtag('event','view_item',{currency:'EUR',value:50,item_name:'Naples Division Crop Top'});
+      io.disconnect();
+    }});
+  },{threshold:.4});
+  io.observe(shop);
 })();
 
 /* ---------- COMING SOON MODAL ---------- */
@@ -1097,5 +1359,34 @@ document.getElementById("apply-form").addEventListener("submit", async function(
   form.innerHTML = '<p style="font-family:var(--mono);padding:14px;letter-spacing:.1em">'+I18N[currentLang].a_done+'</p>';
 });
 </script>
+
+<div class="sc-modal" id="sc-modal" role="dialog" aria-modal="true" aria-labelledby="sc-title">
+  <div class="sc-box">
+    <button class="sc-close" id="sc-close" aria-label="Close">&times;</button>
+    <div class="sc-tag" data-i18n="sc_tag">Naples Division Crop Top</div>
+    <h3 id="sc-title" data-i18n="sc_h">Size guide</h3>
+    <p class="sc-sub" data-i18n="sc_sub">Measurements are the garment laid flat, in centimetres. Lay a top you already own flat and compare.</p>
+    <!-- VERIFY: measure an actual sample before promoting this drop -->
+    <table class="sc-table">
+      <thead><tr><th data-i18n="sc_size">Size</th><th data-i18n="sc_chest">Chest width</th><th data-i18n="sc_len">Length</th><th data-i18n="sc_eu">Fits EU</th></tr></thead>
+      <tbody>
+        <tr><td>XS</td><td>44 cm</td><td>38 cm</td><td>36 / 38</td></tr>
+        <tr><td>S</td><td>47 cm</td><td>39 cm</td><td>38 / 40</td></tr>
+        <tr><td>M</td><td>50 cm</td><td>40 cm</td><td>40 / 42</td></tr>
+        <tr><td>L</td><td>53 cm</td><td>41 cm</td><td>42 / 44</td></tr>
+        <tr><td>XL</td><td>56 cm</td><td>42 cm</td><td>44 / 46</td></tr>
+      </tbody>
+    </table>
+    <p class="sc-note" data-i18n="sc_note">Still unsure? Email customersupport@lacenapoli.com with your usual size and we will tell you which to take.</p>
+  </div>
+</div>
+
+<div class="buy-bar" id="buy-bar">
+  <div class="bb-info">
+    <span class="bb-name" data-i18n="bb_name">Naples Division Crop Top</span>
+    <span class="bb-price">€50</span>
+  </div>
+  <a class="bb-btn" id="bb-btn" href="#shop" data-i18n="bb_cta">Choose size</a>
+</div>
 </body>
 </html>
