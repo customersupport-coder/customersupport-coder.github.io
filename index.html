@@ -253,6 +253,8 @@ h2{font-weight:900;font-stretch:118%;text-transform:uppercase;font-size:clamp(34
 .exp-card:hover{border-color:var(--azzurro)}
 .exp-img{aspect-ratio:16/8;overflow:hidden;background:linear-gradient(150deg,#182238,#0e1320);display:flex;align-items:flex-end;padding:16px;position:relative}
 .exp-img.amber{background:linear-gradient(150deg,#161d2b,#0d1119)}
+.exp-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.exp-img .exp-badge{position:relative;z-index:1}
 .exp-body{padding:26px 24px 30px;flex:1;display:flex;flex-direction:column}
 .exp-date{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--sodium);margin-bottom:10px}
 .exp-title{font-weight:900;font-stretch:112%;text-transform:uppercase;font-size:23px;line-height:1.1;margin-bottom:12px}
@@ -583,7 +585,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
         </div>
       </div>
       <div class="exp-card">
-        <div class="exp-img amber"><span class="exp-badge" data-i18n="exp_badge">Capped</span></div>
+        <div class="exp-img amber"><img src="img/race-prep.jpg" alt="LACE runners mid-session on a Naples street" loading="lazy" decoding="async" width="1600" height="800"><span class="exp-badge" data-i18n="exp_badge">Capped</span></div>
         <div class="exp-body">
           <div class="exp-date" data-i18n="e2_date">Napoli · Hybrid</div>
           <div class="exp-title" data-i18n="e2_title">Race Prep Block</div>
