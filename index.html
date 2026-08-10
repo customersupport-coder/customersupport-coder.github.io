@@ -363,8 +363,8 @@ blockquote em{font-style:normal;color:var(--azzurro)}
 /* ---------- STICKY MOBILE CTA ---------- */
 .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:150;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(13,16,23,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);transform:translateY(100%);transition:transform .3s ease;display:none}
 .sticky-cta.show{transform:translateY(0)}
-.sticky-cta .btn{width:100%;text-align:center}
-@media(max-width:960px){.sticky-cta{display:block}}
+.sticky-cta .btn{text-align:center}.sticky-in{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}.sticky-copy{display:flex;flex-direction:column;gap:2px;min-width:0}.sticky-k{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;opacity:.95}.sticky-d{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.6}.sticky-btns{display:flex;gap:10px;flex:0 0 auto}@media(max-width:700px){.sticky-in{flex-direction:column;align-items:stretch;gap:10px}.sticky-btns{display:grid;grid-template-columns:1fr 1fr}.sticky-cta .btn{width:100%}}
+.sticky-cta{display:block}
 
 /* ---------- COMING SOON MODAL ---------- */
 .cs-modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center}
@@ -595,10 +595,10 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
   <div class="wrap">
     <div class="sec-head">
       <div>
-        <div class="sec-tag" data-i18n="sh_tag">Merch — Drop 001 · 26 July</div>
+        <div class="sec-tag" data-i18n="sh_tag">Merch — the official LACE crop top</div>
         <h2 data-i18n="sh_h2">House of Lace</h2>
       </div>
-      <div class="sec-tag" style="color:var(--paper);opacity:.6" data-i18n="sh_note">Limited run. Gone is gone.</div>
+      <div class="sec-tag" style="color:var(--paper);opacity:.6" data-i18n="sh_note">Made in Naples · ships in three weeks</div>
     </div>
     <div class="shop-grid">
       <div class="shop-flip" id="shop-flip" role="button" tabindex="0" aria-label="Tap to flip between front and back">
@@ -608,14 +608,10 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
       </div>
       <div class="shop-card" style="border:none;background:none">
         <div class="shop-body" style="padding:0;justify-content:center">
-          <div class="shop-label" data-i18n="sh_pre">Drop 001 · 100 made</div>
+          <div class="shop-label" data-i18n="sh_pre">The official LACE crop top</div>
           <div class="shop-name" style="font-size:clamp(26px,3vw,38px)" data-i18n="sh1_name">Naples Division Crop Top</div>
-          <p class="shop-desc" style="font-size:16px;max-width:440px" data-i18n="sh1_desc">Heavyweight cotton crop. Naples Division crest with the corno on the chest, "Built where nothing was promised" over Vesuvius on the back. €50. One hundred made. When they are gone there is no second run.</p>
-          <div class="drop-clock" id="drop-clock">
-            <div class="dc-label" data-i18n="sh_cd">Drop 001 closes in</div>
-            <div class="dc-time" id="drop-time">00:00:00:00</div>
-            <div class="dc-units" data-i18n="sh_units">days · hrs · min · sec</div>
-          </div>
+          <p class="shop-desc" style="font-size:16px;max-width:440px" data-i18n="sh1_desc">Heavyweight 100% cotton, 300gsm. Naples Division crest with the corno on the chest, "Built where nothing was promised" over Vesuvius on the back. €50. Made in Naples and shipped from Naples.</p>
+          
 
           <div class="size-pick">
             <div class="sp-head">
@@ -646,7 +642,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
           <div class="faq">
             <details>
               <summary data-i18n="sh_q1">When will it arrive?</summary>
-              <p data-i18n="sh_a1">Drop 001 is made to order. Production takes three weeks from the day the drop closes, then your piece ships from Naples. We email you when it leaves.</p>
+              <p data-i18n="sh_a1">Every crop top is made to order. Production takes three weeks from the day you order, then your piece ships from Naples. We email you when it leaves.</p>
             </details>
             <details>
               <summary data-i18n="sh_q2">What if it does not fit?</summary>
@@ -818,14 +814,23 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 </div>
 
 <div class="sticky-cta" id="sticky-cta">
-  <a href="https://buy.stripe.com/8x200b33Vg8k1vpd8qbZe09" target="_blank" rel="noopener" class="btn btn-solid" data-i18n="nav_apply">Join Founding</a>
+  <div class="sticky-in">
+    <div class="sticky-copy">
+      <span class="sticky-k" data-i18n="sk_k">Road to HYROX Milano · 25 places</span>
+      <span class="sticky-d"><span data-i18n="sk_d">Enrolment closes 11 September</span><span id="sticky-days"></span></span>
+    </div>
+    <div class="sticky-btns">
+      <a href="/road-to-hyrox.html" class="btn btn-solid" data-i18n="sk_cta">See the block</a>
+      <a href="https://buy.stripe.com/8x200b33Vg8k1vpd8qbZe09" target="_blank" rel="noopener" class="btn" data-i18n="nav_apply">Join Founding</a>
+    </div>
+  </div>
 </div>
 
 <script>
 /* ---------- TRANSLATIONS ---------- */
 const I18N = {
 en: {
-  nav_runs:"Weekly Runs", nav_membership:"Membership", nav_exp:"HYROX", nav_about:"About", nav_apply:"Join Founding",
+  nav_runs:"Weekly Runs", nav_membership:"Membership", nav_exp:"HYROX", nav_about:"About", nav_apply:"Join Founding", sk_k:"Road to HYROX Milano · 25 places", sk_d:"Enrolment closes 11 September", sk_cta:"See the block",
   hero_eyebrow:"Napoli · Caserta · Milano · Salerno",
   hero_h1:'When we run,<br>we move <em>the city.</em>',
   hero_sub:"LACE is a running network born in the streets of Naples. 3,000+ runners across four cities. Weekly sessions are free and open. Founding membership is capped at 100.",
@@ -856,9 +861,9 @@ en: {
   e1_p:"Full days on Ischia and Capri. Coastal run, sea swim, long table by the water. One boat, one crew, capped numbers. Dates confirmed as they land.",
   e2_date:"Napoli · Hybrid", e2_title:"Race Prep Block", e2_link:"Request a spot →",
   e2_p:"Structured hybrid training for runners who want a race result, not a workout. Sled, sandbag and compromised running, coached by a HYROX Affiliated Performance Coach. Capped numbers, priority to Founding members.",
-  sh_tag:"Merch — Drop 001 · 26 July", sh_h2:"House of Lace", sh_note:"Limited run. Gone is gone.", sh_pre:"Drop 001 · 100 made",
+  sh_tag:"Merch — the official LACE crop top", sh_h2:"House of Lace", sh_note:"Made in Naples · ships in three weeks", sh_pre:"The official LACE crop top",
   sh1_name:"Naples Division Crop Top",
-  sh1_desc:"Heavyweight cotton crop. Naples Division crest with the corno on the chest, \"Built where nothing was promised\" over Vesuvius on the back. €50. One hundred made. When they are gone there is no second run.",
+  sh1_desc:"Heavyweight 100% cotton, 300gsm. Naples Division crest with the corno on the chest, \"Built where nothing was promised\" over Vesuvius on the back. €50. Made in Naples and shipped from Naples.",
   sh_buy:"Order now — €50", sh_cd:"Drop 001 closes in", sh_units:"days · hrs · min · sec", sh_front:"Front", sh_back:"Back", sh_flip:"tap to flip",
   team_tag:"The team", team_h2:"The people who set the pace",
   f_quote:'"We didn\'t start LACE to be a run club. We started it so that anyone in this city could find their people at <em>20:00 on a Wednesday</em> — and never let go of them."',
@@ -884,7 +889,7 @@ en: {
   sh_size:"Select your size", sh_chart:"Not sure? Ask us", sh_fit:"Tell us your usual size by email and we will confirm which to take.",
   sh_buy_pick:"Select a size first",
   sh_t1:"Secure checkout by Stripe", sh_t2:"Ships from Naples", sh_t3:"14-day returns",
-  sh_q1:"When will it arrive?", sh_a1:"Drop 001 is made to order. Production takes three weeks from the day the drop closes, then your piece ships from Naples. We email you when it leaves.",
+  sh_q1:"When will it arrive?", sh_a1:"Every crop top is made to order. Production takes three weeks from the day you order, then your piece ships from Naples. We email you when it leaves.",
   sh_q2:"What if it does not fit?", sh_a2:"Send it back unworn within 14 days and we refund the full item price. If we sent the wrong size, we cover return postage and reship free. Email customersupport@lacenapoli.com.",
   sh_q3:"What is it made of?", sh_a3:"Heavyweight 100% cotton, 300gsm.",
   sh_q4:"Will there be a restock?", sh_a4:"No. One hundred pieces exist and that is the whole run. Drop 002 will be a different design.",
@@ -894,7 +899,7 @@ en: {
   p_note:"Past client work. All trademarks belong to their owners. LACE is independent and not sponsored by, endorsed by or affiliated with these brands."
 },
 it: {
-  nav_runs:"Corse settimanali", nav_membership:"Membership", nav_exp:"HYROX", nav_about:"Chi siamo", nav_apply:"Entra come Founding",
+  sk_k:"Road to HYROX Milano · 25 posti", sk_d:"Iscrizioni chiuse l'11 settembre", sk_cta:"Guarda il blocco", nav_runs:"Corse settimanali", nav_membership:"Membership", nav_exp:"HYROX", nav_about:"Chi siamo", nav_apply:"Entra come Founding",
   hero_eyebrow:"Napoli · Caserta · Milano · Salerno",
   hero_h1:'Quando corriamo,<br>muoviamo <em>la città.</em>',
   hero_sub:"LACE è un network di running nato nelle strade di Napoli. Oltre 3.000 runner in quattro città. Le corse settimanali sono gratuite e aperte a tutti. I posti Founding sono 100.",
@@ -925,9 +930,9 @@ it: {
   e1_p:"Giornate intere a Ischia e Capri. Corsa sulla costa, bagno a mare, tavolata a bordo mare. Una barca, un gruppo, posti limitati. Le date si confermano man mano.",
   e2_date:"Napoli · Hybrid", e2_title:"Race Prep Block", e2_link:"Richiedi un posto →",
   e2_p:"Allenamento ibrido strutturato per chi punta a un risultato in gara, non a una seduta qualsiasi. Slitta, sandbag e corsa sotto fatica, con un HYROX Affiliated Performance Coach. Posti limitati, priorità ai soci Founding.",
-  sh_tag:"Merch — Drop 001 · 26 luglio", sh_h2:"House of Lace", sh_note:"Serie limitata. Finita, è finita.", sh_pre:"Drop 001 · 100 pezzi",
+  sh_tag:"Merch — il crop top ufficiale LACE", sh_h2:"House of Lace", sh_note:"Fatto a Napoli · spedizione in tre settimane", sh_pre:"Il crop top ufficiale LACE",
   sh1_name:"Naples Division Crop Top",
-  sh1_desc:"Crop in cotone pesante. Stemma Naples Division con il corno sul petto, \"Built where nothing was promised\" sopra il Vesuvio sulla schiena. 50€. Cento pezzi. Quando finiscono non si ristampa.",
+  sh1_desc:"Cotone 100%, 300gsm. Stemma Naples Division con il corno sul petto, \"Built where nothing was promised\" sopra il Vesuvio sulla schiena. 50€. Fatto a Napoli e spedito da Napoli.",
   sh_buy:"Ordina ora — 50€", sh_cd:"Il Drop 001 chiude tra", sh_units:"giorni · ore · min · sec", sh_front:"Fronte", sh_back:"Retro", sh_flip:"tocca per girare",
   team_tag:"Il team", team_h2:"Le persone che fanno il ritmo",
   f_quote:'"Non abbiamo creato LACE per essere un run club. L\'abbiamo creato perché chiunque in questa città potesse trovare le sue persone alle <em>20:00 di un mercoledì</em> — e non lasciarle più."',
@@ -953,7 +958,7 @@ it: {
   sh_size:"Scegli la taglia", sh_chart:"Hai un dubbio? Scrivici", sh_fit:"Scrivici la tua taglia abituale e ti confermiamo quale prendere.",
   sh_buy_pick:"Scegli prima una taglia",
   sh_t1:"Pagamento sicuro con Stripe", sh_t2:"Spedizione da Napoli", sh_t3:"Reso entro 14 giorni",
-  sh_q1:"Quando arriva?", sh_a1:"Il Drop 001 è prodotto su ordinazione. La produzione richiede tre settimane dal giorno in cui il drop chiude, poi il tuo pezzo parte da Napoli. Ti avvisiamo via email quando spedisce.",
+  sh_q1:"Quando arriva?", sh_a1:"Ogni crop top è prodotto su ordinazione. La produzione richiede tre settimane dal giorno dell'ordine, poi il tuo pezzo parte da Napoli. Ti avvisiamo via email quando spedisce.",
   sh_q2:"E se non mi va bene?", sh_a2:"Rimandalo indietro non indossato entro 14 giorni e rimborsiamo l'intero prezzo del capo. Se abbiamo sbagliato taglia, paghiamo noi il reso e rispediamo gratis. Scrivi a customersupport@lacenapoli.com.",
   sh_q3:"Di cosa è fatto?", sh_a3:"Cotone 100% pesante, 300gsm.",
   sh_q4:"Ci sarà un restock?", sh_a4:"No. Esistono cento pezzi e la tiratura finisce lì. Il Drop 002 sarà un design diverso.",
@@ -1191,9 +1196,21 @@ const SOLD_OUT_SIZES = []; // e.g. ['XS','S'] to grey them out
   }
   function update(){
     const pastHero = window.scrollY > window.innerHeight*0.85;
-    const overlapping = inView(membership) || inView(apply);
+    const overlapping = inView(apply);
     bar.classList.toggle("show", pastHero && !overlapping);
   }
+  (function(){
+    var CLOSE = new Date('2026-09-11T23:59:00+02:00');
+    var d = Math.ceil((CLOSE - new Date())/86400000);
+    var out = bar.querySelector('#sticky-days');
+    if (d > 0){ if (out) out.textContent = ' \u00b7 ' + d + (d===1?' day left':' days left'); }
+    else {
+      var copy = bar.querySelector('.sticky-copy');
+      var see  = bar.querySelector('a[href="/road-to-hyrox.html"]');
+      if (copy) copy.remove();
+      if (see) see.remove();
+    }
+  })();
   window.addEventListener("scroll", update, {passive:true});
   window.addEventListener("resize", update);
   update();
