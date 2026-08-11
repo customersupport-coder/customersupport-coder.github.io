@@ -44,7 +44,20 @@
     },
     "hasMerchantReturnPolicy": {
       "@type": "MerchantReturnPolicy",
-      "applicableCountry": "IT",
+      "applicableCountry": [
+        "IT",
+        "DE",
+        "FR",
+        "ES",
+        "NL",
+        "BE",
+        "AT",
+        "PT",
+        "IE",
+        "GB",
+        "US",
+        "CH"
+      ],
       "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
       "merchantReturnDays": 14,
       "returnMethod": "https://schema.org/ReturnByMail",
@@ -53,6 +66,73 @@
         "@type": "MonetaryAmount",
         "value": "15.00",
         "currency": "EUR"
+      }
+    },
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "8.00",
+        "currency": "EUR"
+      },
+      "shippingDestination": [
+        {
+          "@type": "DefinedRegion",
+          "addressCountry": "IT"
+        },
+        {
+          "@type": "DefinedRegion",
+          "addressCountry": "DE"
+        },
+        {
+          "@type": "DefinedRegion",
+          "addressCountry": "FR"
+        },
+        {
+          "@type": "DefinedRegion",
+          "addressCountry": "ES"
+        },
+        {
+          "@type": "DefinedRegion",
+          "addressCountry": "NL"
+        },
+        {
+          "@type": "DefinedRegion",
+          "addressCountry": "BE"
+        },
+        {
+          "@type": "DefinedRegion",
+          "addressCountry": "AT"
+        },
+        {
+          "@type": "DefinedRegion",
+          "addressCountry": "PT"
+        },
+        {
+          "@type": "DefinedRegion",
+          "addressCountry": "IE"
+        },
+        {
+          "@type": "DefinedRegion",
+          "addressCountry": "GB"
+        },
+        {
+          "@type": "DefinedRegion",
+          "addressCountry": "US"
+        },
+        {
+          "@type": "DefinedRegion",
+          "addressCountry": "CH"
+        }
+      ],
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 15,
+          "maxValue": 21,
+          "unitCode": "DAY"
+        }
       }
     }
   }
