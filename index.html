@@ -55,8 +55,8 @@
         "PT",
         "IE",
         "GB",
-        "US",
-        "CH"
+        "CH",
+        "US"
       ],
       "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
       "merchantReturnDays": 14,
@@ -68,73 +68,131 @@
         "currency": "EUR"
       }
     },
-    "shippingDetails": {
-      "@type": "OfferShippingDetails",
-      "shippingRate": {
-        "@type": "MonetaryAmount",
-        "value": "8.00",
-        "currency": "EUR"
-      },
-      "shippingDestination": [
-        {
-          "@type": "DefinedRegion",
-          "addressCountry": "IT"
+    "shippingDetails": [
+      {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": "8.00",
+          "currency": "EUR"
         },
-        {
-          "@type": "DefinedRegion",
-          "addressCountry": "DE"
-        },
-        {
-          "@type": "DefinedRegion",
-          "addressCountry": "FR"
-        },
-        {
-          "@type": "DefinedRegion",
-          "addressCountry": "ES"
-        },
-        {
-          "@type": "DefinedRegion",
-          "addressCountry": "NL"
-        },
-        {
-          "@type": "DefinedRegion",
-          "addressCountry": "BE"
-        },
-        {
-          "@type": "DefinedRegion",
-          "addressCountry": "AT"
-        },
-        {
-          "@type": "DefinedRegion",
-          "addressCountry": "PT"
-        },
-        {
-          "@type": "DefinedRegion",
-          "addressCountry": "IE"
-        },
-        {
-          "@type": "DefinedRegion",
-          "addressCountry": "GB"
-        },
-        {
-          "@type": "DefinedRegion",
-          "addressCountry": "US"
-        },
-        {
-          "@type": "DefinedRegion",
-          "addressCountry": "CH"
+        "shippingDestination": [
+          {
+            "@type": "DefinedRegion",
+            "addressCountry": "IT"
+          }
+        ],
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 15,
+            "maxValue": 21,
+            "unitCode": "DAY"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 1,
+            "maxValue": 3,
+            "unitCode": "DAY"
+          }
         }
-      ],
-      "deliveryTime": {
-        "@type": "ShippingDeliveryTime",
-        "handlingTime": {
-          "@type": "QuantitativeValue",
-          "minValue": 15,
-          "maxValue": 21,
-          "unitCode": "DAY"
+      },
+      {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": "14.00",
+          "currency": "EUR"
+        },
+        "shippingDestination": [
+          {
+            "@type": "DefinedRegion",
+            "addressCountry": "DE"
+          },
+          {
+            "@type": "DefinedRegion",
+            "addressCountry": "FR"
+          },
+          {
+            "@type": "DefinedRegion",
+            "addressCountry": "ES"
+          },
+          {
+            "@type": "DefinedRegion",
+            "addressCountry": "NL"
+          },
+          {
+            "@type": "DefinedRegion",
+            "addressCountry": "BE"
+          },
+          {
+            "@type": "DefinedRegion",
+            "addressCountry": "AT"
+          },
+          {
+            "@type": "DefinedRegion",
+            "addressCountry": "PT"
+          },
+          {
+            "@type": "DefinedRegion",
+            "addressCountry": "IE"
+          }
+        ],
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 15,
+            "maxValue": 21,
+            "unitCode": "DAY"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 3,
+            "maxValue": 7,
+            "unitCode": "DAY"
+          }
+        }
+      },
+      {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": "25.00",
+          "currency": "EUR"
+        },
+        "shippingDestination": [
+          {
+            "@type": "DefinedRegion",
+            "addressCountry": "GB"
+          },
+          {
+            "@type": "DefinedRegion",
+            "addressCountry": "CH"
+          },
+          {
+            "@type": "DefinedRegion",
+            "addressCountry": "US"
+          }
+        ],
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 15,
+            "maxValue": 21,
+            "unitCode": "DAY"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 7,
+            "maxValue": 15,
+            "unitCode": "DAY"
+          }
         }
       }
-    }
+    ]
   }
 }
 </script>
@@ -723,7 +781,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
           <div class="faq">
             <details>
               <summary data-i18n="sh_q1">When will it arrive?</summary>
-              <p data-i18n="sh_a1">Every crop top is made to order. Production takes three weeks from the day you order, then your piece ships from Naples. We email you when it leaves.</p>
+              <p data-i18n="sh_a1">Every crop top is made to order. Production takes three weeks from the day you order, then your piece ships from Naples. Shipping is added at checkout: €8 within Italy, €14 elsewhere in Europe, €25 rest of world. We email you when it leaves.</p>
             </details>
             <details>
               <summary data-i18n="sh_q2">What if it does not fit?</summary>
@@ -971,7 +1029,7 @@ en: {
   sh_size:"Select your size", sh_chart:"Not sure? Ask us", sh_fit:"Tell us your usual size by email and we will confirm which to take.",
   sh_buy_pick:"Select a size first",
   sh_t1:"Secure checkout by Stripe", sh_t2:"Ships from Naples", sh_t3:"14-day returns",
-  sh_q1:"When will it arrive?", sh_a1:"Every crop top is made to order. Production takes three weeks from the day you order, then your piece ships from Naples. We email you when it leaves.",
+  sh_q1:"When will it arrive?", sh_a1:"Every crop top is made to order. Production takes three weeks from the day you order, then your piece ships from Naples. Shipping is added at checkout: €8 within Italy, €14 elsewhere in Europe, €25 rest of world. We email you when it leaves.",
   sh_q2:"What if it does not fit?", sh_a2:"Send it back unworn within 14 days and we refund the full item price. If we sent the wrong size, we cover return postage and reship free. Email customersupport@lacenapoli.com.",
   sh_q3:"What is it made of?", sh_a3:"Heavyweight 100% cotton, 300gsm.",
   sh_q4:"Will there be a restock?", sh_a4:"Yes. It is made to order, so it does not sell out. Allow three weeks from your order for production.",
@@ -1040,7 +1098,7 @@ it: {
   sh_size:"Scegli la taglia", sh_chart:"Hai un dubbio? Scrivici", sh_fit:"Scrivici la tua taglia abituale e ti confermiamo quale prendere.",
   sh_buy_pick:"Scegli prima una taglia",
   sh_t1:"Pagamento sicuro con Stripe", sh_t2:"Spedizione da Napoli", sh_t3:"Reso entro 14 giorni",
-  sh_q1:"Quando arriva?", sh_a1:"Ogni crop top è prodotto su ordinazione. La produzione richiede tre settimane dal giorno dell'ordine, poi il tuo pezzo parte da Napoli. Ti avvisiamo via email quando spedisce.",
+  sh_q1:"Quando arriva?", sh_a1:"Ogni crop top è prodotto su ordinazione. La produzione richiede tre settimane dal giorno dell'ordine, poi il tuo pezzo parte da Napoli. La spedizione si aggiunge al checkout: €8 in Italia, €14 nel resto d'Europa, €25 nel resto del mondo. Ti avvisiamo via email quando spedisce.",
   sh_q2:"E se non mi va bene?", sh_a2:"Rimandalo indietro non indossato entro 14 giorni e rimborsiamo l'intero prezzo del capo. Se abbiamo sbagliato taglia, paghiamo noi il reso e rispediamo gratis. Scrivi a customersupport@lacenapoli.com.",
   sh_q3:"Di cosa è fatto?", sh_a3:"Cotone 100% pesante, 300gsm.",
   sh_q4:"Ci sarà un restock?", sh_a4:"Sì. È prodotto su ordinazione, quindi non si esaurisce. Considera tre settimane dall'ordine per la produzione.",
