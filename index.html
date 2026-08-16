@@ -308,8 +308,9 @@ header{min-height:100svh;display:flex;flex-direction:column;justify-content:flex
   radial-gradient(ellipse 55% 40% at 15% 85%, rgba(42,169,224,.08), transparent 60%),
   linear-gradient(180deg,#0d1017 0%,#10151f 100%)}
 .hero-bg::after{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,transparent 0 119px,rgba(245,243,238,.03) 119px 120px)}
-/* hero video: when the file lands, uncomment the <video> tag in the HTML below.
-   The overlay keeps type readable on top of footage. */
+/* Hero is a still image. The video that used to sit here was 4.8MB and never
+   finished downloading on mobile, which is where nearly all traffic lands.
+   The overlay below keeps type readable on top of it. */
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.9}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,16,23,.30) 0%,rgba(13,16,23,.42) 45%,rgba(13,16,23,.88) 82%,rgba(13,16,23,.98) 100%)}
 .hero-in{position:relative;max-width:1240px;margin:0 auto;padding:100px 24px 56px;width:100%}
@@ -615,7 +616,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 
 <header id="top">
   <div class="hero-bg"></div>
-  <video class="hero-video" autoplay muted loop playsinline preload="none" poster="img/hero-poster.jpg" data-src="lace-hero.mp4"></video>
+  <img class="hero-video" src="heroposter.jpg" alt="LACE runners filling the Scarlatti steps in Vomero, Naples, at night" fetchpriority="high" width="900" height="1600">
   <div class="hero-overlay"></div>
   <div class="hero-in">
     <div class="hero-eyebrow" data-i18n="hero_eyebrow">Napoli · Caserta · Milano · Salerno</div>
@@ -1252,26 +1253,6 @@ function renderSchedDates(){
   if(thuEl) thuEl.textContent=thu.getDate()+" "+MONTHS[currentLang][thu.getMonth()];
 }
 renderSchedDates();
-
-/* ---------- HERO VIDEO: only load it where it will actually finish ----------
-   The file is ~4.8MB. On a phone over 4G it does not finish downloading before
-   people have already scrolled past, so it burns their data and bandwidth for
-   nothing while the poster does the job anyway. Load it on wide screens with a
-   decent connection; everywhere else the poster stands alone.                 */
-(function(){
-  const v=document.querySelector(".hero-video");
-  if(!v) return;
-  const src=v.getAttribute("data-src");
-  if(!src) return;
-  const c=navigator.connection||{};
-  const slow = c.saveData===true || /(^|-)(2g|3g)$/.test(c.effectiveType||"");
-  const narrow = window.matchMedia("(max-width:960px)").matches;
-  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if(narrow || slow || reduced) return; // poster only
-  v.src=src;
-  const play=()=>{ const p=v.play(); if(p&&p.catch) p.catch(()=>{}); };
-  if(v.readyState>=2) play(); else v.addEventListener("loadeddata", play, {once:true});
-})();
 
 /* ---------- CLEAR THE PAUSED STATE ONCE WE PASS THE RESUME DATE ----------
    The paused state is what ships in the HTML, so it is what anyone sees even with
