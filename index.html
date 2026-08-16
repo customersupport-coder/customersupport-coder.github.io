@@ -377,6 +377,16 @@ h2{font-weight:900;font-stretch:118%;text-transform:uppercase;font-size:clamp(34
 .tier.featured .btn:hover,.tier.featured .btn:focus-visible{background:var(--azzurro);border-color:var(--azzurro);color:var(--night)}
 .tier-note{font-family:var(--mono);font-size:12px;letter-spacing:.06em;margin-top:14px;color:#1774ab}
 .membership-foot{font-size:15px;opacity:.65;margin-top:40px;max-width:640px}
+/* soft capture: catches the people who just decided not to pay, at the moment they decide it */
+.catch{margin-top:40px;padding:28px;border:1px solid var(--line);background:var(--night-2);color:var(--paper);display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+.catch-copy{flex:1;min-width:260px}
+.catch-h{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--azzurro);margin-bottom:8px}
+.catch-p{font-size:15px;opacity:.75;max-width:420px}
+.catch-form{display:flex;gap:12px;flex-wrap:wrap}
+.catch-form input{background:var(--night);border:1px solid var(--line);color:var(--paper);font-family:var(--mono);font-size:14px;padding:14px 18px;outline:none;min-width:220px}
+.catch-form input:focus{border-color:var(--azzurro)}
+.catch-done{font-family:var(--mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--azzurro)}
+@media(max-width:640px){.catch{padding:22px;flex-direction:column;align-items:stretch}.catch-form{flex-direction:column}.catch-form input{min-width:0}}
 
 /* ---------- SCHEDULE ---------- */
 .schedule{padding:110px 0;border-bottom:1px solid var(--line)}
@@ -605,7 +615,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 
 <header id="top">
   <div class="hero-bg"></div>
-  <video class="hero-video" autoplay muted loop playsinline poster="img/hero-poster.jpg" src="lace-hero.mp4"></video>
+  <video class="hero-video" autoplay muted loop playsinline preload="none" poster="img/hero-poster.jpg" data-src="lace-hero.mp4"></video>
   <div class="hero-overlay"></div>
   <div class="hero-in">
     <div class="hero-eyebrow" data-i18n="hero_eyebrow">Napoli · Caserta · Milano · Salerno</div>
@@ -747,6 +757,16 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
         <a href="https://buy.stripe.com/8x200b33Vg8k1vpd8qbZe09" target="_blank" rel="noopener" class="btn btn-solid" data-i18n="t3_btn">Get Laced In — €70/year</a>
         <div class="tier-note" data-i18n="t3_note">First 100 only. €120/year after that. Your rate is locked for life.</div>
       </div>
+    </div>
+    <div class="catch" id="catch">
+      <div class="catch-copy">
+        <div class="catch-h" data-i18n="catch_h">Not ready for €70?</div>
+        <p class="catch-p" data-i18n="catch_p">Leave your email. We will tell you when places drop below 20, and when the next kit drop lands. Nothing else.</p>
+      </div>
+      <form class="catch-form" id="catch-form">
+        <input type="email" id="catch-email" required placeholder="your@email.com" aria-label="Email address">
+        <button class="btn btn-solid" type="submit" data-i18n="catch_btn">Keep me posted</button>
+      </form>
     </div>
     <p class="membership-foot" data-i18n="mem_foot">We don't gate the run. We gate the inside. Anyone can train with us for free every week. Laced In is for the people building this with us, now open in Napoli, Caserta and Milano. 100 places total, then the price goes to €120. Salerno opens once the local crew there is ready.</p>
   </div>
@@ -1051,6 +1071,7 @@ en: {
   a_btn:"Apply",
   a_note:'25 places this wave, reviewed monthly. Questions? <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a>',
   a_done:"YOU'RE ON THE LIST. SEE YOU WEDNESDAY.",
+  catch_h:"Not ready for €70?", catch_p:"Leave your email. We will tell you when places drop below 20, and when the next kit drop lands. Nothing else.", catch_btn:"Keep me posted", catch_done:"You're on the list.",
   cs_coming:"Coming soon", cs_p:"Laced In membership for Salerno is coming as we build up the local crew there. Free weekly runs are already happening. Follow @lacenapoli for times.", cs_follow:"Follow on Instagram", cs_close:"Back to Napoli",
   fm_q:"Laced In closes at 100.", fm_p:"First 100 only. €120/year after that. Your rate is locked for life.", fm_join:"Get Laced In — €70/year", fm_dismiss:"Not now",
   ft_cities:"Cities", ft_club:"Club", ft_contact:"Contact", ft_line:"Free to run. Hard to leave.",
@@ -1126,6 +1147,7 @@ it: {
   a_btn:"Candidati",
   a_note:'25 posti in questa ondata, valutati ogni mese. Domande? <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a>',
   a_done:"SEI IN LISTA. CI VEDIAMO MERCOLEDÌ.",
+  catch_h:"Non sei pronto per i 70€?", catch_p:"Lascia la tua email. Ti scriviamo quando restano meno di 20 posti e quando esce il prossimo drop. Nient'altro.", catch_btn:"Tienimi aggiornato", catch_done:"Sei in lista.",
   cs_coming:"Prossimamente", cs_p:"La membership Laced In per Salerno arriva presto, mentre costruiamo il gruppo locale. Le corse settimanali gratuite ci sono già. Segui @lacenapoli per gli orari.", cs_follow:"Seguici su Instagram", cs_close:"Torna a Napoli",
   fm_q:"Laced In chiude a 100.", fm_p:"Solo i primi 100. Poi 120€/anno. Il tuo prezzo resta bloccato a vita.", fm_join:"Entra in Laced In — 70€/anno", fm_dismiss:"Non ora",
   ft_cities:"Città", ft_club:"Club", ft_contact:"Contatti", ft_line:"Correre è gratis. Andarsene è difficile.",
@@ -1230,6 +1252,26 @@ function renderSchedDates(){
   if(thuEl) thuEl.textContent=thu.getDate()+" "+MONTHS[currentLang][thu.getMonth()];
 }
 renderSchedDates();
+
+/* ---------- HERO VIDEO: only load it where it will actually finish ----------
+   The file is ~4.8MB. On a phone over 4G it does not finish downloading before
+   people have already scrolled past, so it burns their data and bandwidth for
+   nothing while the poster does the job anyway. Load it on wide screens with a
+   decent connection; everywhere else the poster stands alone.                 */
+(function(){
+  const v=document.querySelector(".hero-video");
+  if(!v) return;
+  const src=v.getAttribute("data-src");
+  if(!src) return;
+  const c=navigator.connection||{};
+  const slow = c.saveData===true || /(^|-)(2g|3g)$/.test(c.effectiveType||"");
+  const narrow = window.matchMedia("(max-width:960px)").matches;
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(narrow || slow || reduced) return; // poster only
+  v.src=src;
+  const play=()=>{ const p=v.play(); if(p&&p.catch) p.catch(()=>{}); };
+  if(v.readyState>=2) play(); else v.addEventListener("loadeddata", play, {once:true});
+})();
 
 /* ---------- CLEAR THE PAUSED STATE ONCE WE PASS THE RESUME DATE ----------
    The paused state is what ships in the HTML, so it is what anyone sees even with
@@ -1525,10 +1567,11 @@ function mailtoFallback(email){
   window.location.href = "mailto:customersupport@lacenapoli.com?subject="+subject+"&body="+body;
 }
 
-document.getElementById("apply-form").addEventListener("submit", async function(e){
-  e.preventDefault();
-  const form = this;
-  const email = document.getElementById("apply-email").value.trim();
+/* One submit path shared by both capture points: the membership catch bar and the
+   Salerno waitlist at the foot of the page. `source` tells them apart in the inbox
+   and in GA4, so we can see which position actually earns emails. */
+async function submitLead(form, emailInput, opts){
+  const email = emailInput.value.trim();
   const submitBtn = form.querySelector("button[type=submit]");
   if (submitBtn) submitBtn.disabled = true;
 
@@ -1540,10 +1583,11 @@ document.getElementById("apply-form").addEventListener("submit", async function(
         headers: {"Content-Type": "application/json", "Accept": "application/json"},
         body: JSON.stringify({
           access_key: WEB3FORMS_ACCESS_KEY,
-          subject: "LACE waitlist signup",
-          from_name: "lacenapoli.com waitlist",
+          subject: opts.subject,
+          from_name: opts.fromName,
           email: email,
-          city_of_interest: "Napoli",
+          source: opts.source,
+          city_of_interest: opts.city || "Napoli",
           lang: currentLang
         })
       });
@@ -1553,9 +1597,31 @@ document.getElementById("apply-form").addEventListener("submit", async function(
   }
   if (!delivered) mailtoFallback(email);
 
-  if (typeof gtag === "function") gtag("event", "waitlist_signup", {method: method, lang: currentLang});
-  form.innerHTML = '<p style="font-family:var(--mono);padding:14px;letter-spacing:.1em">'+I18N[currentLang].a_done+'</p>';
+  if (typeof gtag === "function") {
+    gtag("event", "waitlist_signup", {method: method, lang: currentLang, source: opts.source});
+  }
+  form.innerHTML = '<p class="'+(opts.doneClass||"")+'" style="font-family:var(--mono);padding:14px;letter-spacing:.1em">'
+                 + I18N[currentLang][opts.doneKey] + '</p>';
+}
+
+document.getElementById("apply-form").addEventListener("submit", function(e){
+  e.preventDefault();
+  submitLead(this, document.getElementById("apply-email"), {
+    subject:"LACE waitlist signup", fromName:"lacenapoli.com waitlist",
+    source:"salerno_waitlist_footer", doneKey:"a_done"
+  });
 });
+
+const catchForm = document.getElementById("catch-form");
+if (catchForm) {
+  catchForm.addEventListener("submit", function(e){
+    e.preventDefault();
+    submitLead(this, document.getElementById("catch-email"), {
+      subject:"LACE list signup — membership section", fromName:"lacenapoli.com membership catch",
+      source:"membership_catch", doneKey:"catch_done", doneClass:"catch-done"
+    });
+  });
+}
 </script>
 
 
