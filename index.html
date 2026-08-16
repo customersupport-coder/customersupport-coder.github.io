@@ -391,6 +391,12 @@ h2{font-weight:900;font-stretch:118%;text-transform:uppercase;font-size:clamp(34
 .sched-row.rsvp{cursor:pointer}
 .sched-rsvp{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--azzurro);text-align:right;white-space:nowrap}
 .sched-row.rsvp:hover .sched-rsvp{text-decoration:underline}
+/* paused state: rows stay visible so people can see the week, but read as inactive */
+.sched-row.paused{opacity:.45}
+.sched-row.paused:hover{background:none}
+.sched-row.paused .sched-time{text-decoration:line-through}
+.sched-row.paused .sched-rsvp{color:var(--sodium);text-decoration:none;cursor:default;letter-spacing:.08em}
+@media(max-width:960px){.sched-row.paused .sched-rsvp{font-size:11px;letter-spacing:.04em}}
 .sched-note{font-family:var(--mono);font-size:13px;letter-spacing:.08em;opacity:.7;padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .sched-note a{color:var(--azzurro)}
 .sched-psa{font-family:var(--mono);font-size:12px;line-height:1.6;letter-spacing:.08em;text-transform:uppercase;padding:14px 18px;margin:0 0 2px;border-left:3px solid var(--azzurro);background:rgba(255,255,255,.05)}
@@ -550,6 +556,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
   .mani-grid,.founder-grid{grid-template-columns:1fr;gap:40px}
   .tiers,.exp-grid{grid-template-columns:1fr}
   .sched-row{grid-template-columns:70px 1fr 78px 88px;gap:12px}
+  .sched-row>*{min-width:0}  /* let the title column shrink instead of pushing the row off-screen */
   .sched-city{display:none}
 }
 @media(max-width:560px){
@@ -659,7 +666,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
       </div>
       <a href="https://www.instagram.com/lacenapoli" target="_blank" rel="noopener" class="btn btn-sm" data-i18n="sched_btn">Follow on Instagram</a>
     </div>
-    <div class="sched-psa" data-i18n-html="sched_pause_note">LACE is pausing scheduled runs in Napoli, Caserta, Milano and Salerno starting today. We're back <b>Wednesday, September 9</b>. This wasn't the original plan, and it's the last time we'll do it — from here, LACE runs all year, every city, no season off.</div>
+    <div class="sched-psa" id="sched-pause-note" data-i18n-html="sched_pause_note">LACE is pausing scheduled runs in Napoli, Caserta, Milano and Salerno starting today. We're back <b>Wednesday, September 9</b>. This wasn't the original plan, and it's the last time we'll do it — from here, LACE runs all year, every city, no season off.</div>
     <div class="sched-row rsvp" onclick="window.open('https://luma.com/si71yiqz','_blank','noopener')">
       <div class="sched-day" data-i18n="d_wed">Wed</div>
       <div><div class="sched-title" data-i18n="s1_title">Sprint Work</div><div class="sched-date" id="sched-date-wed"></div></div>
@@ -667,7 +674,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
       <div class="sched-time">20:00</div>
       <a class="sched-rsvp" href="https://luma.com/si71yiqz" target="_blank" rel="noopener" onclick="event.stopPropagation()" data-i18n="rsvp">RSVP →</a>
     </div>
-    <div class="sched-psa" data-i18n="psa_bagdrop">PSA: no bag drop this week. Start and finish at the Villa Floridiana gates. Carry only what you can run with.</div>
+    <div class="sched-psa" id="psa-bagdrop" data-i18n="psa_bagdrop">PSA: no bag drop this week. Start and finish at the Villa Floridiana gates. Carry only what you can run with.</div>
     <div class="sched-row rsvp" onclick="window.open('https://luma.com/st3xu2eb','_blank','noopener')">
       <div class="sched-day" data-i18n="d_thu">Thu</div>
       <div><div class="sched-title" data-i18n="s2_title">Sprint Work — Caserta</div><div class="sched-date" id="sched-date-thu"></div></div>
@@ -675,7 +682,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
       <div class="sched-time">20:00</div>
       <a class="sched-rsvp" href="https://luma.com/st3xu2eb" target="_blank" rel="noopener" onclick="event.stopPropagation()" data-i18n="rsvp">RSVP →</a>
     </div>
-    <div class="sched-note" data-i18n-html="sched_note">More sessions run every week in Napoli, Milano and Salerno — times and meeting points change by season. DM <a href="https://www.instagram.com/lacenapoli" target="_blank" rel="noopener">@lacenapoli</a>, join the <a href="https://chat.whatsapp.com/L5UGTYFE6Db3BjlqvpoNIA?s=cl&amp;p=i&amp;mlu=4&amp;amv=0" target="_blank" rel="noopener">WhatsApp chat</a>, or email <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a> for this week's full schedule.</div>
+    <div class="sched-note" id="sched-note" data-i18n-html="sched_note">More sessions run every week in Napoli, Milano and Salerno — times and meeting points change by season. DM <a href="https://www.instagram.com/lacenapoli" target="_blank" rel="noopener">@lacenapoli</a>, join the <a href="https://chat.whatsapp.com/L5UGTYFE6Db3BjlqvpoNIA?s=cl&amp;p=i&amp;mlu=4&amp;amv=0" target="_blank" rel="noopener">WhatsApp chat</a>, or email <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a> for this week's full schedule.</div>
   </div>
 </section>
 
@@ -992,6 +999,10 @@ en: {
   hero_sub:"LACE is a running network born in the streets of Naples. 3,000+ runners across four cities. Weekly sessions are free and open. Laced In membership is capped at 100, open in Napoli, Caserta and Milano.",
   hero_cta1:"Run with us — free", hero_cta2:"Get Laced In",
   clock_label:"Next start line",
+  clock_label_paused:"Back on the road in",
+  sched_paused_until:"Paused until 9 Sep",
+  sched_paused_short:"Paused",
+  sched_note_paused:'All city sessions are paused until <b>Wednesday 9 September</b> — Napoli, Caserta, Milano and Salerno. DM <a href="https://www.instagram.com/lacenapoli" target="_blank" rel="noopener">@lacenapoli</a>, join the <a href="https://chat.whatsapp.com/L5UGTYFE6Db3BjlqvpoNIA?s=cl&p=i&mlu=4&amv=0" target="_blank" rel="noopener">WhatsApp chat</a>, or email <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a> to be first to know when we are back.',
   ticker:"Napoli <b>·</b> Caserta <b>·</b> Milano <b>·</b> Salerno <b>·</b> Sprint Work Every Wednesday 20:00 <b>·</b> Every Run Ends With Aperitivo <b>·</b> Free To Run, Hard To Leave <b>·</b> ",
   proof1:"Runners in the network", proof2:"Cities · NAP / CE / MI / SA", proof3:"Monthly views", proof4:"Runs hosted per year",
   mani_tag:"The movement", mani_h2:"Born in the streets of Naples",
@@ -1063,6 +1074,10 @@ it: {
   hero_sub:"LACE è un network di running nato nelle strade di Napoli. Oltre 3.000 runner in quattro città. Le corse settimanali sono gratuite e aperte a tutti. I posti Laced In sono 100, aperti a Napoli, Caserta e Milano.",
   hero_cta1:"Corri con noi — gratis", hero_cta2:"Entra in Laced In",
   clock_label:"Prossima partenza",
+  clock_label_paused:"Si riparte tra",
+  sched_paused_until:"In pausa fino al 9 set",
+  sched_paused_short:"In pausa",
+  sched_note_paused:'Le sessioni sono in pausa in tutte le città fino a <b>mercoledì 9 settembre</b> — Napoli, Caserta, Milano e Salerno. Scrivici su <a href="https://www.instagram.com/lacenapoli" target="_blank" rel="noopener">@lacenapoli</a>, entra nella <a href="https://chat.whatsapp.com/L5UGTYFE6Db3BjlqvpoNIA?s=cl&p=i&mlu=4&amv=0" target="_blank" rel="noopener">chat WhatsApp</a>, o scrivi a <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a> per sapere per primo quando si riparte.',
   ticker:"Napoli <b>·</b> Caserta <b>·</b> Milano <b>·</b> Salerno <b>·</b> Sprint Work Ogni Mercoledì 20:00 <b>·</b> Ogni Corsa Finisce Con L'Aperitivo <b>·</b> Correre È Gratis, Andarsene È Difficile <b>·</b> ",
   proof1:"Runner nel network", proof2:"Città · NAP / CE / MI / SA", proof3:"Visualizzazioni mensili", proof4:"Corse organizzate all'anno",
   mani_tag:"Il movimento", mani_h2:"Nati nelle strade di Napoli",
@@ -1154,11 +1169,19 @@ setLang(browserLang.startsWith("it") ? "it" : "en");
 
 document.getElementById("lang-select").addEventListener("change", e => setLang(e.target.value));
 
-/* ---------- COUNTDOWN: next Wednesday 20:00, meta shows real date ---------- */
+/* ---------- SEASON PAUSE ----------
+   Single source of truth for the pause. Everything below (countdown, schedule rows,
+   banner, notes) reads from this one date, and the whole paused state clears itself
+   automatically once we pass it — no second edit needed on 9 Sep.            */
+const LACE_RESUME = new Date(2026, 8, 9, 20, 0, 0, 0); // 9 September 2026, 20:00 local
+function isPaused(){ return new Date() < LACE_RESUME; }
+
+/* ---------- COUNTDOWN: counts to the resume date while paused, then back to weekly Wednesdays ---------- */
 const DAYS={en:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],it:["Dom","Lun","Mar","Mer","Gio","Ven","Sab"]};
 const MONTHS={en:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],it:["gen","feb","mar","apr","mag","giu","lug","ago","set","ott","nov","dic"]};
 function nextRun(){
   const now=new Date();
+  if(now < LACE_RESUME) return LACE_RESUME;
   const d=new Date(now);
   const day=d.getDay(); // Wed=3
   let add=(3-day+7)%7;
@@ -1195,12 +1218,54 @@ function nextWeekday(targetDay){
   return d;
 }
 function renderSchedDates(){
-  const wed=nextWeekday(3), thu=nextWeekday(4);
   const wedEl=document.getElementById("sched-date-wed"), thuEl=document.getElementById("sched-date-thu");
+  if(isPaused()){
+    const label=I18N[currentLang].sched_paused_until;
+    if(wedEl) wedEl.textContent=label;
+    if(thuEl) thuEl.textContent=label;
+    return;
+  }
+  const wed=nextWeekday(3), thu=nextWeekday(4);
   if(wedEl) wedEl.textContent=wed.getDate()+" "+MONTHS[currentLang][wed.getMonth()];
   if(thuEl) thuEl.textContent=thu.getDate()+" "+MONTHS[currentLang][thu.getMonth()];
 }
 renderSchedDates();
+
+/* ---------- APPLY / CLEAR PAUSED STATE ----------
+   Runs once on load. While paused: rows go inactive and stop linking to Luma, the
+   bag-drop PSA is hidden, the schedule note and clock label swap to paused copy.
+   After 9 Sep it takes the other branch and the banner + pause note disappear.  */
+(function(){
+  const paused=isPaused();
+  const pauseNote=document.getElementById("sched-pause-note");
+  const bagdrop=document.getElementById("psa-bagdrop");
+  const note=document.getElementById("sched-note");
+  const clockLabel=document.querySelector(".clock-label");
+
+  if(paused){
+    document.querySelectorAll(".sched-row").forEach(row=>{
+      row.classList.add("paused");
+      row.classList.remove("rsvp");
+      row.onclick=null;
+      row.removeAttribute("onclick");
+      const link=row.querySelector(".sched-rsvp");
+      if(link){
+        link.removeAttribute("href");
+        link.removeAttribute("target");
+        link.removeAttribute("rel");
+        link.setAttribute("data-i18n","sched_paused_short"); // so it still translates
+      }
+    });
+    if(bagdrop) bagdrop.style.display="none";           // "no bag drop this week" implies a run this week
+    if(note) note.setAttribute("data-i18n-html","sched_note_paused");
+    if(clockLabel) clockLabel.setAttribute("data-i18n","clock_label_paused");
+  } else {
+    if(pauseNote) pauseNote.style.display="none";
+    const bar=document.getElementById("announce-bar");
+    if(bar){ bar.style.display="none"; document.documentElement.style.setProperty("--ann-h","0px"); }
+  }
+  setLang(currentLang); // re-apply translations after the attribute swaps above
+})();
 
 /* ---------- DROP 001 COUNTDOWN ---------- */
 /* ============================================================
