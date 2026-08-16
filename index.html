@@ -617,9 +617,9 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
         <a href="https://buy.stripe.com/8x200b33Vg8k1vpd8qbZe09" target="_blank" rel="noopener" class="btn btn-solid" data-i18n="hero_cta2">Get Laced In</a>
       </div>
       <div class="clock" aria-live="off">
-        <div class="clock-label" data-i18n="clock_label">Next start line</div>
+        <div class="clock-label" data-i18n="clock_label_paused">Back on the road in</div>
         <div class="clock-time" id="countdown">00:00:00:00</div>
-        <div class="clock-meta" id="clock-meta">Wed · 20:00 — Vomero, Napoli</div>
+        <div class="clock-meta" id="clock-meta">Wed 9 Sep · 20:00 — Vomero, Napoli</div>
       </div>
     </div>
   </div>
@@ -667,22 +667,22 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
       <a href="https://www.instagram.com/lacenapoli" target="_blank" rel="noopener" class="btn btn-sm" data-i18n="sched_btn">Follow on Instagram</a>
     </div>
     <div class="sched-psa" id="sched-pause-note" data-i18n-html="sched_pause_note">LACE is pausing scheduled runs in Napoli, Caserta, Milano and Salerno starting today. We're back <b>Wednesday, September 9</b>. This wasn't the original plan, and it's the last time we'll do it — from here, LACE runs all year, every city, no season off.</div>
-    <div class="sched-row rsvp" onclick="window.open('https://luma.com/si71yiqz','_blank','noopener')">
+    <div class="sched-row paused" data-luma="https://luma.com/si71yiqz">
       <div class="sched-day" data-i18n="d_wed">Wed</div>
-      <div><div class="sched-title" data-i18n="s1_title">Sprint Work</div><div class="sched-date" id="sched-date-wed"></div></div>
+      <div><div class="sched-title" data-i18n="s1_title">Sprint Work</div><div class="sched-date" id="sched-date-wed">Paused until 9 Sep</div></div>
       <div class="sched-city">Villa Floridiana gates · Via D. Cimarosa 156, Vomero</div>
       <div class="sched-time">20:00</div>
-      <a class="sched-rsvp" href="https://luma.com/si71yiqz" target="_blank" rel="noopener" onclick="event.stopPropagation()" data-i18n="rsvp">RSVP →</a>
+      <a class="sched-rsvp" data-i18n="sched_paused_short">Paused</a>
     </div>
-    <div class="sched-psa" id="psa-bagdrop" data-i18n="psa_bagdrop">PSA: no bag drop this week. Start and finish at the Villa Floridiana gates. Carry only what you can run with.</div>
-    <div class="sched-row rsvp" onclick="window.open('https://luma.com/st3xu2eb','_blank','noopener')">
+    <div class="sched-psa" id="psa-bagdrop" style="display:none" data-i18n="psa_bagdrop">PSA: no bag drop this week. Start and finish at the Villa Floridiana gates. Carry only what you can run with.</div>
+    <div class="sched-row paused" data-luma="https://luma.com/st3xu2eb">
       <div class="sched-day" data-i18n="d_thu">Thu</div>
-      <div><div class="sched-title" data-i18n="s2_title">Sprint Work — Caserta</div><div class="sched-date" id="sched-date-thu"></div></div>
+      <div><div class="sched-title" data-i18n="s2_title">Sprint Work — Caserta</div><div class="sched-date" id="sched-date-thu">Paused until 9 Sep</div></div>
       <div class="sched-city">Via Vincenzo Crispo 18 · Caserta</div>
       <div class="sched-time">20:00</div>
-      <a class="sched-rsvp" href="https://luma.com/st3xu2eb" target="_blank" rel="noopener" onclick="event.stopPropagation()" data-i18n="rsvp">RSVP →</a>
+      <a class="sched-rsvp" data-i18n="sched_paused_short">Paused</a>
     </div>
-    <div class="sched-note" id="sched-note" data-i18n-html="sched_note">More sessions run every week in Napoli, Milano and Salerno — times and meeting points change by season. DM <a href="https://www.instagram.com/lacenapoli" target="_blank" rel="noopener">@lacenapoli</a>, join the <a href="https://chat.whatsapp.com/L5UGTYFE6Db3BjlqvpoNIA?s=cl&amp;p=i&amp;mlu=4&amp;amv=0" target="_blank" rel="noopener">WhatsApp chat</a>, or email <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a> for this week's full schedule.</div>
+    <div class="sched-note" id="sched-note" data-i18n-html="sched_note_paused">All city sessions are paused until <b>Wednesday 9 September</b> — Napoli, Caserta, Milano and Salerno. DM <a href="https://www.instagram.com/lacenapoli" target="_blank" rel="noopener">@lacenapoli</a>, join the <a href="https://chat.whatsapp.com/L5UGTYFE6Db3BjlqvpoNIA?s=cl&amp;p=i&amp;mlu=4&amp;amv=0" target="_blank" rel="noopener">WhatsApp chat</a>, or email <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a> to be first to know when we are back.</div>
   </div>
 </section>
 
@@ -1231,39 +1231,43 @@ function renderSchedDates(){
 }
 renderSchedDates();
 
-/* ---------- APPLY / CLEAR PAUSED STATE ----------
-   Runs once on load. While paused: rows go inactive and stop linking to Luma, the
-   bag-drop PSA is hidden, the schedule note and clock label swap to paused copy.
-   After 9 Sep it takes the other branch and the banner + pause note disappear.  */
+/* ---------- CLEAR THE PAUSED STATE ONCE WE PASS THE RESUME DATE ----------
+   The paused state is what ships in the HTML, so it is what anyone sees even with
+   JavaScript off (search crawlers, link previews, older phones). This block does
+   nothing while paused, then on 9 Sep it puts the page back to normal: rows link to
+   Luma again, the bag-drop PSA returns, the banner and pause note come out, and the
+   countdown goes back to the next Wednesday. No second edit needed.            */
 (function(){
-  const paused=isPaused();
+  if(isPaused()) return; // HTML already reflects the paused state
+
+  document.querySelectorAll(".sched-row").forEach(row=>{
+    const url=row.getAttribute("data-luma");
+    row.classList.remove("paused");
+    if(!url) return;
+    row.classList.add("rsvp");
+    row.onclick=()=>window.open(url,"_blank","noopener");
+    const link=row.querySelector(".sched-rsvp");
+    if(link){
+      link.setAttribute("href",url);
+      link.setAttribute("target","_blank");
+      link.setAttribute("rel","noopener");
+      link.setAttribute("data-i18n","rsvp");
+      link.onclick=e=>e.stopPropagation();
+    }
+  });
+
   const pauseNote=document.getElementById("sched-pause-note");
   const bagdrop=document.getElementById("psa-bagdrop");
   const note=document.getElementById("sched-note");
   const clockLabel=document.querySelector(".clock-label");
+  const bar=document.getElementById("announce-bar");
 
-  if(paused){
-    document.querySelectorAll(".sched-row").forEach(row=>{
-      row.classList.add("paused");
-      row.classList.remove("rsvp");
-      row.onclick=null;
-      row.removeAttribute("onclick");
-      const link=row.querySelector(".sched-rsvp");
-      if(link){
-        link.removeAttribute("href");
-        link.removeAttribute("target");
-        link.removeAttribute("rel");
-        link.setAttribute("data-i18n","sched_paused_short"); // so it still translates
-      }
-    });
-    if(bagdrop) bagdrop.style.display="none";           // "no bag drop this week" implies a run this week
-    if(note) note.setAttribute("data-i18n-html","sched_note_paused");
-    if(clockLabel) clockLabel.setAttribute("data-i18n","clock_label_paused");
-  } else {
-    if(pauseNote) pauseNote.style.display="none";
-    const bar=document.getElementById("announce-bar");
-    if(bar){ bar.style.display="none"; document.documentElement.style.setProperty("--ann-h","0px"); }
-  }
+  if(pauseNote) pauseNote.style.display="none";
+  if(bagdrop) bagdrop.style.display="";
+  if(note) note.setAttribute("data-i18n-html","sched_note");
+  if(clockLabel) clockLabel.setAttribute("data-i18n","clock_label");
+  if(bar){ bar.style.display="none"; document.documentElement.style.setProperty("--ann-h","0px"); }
+
   setLang(currentLang); // re-apply translations after the attribute swaps above
 })();
 
