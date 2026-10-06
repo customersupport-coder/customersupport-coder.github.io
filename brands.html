@@ -134,6 +134,8 @@ figure{margin:0}
 .shots-grid.is-mix{grid-template-columns:repeat(5,1fr)}
 .shots-grid.is-mix img{aspect-ratio:3/4;height:100%}
 .shots-grid.is-mix img.wide{grid-column:span 2;aspect-ratio:auto}
+.shots-grid.is-one{grid-template-columns:1fr}
+.shots-grid.is-one img{aspect-ratio:5/2}
 .shots figcaption{font-family:var(--data);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:12px;line-height:1.6}
 .disc{max-width:72ch;font-family:var(--data);font-size:11.5px;color:var(--muted);line-height:1.7;margin:22px 0 0}
 
@@ -212,6 +214,7 @@ figure{margin:0}
   .job{grid-template-columns:1fr}
   .job-spec{text-align:left}
   .shots-grid{grid-template-columns:1fr 1fr}
+  .shots-grid.is-one{grid-template-columns:1fr}
   .shots-grid.is-mix{grid-template-columns:repeat(3,1fr)}
   .shots-grid.is-mix img.wide{grid-column:1/-1;aspect-ratio:3/2;height:auto}
   .incl,.brief{grid-template-columns:1fr}
@@ -306,6 +309,15 @@ figure{margin:0}
           <span data-it>Shoe test durante una sessione di gruppo, seguito da un evento run-with per la community.</span>
         </div>
         <div class="job-spec"><b>100</b> <span data-en>runners</span><span data-it>runner</span><br><span data-en>2 events</span><span data-it>2 eventi</span></div>
+        <figure class="shots">
+          <div class="shots-grid is-one">
+            <img src="/img/work/nike-1.jpg" width="1600" height="640" loading="lazy" decoding="async" alt="The LACE Napoli crew at night in black and red LACE Napoli tees with the Nike swoosh, waving two LACE Napoli run club flags">
+          </div>
+          <figcaption>
+            <span data-en>LACE Napoli run with Nike · Napoli</span>
+            <span data-it>Corsa LACE Napoli con Nike · Napoli</span>
+          </figcaption>
+        </figure>
       </div>
 
       <div class="job">
@@ -398,6 +410,18 @@ figure{margin:0}
           <span data-it>Shoe test a Caserta con De Lucia Sport, settembre 2026.</span>
         </div>
         <div class="job-spec">Caserta<br><span data-en>1 event</span><span data-it>1 evento</span></div>
+        <figure class="shots">
+          <div class="shots-grid is-mix">
+            <img class="wide" src="/img/work/mizuno-1.jpg" width="1200" height="800" loading="lazy" decoding="async" alt="The whole group in white Mizuno Run Club tees after the run, with a Mizuno flag behind">
+            <img src="/img/work/mizuno-2.jpg" width="720" height="960" loading="lazy" decoding="async" alt="Runners crossing towards the war memorial arch in Caserta, where the group is gathered on the steps">
+            <img src="/img/work/mizuno-3.jpg" width="720" height="960" loading="lazy" decoding="async" alt="Runners in Mizuno Run Club tees warming up under floodlights">
+            <img src="/img/work/mizuno-4.jpg" width="720" height="960" loading="lazy" decoding="async" alt="A runner in a Mizuno Run Club tee seen from behind on a cobbled street">
+          </div>
+          <figcaption>
+            <span data-en>Mizuno Run Club shoe test with De Lucia Sport · Caserta · 10 September 2026</span>
+            <span data-it>Shoe test Mizuno Run Club con De Lucia Sport · Caserta · 10 settembre 2026</span>
+          </figcaption>
+        </figure>
       </div>
     </div>
 
