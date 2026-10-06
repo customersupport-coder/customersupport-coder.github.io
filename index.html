@@ -436,6 +436,19 @@ h2{font-weight:900;font-stretch:118%;text-transform:uppercase;font-size:clamp(34
 .sched-more:hover,.sched-more:focus-visible{color:var(--paper)}
 .sched-note{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:rgba(245,243,238,.72);padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .sched-note a{color:var(--azzurro);text-decoration:underline;text-underline-offset:3px}
+.sched-feature{display:grid;grid-template-columns:240px 1fr;gap:32px;align-items:center;padding:26px;margin:0 0 2px;border-left:3px solid var(--azzurro);background:rgba(255,255,255,.05)}
+.sf-flyer{display:block;line-height:0}
+.sf-flyer img{display:block;width:100%;height:auto;aspect-ratio:1240/1754}
+.sf-kicker{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--azzurro);margin-bottom:10px}
+.sf-title{font-weight:900;font-stretch:112%;text-transform:uppercase;font-size:clamp(28px,3.4vw,44px);line-height:1;letter-spacing:-.01em;margin:0 0 18px}
+.sf-facts{list-style:none;margin:0 0 16px;padding:0;font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;line-height:1.9}
+.sf-text{font-size:15px;line-height:1.6;color:rgba(245,243,238,.8);margin:0 0 18px;max-width:52ch}
+.sf-cta{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--sodium)}
+a.sf-cta{color:var(--azzurro);text-decoration:underline;text-underline-offset:3px}
+@media(max-width:640px){
+  .sched-feature{grid-template-columns:1fr;gap:20px;padding:18px}
+  .sf-flyer{max-width:340px;margin:0 auto;width:100%}
+}
 .sched-psa{font-family:var(--mono);font-size:12px;line-height:1.6;letter-spacing:.08em;text-transform:uppercase;padding:14px 18px;margin:0 0 2px;border-left:3px solid var(--azzurro);background:rgba(255,255,255,.05)}
 
 /* ---------- EXPERIENCES ---------- */
@@ -735,14 +748,29 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
       <div class="sched-time">11:00</div>
       <a class="sched-rsvp" href="https://luma.com/1idpo7wq" target="_blank" rel="noopener" data-i18n="rsvp">RSVP →</a>
     </div>
-    <div class="sched-row" id="row-nike" data-start="2026-10-13T20:00">
+    <div class="sched-row" id="row-nike" data-start="2026-10-13T18:30">
       <div class="sched-day" data-i18n="d_tue">Tue</div>
-      <div><div class="sched-title" data-i18n="ev_nike">Nike Track Session</div><div class="sched-date">13 Oct</div></div>
-      <div class="sched-city" data-i18n="ev_nike_loc">60 runners only · Location TBA</div>
-      <div class="sched-time" data-i18n="ev_tba">TBA</div>
+      <div><div class="sched-title" data-i18n="ev_nike">Nike Tempo Sessions</div><div class="sched-date">13 Oct</div></div>
+      <div class="sched-city" data-i18n="ev_nike_loc">60 runners only · Via Campegna 267, Napoli</div>
+      <div class="sched-time">18:30</div>
       <a class="sched-rsvp" data-i18n="ev_soon">RSVP soon</a>
     </div>
-    <div class="sched-psa" id="psa-nike" data-i18n="psa_nike">Nike track session for the new Pegasus Plus 2. 60 runners only. 6.4 km tempo run over 16 laps: 3 fast laps at 65 to 70% of lactate threshold plus 1 recovery lap, repeated 4 times. Start time and RSVP link coming soon.</div>
+    <div class="sched-feature" id="psa-nike">
+      <a class="sf-flyer" href="img/nike-tempo-sessions.jpg" target="_blank" rel="noopener">
+        <img src="img/nike-tempo-sessions-sm.jpg" srcset="img/nike-tempo-sessions-sm.jpg 560w, img/nike-tempo-sessions.jpg 1240w" sizes="(max-width:640px) 86vw, 240px" width="1240" height="1754" loading="lazy" decoding="async" alt="Flyer: Pegasus Plus 2 presents Tempo Sessions, Napoli, Via Campegna 267, 13 October, 18:30">
+      </a>
+      <div class="sf-body">
+        <div class="sf-kicker" data-i18n="nike_kicker">Pegasus Plus 2 presents</div>
+        <h3 class="sf-title" data-i18n="nike_h">Tempo Sessions</h3>
+        <ul class="sf-facts">
+          <li data-i18n="nike_f1">Tuesday 13 October · 18:30</li>
+          <li data-i18n="nike_f2">Via Campegna 267 · Napoli</li>
+          <li data-i18n="nike_f3">60 runners only</li>
+        </ul>
+        <p class="sf-text" data-i18n="psa_nike">6.4 km tempo run over 16 laps: 3 fast laps at 65 to 70% of lactate threshold plus 1 recovery lap, repeated 4 times.</p>
+        <span class="sf-cta" id="nike-cta" data-i18n="nike_cta">RSVP link coming soon</span>
+      </div>
+    </div>
     <div class="sched-row rsvp" data-start="2026-10-14T20:00" data-luma="https://luma.com/9371c56u">
       <div class="sched-day" data-i18n="d_wed">Wed</div>
       <div><div class="sched-title" data-i18n="s1_title">Sprint Work</div><div class="sched-date">14 Oct</div></div>
@@ -1207,8 +1235,9 @@ en: {
   pv_note:'We reply with a plan and a price. Your details are used only to answer this request. <a href="/privacy.html">Privacy policy</a>',
   pv_done:"Request received. We will reply to the email you gave us.", pv_done_mail:"Your mail app has opened with the request filled in. Press send there and it reaches the LACE team.",
   ev_sunday:"Sunday Easy 5K", ev_sunday_long:"Sunday Long Run", ev_hw_vomero:"Halloween Sprint Work", ev_hw_caserta:"Halloween Sprint Work — Caserta",
-  ev_nike:"Nike Track Session", ev_nike_loc:"60 runners only · Location TBA", ev_tba:"TBA", ev_soon:"RSVP soon",
-  psa_nike:"Nike track session for the new Pegasus Plus 2. 60 runners only. 6.4 km tempo run over 16 laps: 3 fast laps at 65 to 70% of lactate threshold plus 1 recovery lap, repeated 4 times. Start time and RSVP link coming soon.",
+  ev_nike:"Nike Tempo Sessions", ev_nike_loc:"60 runners only · Via Campegna 267, Napoli", ev_tba:"TBA", ev_soon:"RSVP soon",
+  nike_kicker:"Pegasus Plus 2 presents", nike_h:"Tempo Sessions", nike_f1:"Tuesday 13 October · 18:30", nike_f2:"Via Campegna 267 · Napoli", nike_f3:"60 runners only", nike_cta:"RSVP link coming soon",
+  psa_nike:"6.4 km tempo run over 16 laps: 3 fast laps at 65 to 70% of lactate threshold plus 1 recovery lap, repeated 4 times.",
   s1_title:"Sprint Work", s2_title:"Sprint Work — Caserta",
   psa_bagdrop:"PSA: no bag drop this week. Start and finish at the Villa Floridiana gates. Carry only what you can run with.",
   psa_mizuno:"Caserta is back. Test the Mizuno range with De Lucia Sport, first 100 runners get a free Mizuno tee, food and drinks after for everyone.",
@@ -1298,8 +1327,9 @@ it: {
   pv_note:'Ti rispondiamo con un piano e un prezzo. Usiamo i tuoi dati solo per rispondere a questa richiesta. <a href="/privacy.html">Informativa privacy</a>',
   pv_done:"Richiesta ricevuta. Ti rispondiamo all'email che ci hai lasciato.", pv_done_mail:"Si è aperta la tua app di posta con la richiesta già compilata. Premi invia e arriva al team LACE.",
   ev_sunday:"5K della domenica", ev_sunday_long:"Lungo della domenica", ev_hw_vomero:"Halloween Sprint Work", ev_hw_caserta:"Halloween Sprint Work — Caserta",
-  ev_nike:"Nike Track Session", ev_nike_loc:"Solo 60 runner · Luogo da definire", ev_tba:"TBA", ev_soon:"A breve",
-  psa_nike:"Sessione in pista Nike per le nuove Pegasus Plus 2. Solo 60 runner. Tempo run di 6,4 km su 16 giri: 3 giri veloci al 65-70% della soglia del lattato più 1 giro di recupero, ripetuto 4 volte. Orario e link per iscriversi in arrivo.",
+  ev_nike:"Nike Tempo Sessions", ev_nike_loc:"Solo 60 runner · Via Campegna 267, Napoli", ev_tba:"TBA", ev_soon:"A breve",
+  nike_kicker:"Pegasus Plus 2 presenta", nike_h:"Tempo Sessions", nike_f1:"Martedì 13 ottobre · ore 18:30", nike_f2:"Via Campegna 267 · Napoli", nike_f3:"Solo 60 runner", nike_cta:"Link per iscriversi in arrivo",
+  psa_nike:"Tempo run di 6,4 km su 16 giri: 3 giri veloci dal 65 al 70% della soglia del lattato più 1 giro di recupero, ripetuto 4 volte.",
   s1_title:"Sprint Work", s2_title:"Sprint Work — Caserta",
   psa_bagdrop:"PSA: questa settimana non c'è il deposito borse. Partenza e arrivo ai cancelli della Villa Floridiana. Porta solo ciò con cui puoi correre.",
   psa_mizuno:"Caserta riparte. Prova le Mizuno con De Lucia Sport, i primi 100 runner ricevono una t-shirt Mizuno in regalo, cibo e drink offerti a tutti.",
