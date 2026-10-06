@@ -128,6 +128,10 @@ figure{margin:0}
 .job-what a{color:var(--azzurro);text-underline-offset:3px}
 .job-spec{font-family:var(--data);font-size:12.5px;color:var(--muted);text-align:right;line-height:1.7;letter-spacing:.03em}
 .job-spec b{color:var(--paper);font-weight:600}
+.shots{grid-column:1/-1;margin-top:14px}
+.shots-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.shots-grid img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:2px;background:var(--ink-2)}
+.shots figcaption{font-family:var(--data);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:12px;line-height:1.6}
 .disc{max-width:72ch;font-family:var(--data);font-size:11.5px;color:var(--muted);line-height:1.7;margin:22px 0 0}
 
 /* formats */
@@ -204,6 +208,7 @@ figure{margin:0}
   .num:nth-child(-n+2){border-bottom:var(--rule)}
   .job{grid-template-columns:1fr}
   .job-spec{text-align:left}
+  .shots-grid{grid-template-columns:1fr 1fr}
   .incl,.brief{grid-template-columns:1fr}
 }
 @media(max-width:520px){
@@ -323,6 +328,20 @@ figure{margin:0}
           <span data-it>Shoe test più una mezza maratona, con pettorali offerti alla crew.</span>
         </div>
         <div class="job-spec"><b>20</b> <span data-en>runners</span><span data-it>runner</span><br><span data-en>3 events</span><span data-it>3 eventi</span></div>
+        <figure class="shots">
+          <div class="shots-grid">
+          <img src="/img/work/adidas-hyperground-1.jpg" width="1200" height="800" loading="lazy" decoding="async" alt="The crew in adidas kit in front of the Arco della Pace in Milan">
+          <img src="/img/work/adidas-hyperground-2.jpg" width="1200" height="800" loading="lazy" decoding="async" alt="A large group of runners in white tees setting off together">
+          <img src="/img/work/adidas-hyperground-3.jpg" width="1200" height="800" loading="lazy" decoding="async" alt="A run leader with a megaphone moving alongside the group">
+          <img src="/img/work/adidas-hyperground-4.jpg" width="1200" height="800" loading="lazy" decoding="async" alt="A runner tying an adidas shoe before the start">
+          <img src="/img/work/adidas-hyperground-5.jpg" width="1200" height="800" loading="lazy" decoding="async" alt="Four runners posing together on the route">
+          <img src="/img/work/adidas-hyperground-6.jpg" width="1200" height="800" loading="lazy" decoding="async" alt="A runner smiling inside the red-lit Hyperground venue">
+          </div>
+          <figcaption>
+            <span data-en>adidas Hyperground · Milano · 3 October 2026 · Photos: Marco Maffessanti</span>
+            <span data-it>adidas Hyperground · Milano · 3 ottobre 2026 · Foto: Marco Maffessanti</span>
+          </figcaption>
+        </figure>
       </div>
 
       <div class="job">
