@@ -16,7 +16,6 @@
 <meta name="description" content="LACE is a running network born in the streets of Naples. Weekly runs in Napoli, Caserta, Milano and Salerno. Free to run. Laced In membership capped at 100, open in Napoli, Caserta and Milano.">
 <link rel="canonical" href="https://lacenapoli.com/">
 <meta name="theme-color" content="#0d1017">
-<link rel="canonical" href="https://lacenapoli.com/">
 <meta name="robots" content="index,follow">
 <script type="application/ld+json">
 {
@@ -408,8 +407,8 @@ h2{font-weight:900;font-stretch:118%;text-transform:uppercase;font-size:clamp(34
 .sched-row.paused .sched-time{text-decoration:line-through}
 .sched-row.paused .sched-rsvp{color:var(--sodium);text-decoration:none;cursor:default;letter-spacing:.08em}
 @media(max-width:960px){.sched-row.paused .sched-rsvp{font-size:11px;letter-spacing:.04em}}
-.sched-note{font-family:var(--mono);font-size:13px;letter-spacing:.08em;opacity:.7;padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.sched-note a{color:var(--azzurro)}
+.sched-note{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:rgba(245,243,238,.72);padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sched-note a{color:var(--azzurro);text-decoration:underline;text-underline-offset:3px}
 .sched-psa{font-family:var(--mono);font-size:12px;line-height:1.6;letter-spacing:.08em;text-transform:uppercase;padding:14px 18px;margin:0 0 2px;border-left:3px solid var(--azzurro);background:rgba(255,255,255,.05)}
 
 /* ---------- EXPERIENCES ---------- */
@@ -448,7 +447,7 @@ blockquote em{font-style:normal;color:var(--azzurro)}
 .sp-btn:hover{border-color:var(--sodium)}
 .sp-btn.sel{background:var(--paper);border-color:var(--paper);color:var(--night)}
 .sp-btn.out{opacity:.28;cursor:not-allowed;text-decoration:line-through}
-.sp-fit{font-family:var(--mono);font-size:11px;letter-spacing:.04em;opacity:.45;margin-top:12px;line-height:1.6}
+.sp-fit{font-family:var(--mono);font-size:11px;letter-spacing:.04em;opacity:.62;margin-top:12px;line-height:1.6}
 .btn-buy.is-locked{opacity:.4;pointer-events:none}
 .trust-strip{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 22px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.55}
 .trust-strip li{position:relative;padding-left:16px}
@@ -504,9 +503,9 @@ blockquote em{font-style:normal;color:var(--azzurro)}
 /* ---------- PARTNERS ---------- */
 .partners{padding:70px 0;border-bottom:1px solid var(--line)}
 .partners-row{display:flex;flex-wrap:wrap;gap:16px 56px;align-items:center;justify-content:center}
-.partners-note{max-width:640px;margin:26px auto 0;text-align:center;font-size:12px;line-height:1.6;opacity:.4}
-.foot-official{opacity:.55}
-.partner{font-weight:900;font-stretch:118%;text-transform:uppercase;font-size:22px;letter-spacing:.04em;opacity:.35;transition:opacity .2s}
+.partners-note{max-width:640px;margin:26px auto 0;text-align:center;font-size:12px;line-height:1.6;opacity:.6}
+.foot-official{opacity:1}
+.partner{font-weight:900;font-stretch:118%;text-transform:uppercase;font-size:22px;letter-spacing:.04em;opacity:.45;transition:opacity .2s}
 .partner:hover{opacity:.85}
 .partners-tag{text-align:center;font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;opacity:.5;margin-bottom:36px}
 
@@ -559,7 +558,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 .foot-col h4{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--azzurro);margin-bottom:16px}
 .foot-col a{display:block;font-size:14px;opacity:.7;padding:5px 0;transition:opacity .2s}
 .foot-col a:hover{opacity:1}
-.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;opacity:.45;border-top:1px solid var(--line);padding-top:28px}
+.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;opacity:.62;border-top:1px solid var(--line);padding-top:28px}
 
 /* ---------- RESPONSIVE ---------- */
 @media(max-width:960px){
@@ -570,7 +569,18 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
   .sched-row>*{min-width:0}  /* let the title column shrink instead of pushing the row off-screen */
   .sched-city{display:none}
 }
+@media(max-width:640px){
+  .sched-row{grid-template-columns:42px 1fr auto;gap:4px 14px;padding:20px 0;align-items:start}
+  .sched-day{grid-column:1;grid-row:1;padding-top:5px}
+  .sched-row>div:nth-child(2){grid-column:2;grid-row:1/3}
+  .sched-title{font-size:19px;line-height:1.2}
+  .sched-time{grid-column:3;grid-row:1;padding-top:3px}
+  .sched-rsvp{grid-column:3;grid-row:2;align-self:start;padding-top:4px}
+  .sched-city{display:block;grid-column:2/-1;grid-row:3;font-size:11px;line-height:1.55;margin-top:4px}
+}
 @media(max-width:560px){
+  .proof-cell{min-width:0;padding:30px 16px}
+  .proof-lab{letter-spacing:.1em;overflow-wrap:anywhere}
   .manifesto,.membership,.schedule,.exp,.founder,.shop{padding:72px 0}
   .apply{padding:88px 0}
   .proof{padding:64px 0}
@@ -583,13 +593,6 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 </style>
 </head>
 <body>
-
-<div class="announce-bar" id="announce-bar">
-  <div class="announce-in">
-    <span data-i18n-html="ann_text">Pausing all cities from today. Back <b>Wednesday, September 9</b>. Last time we do this — after this, LACE runs all year.</span>
-    <button class="announce-x" id="announce-x" aria-label="Close">×</button>
-  </div>
-</div>
 
 <nav>
   <div class="nav-in">
@@ -628,7 +631,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
         <a href="https://buy.stripe.com/8x200b33Vg8k1vpd8qbZe09" target="_blank" rel="noopener" class="btn btn-solid" data-i18n="hero_cta2">Get Laced In</a>
       </div>
       <div class="clock" aria-live="off">
-        <div class="clock-label" data-i18n="clock_label_paused">Back on the road in</div>
+        <div class="clock-label" data-i18n="clock_label">Next start line</div>
         <div class="clock-time" id="countdown">00:00:00:00</div>
         <div class="clock-meta" id="clock-meta">Wed 7 Oct · 20:00 — Vomero, Napoli</div>
       </div>
@@ -677,7 +680,6 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
       </div>
       <a href="https://www.instagram.com/lacenapoli" target="_blank" rel="noopener" class="btn btn-sm" data-i18n="sched_btn">Follow on Instagram</a>
     </div>
-    <div class="sched-psa" id="sched-pause-note" data-i18n-html="sched_pause_note">LACE is pausing scheduled runs in Napoli, Caserta, Milano and Salerno starting today. We're back <b>Wednesday, September 9</b>. This wasn't the original plan, and it's the last time we'll do it — from here, LACE runs all year, every city, no season off.</div>
     <div class="sched-row rsvp" data-start="2026-10-07T20:00" data-luma="https://luma.com/oia7jqyb">
       <div class="sched-day" data-i18n="d_wed">Wed</div>
       <div><div class="sched-title" data-i18n="s1_title">Sprint Work</div><div class="sched-date">7 Oct</div></div>
@@ -757,7 +759,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
       <div class="sched-time">20:00</div>
       <a class="sched-rsvp" href="https://luma.com/hqu110pe" target="_blank" rel="noopener" data-i18n="rsvp">RSVP →</a>
     </div>
-    <div class="sched-note" id="sched-note" data-i18n-html="sched_note">All city sessions are paused until <b>Wednesday 9 September</b> — Napoli, Caserta, Milano and Salerno. DM <a href="https://www.instagram.com/lacenapoli" target="_blank" rel="noopener">@lacenapoli</a>, join the <a href="https://chat.whatsapp.com/L5UGTYFE6Db3BjlqvpoNIA?s=cl&amp;p=i&amp;mlu=4&amp;amv=0" target="_blank" rel="noopener">WhatsApp chat</a>, or email <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a> to be first to know when we are back.</div>
+    <div class="sched-note" id="sched-note" data-i18n-html="sched_note">More sessions run every week in Napoli, Milano and Salerno — times and meeting points change by season. DM <a href="https://www.instagram.com/lacenapoli" target="_blank" rel="noopener">@lacenapoli</a>, join the <a href="https://chat.whatsapp.com/L5UGTYFE6Db3BjlqvpoNIA?s=cl&amp;p=i&amp;mlu=4&amp;amv=0" target="_blank" rel="noopener">WhatsApp chat</a>, or email <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a> for this week\'s full schedule.</div>
   </div>
 </section>
 
@@ -771,7 +773,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
     </div>
     <div class="exp-grid">
       <div class="exp-card">
-        <div class="exp-img amber"><img src="img/race-prep.jpg" alt="LACE runners mid-session on a Naples street" loading="lazy" decoding="async" width="1600" height="800"><span class="exp-badge" data-i18n="exp_badge">25 places</span></div>
+        <div class="exp-img amber"><img src="img/race-prep.jpg" alt="LACE runners mid-session on a Naples street" loading="lazy" decoding="async" width="1280" height="640"><span class="exp-badge" data-i18n="exp_badge">25 places</span></div>
         <div class="exp-body">
           <div class="exp-date" data-i18n="hx_date">Napoli · 14 Sep — 6 Dec</div>
           <div class="exp-title" data-i18n="hx_title">Road to HYROX Milano</div>
@@ -1273,21 +1275,38 @@ document.getElementById("lang-select").addEventListener("change", e => {
 /* ============================================================
    SCHEDULE + COUNTDOWN — single source of truth.
    Every dated run lives in the .sched-row markup as data-start
-   (local time, ISO-like). Add or remove a row and the countdown,
+   (Naples wall-clock time, ISO-like). Add or remove a row and the countdown,
    the hero meta line and the auto-hiding of past runs all follow.
    Rows with no data-luma are informational (e.g. a race weekend)
    and are skipped by the countdown.
    ============================================================ */
-const LACE_RESUME = new Date(2026, 8, 9, 20, 0, 0, 0); // season restart — banner only
-function isPaused(){ return new Date() < LACE_RESUME; }
-
 const DAYS={en:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],it:["Dom","Lun","Mar","Mer","Gio","Ven","Sab"]};
 const MONTHS={en:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],it:["gen","feb","mar","apr","mag","giu","lug","ago","set","ott","nov","dic"]};
 
+/* wall-clock Date, used only for the labels (day, date, hour) */
 function parseLocal(v){
   const m=/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/.exec(v||"");
   if(!m) return null;
   return new Date(+m[1], +m[2]-1, +m[3], +m[4], +m[5], 0, 0);
+}
+/* Europe/Rome date parts of a real instant */
+function romeParts(d){
+  const o={};
+  new Intl.DateTimeFormat("en-US",{timeZone:"Europe/Rome",hourCycle:"h23",year:"numeric",month:"numeric",day:"numeric",hour:"numeric",minute:"numeric"})
+    .formatToParts(d).forEach(x=>{ if(x.type!=="literal") o[x.type]=+x.value; });
+  return o;
+}
+/* the real instant of a Naples wall-clock time, whatever timezone the visitor is in */
+function romeInstant(y,mo,d,h,mi){
+  const guess=Date.UTC(y,mo,d,h,mi);
+  try{
+    const p=romeParts(new Date(guess));
+    return new Date(2*guess-Date.UTC(p.year,p.month-1,p.day,p.hour,p.minute));
+  }catch(e){ return new Date(y,mo,d,h,mi,0,0); }
+}
+function parseInstant(v){
+  const m=/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/.exec(v||"");
+  return m ? romeInstant(+m[1], +m[2]-1, +m[3], +m[4], +m[5]) : null;
 }
 
 /* every dated row on the page, in order */
@@ -1295,30 +1314,36 @@ function schedule(){
   return Array.from(document.querySelectorAll(".sched-row[data-start]")).map(row=>({
     row:row,
     start:parseLocal(row.getAttribute("data-start")),
+    at:parseInstant(row.getAttribute("data-start")),
     url:row.getAttribute("data-luma"),
     city:(row.querySelector(".sched-city")||{}).textContent||"",
     time:(row.querySelector(".sched-time")||{}).textContent||""
-  })).filter(e=>e.start).sort((a,b)=>a.start-b.start);
+  })).filter(e=>e.start).sort((a,b)=>a.at-b.at);
 }
 
-/* next actual run: skips informational rows and anything already started */
-function nextRun(){
-  const now=new Date();
-  const up=schedule().filter(e=>e.url && e.start>now);
-  if(up.length) return up[0].start;
-  const d=new Date(now); // list exhausted — fall back to the weekly Wednesday
-  d.setDate(d.getDate()+((3-d.getDay()+7)%7)); d.setHours(20,0,0,0);
-  if(d<=now) d.setDate(d.getDate()+7);
-  return d;
+/* list exhausted: fall back to the weekly Wednesday 20:00 in Naples */
+function nextWednesday(){
+  const now=new Date(), p=romeParts(now);
+  for(let i=0;i<8;i++){
+    if(new Date(Date.UTC(p.year,p.month-1,p.day+i)).getUTCDay()!==3) continue;
+    const at=romeInstant(p.year,p.month-1,p.day+i,20,0);
+    if(at>now) return {at:at, start:new Date(p.year,p.month-1,p.day+i,20,0,0,0)};
+  }
+  return {at:now, start:now};
 }
+/* next actual run: skips informational rows and anything already started */
 function nextRunEntry(){
   const now=new Date();
-  return schedule().filter(e=>e.url && e.start>now)[0]||null;
+  return schedule().filter(e=>e.url && e.at>now)[0]||null;
+}
+function nextRun(){
+  const e=nextRunEntry();
+  return e ? e.at : nextWednesday().at;
 }
 
 function renderClockMeta(){
   const el=document.getElementById("clock-meta"); if(!el) return;
-  const e=nextRunEntry(), d=e?e.start:nextRun();
+  const e=nextRunEntry(), d=e?e.start:nextWednesday().start;
   const where=e ? e.city.split("·").pop().trim() : "Vomero, Napoli";
   const hh=String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0");
   el.textContent=DAYS[currentLang][d.getDay()]+" "+d.getDate()+" "+MONTHS[currentLang][d.getMonth()]+" · "+hh+" — "+where;
@@ -1335,6 +1360,37 @@ function renderClockMeta(){
   renderClockMeta(); setInterval(renderClockMeta,3e4);
 })();
 
+/* describe the upcoming runs to search engines as events (built from the same rows) */
+(function(){
+  try{
+    const now=new Date();
+    const evs=schedule().filter(e=>e.url && e.at>now && /luma\.com\//.test(e.url)).map(e=>{
+      const title=((e.row.querySelector(".sched-title")||{}).textContent||"Run").trim();
+      const place=e.city.trim();
+      return {
+        "@type":"SportsEvent",
+        "name":"LACE "+title,
+        "startDate":e.at.toISOString(),
+        "endDate":new Date(e.at.getTime()+90*6e4).toISOString(),
+        "eventStatus":"https://schema.org/EventScheduled",
+        "eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode",
+        "isAccessibleForFree":true,
+        "url":e.url,
+        "image":"https://lacenapoli.com/og-image.jpg",
+        "description":"Free group run with LACE. "+place+". RSVP on Luma.",
+        "location":{"@type":"Place","name":place,"address":{"@type":"PostalAddress","streetAddress":place,"addressLocality":/Caserta/i.test(place)?"Caserta":"Napoli","addressRegion":"Campania","addressCountry":"IT"}},
+        "organizer":{"@type":"SportsClub","name":"LACE","url":"https://lacenapoli.com/"},
+        "offers":{"@type":"Offer","price":"0","priceCurrency":"EUR","availability":"https://schema.org/InStock","url":e.url}
+      };
+    });
+    if(!evs.length) return;
+    const tag=document.createElement("script");
+    tag.type="application/ld+json";
+    tag.textContent=JSON.stringify({"@context":"https://schema.org","@graph":evs});
+    document.head.appendChild(tag);
+  }catch(err){}
+})();
+
 /* localise each row's date label from data-start */
 function renderSchedDates(){
   schedule().forEach(e=>{
@@ -1344,11 +1400,11 @@ function renderSchedDates(){
 }
 renderSchedDates();
 
-/* hide runs that have already happened, and clear the season banner on the day */
+/* hide runs that have already happened */
 (function(){
   function prune(){
     const cutoff=new Date(Date.now()-3*36e5); // stays up for 3h after the start
-    schedule().forEach(e=>{ if(e.start<cutoff) e.row.style.display="none"; });
+    schedule().forEach(e=>{ if(e.at<cutoff) e.row.style.display="none"; });
     const psa=document.getElementById("psa-bagdrop");
     const first=schedule().find(e=>e.row.style.display!=="none");
     if(psa) psa.style.display=(first && /Floridiana/i.test(first.city))?"":"none";
@@ -1367,13 +1423,6 @@ renderSchedDates();
     if(link) link.onclick=e=>e.stopPropagation();
   });
 
-  if(isPaused()) return; // banner stays up until the restart
-  const pauseNote=document.getElementById("sched-pause-note");
-  const clockLabel=document.querySelector(".clock-label");
-  const bar=document.getElementById("announce-bar");
-  if(pauseNote) pauseNote.style.display="none";
-  if(clockLabel) clockLabel.setAttribute("data-i18n","clock_label");
-  if(bar){ bar.style.display="none"; document.documentElement.style.setProperty("--ann-h","0px"); }
   setLang(currentLang);
 })();
 
