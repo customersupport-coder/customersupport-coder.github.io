@@ -270,7 +270,8 @@ nav{position:fixed;top:var(--ann-h,0px);left:0;right:0;z-index:100;background:rg
 .nav-in{max-width:1240px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .logo{font-weight:900;font-stretch:125%;font-size:22px;letter-spacing:.06em}
 .logo span{color:var(--azzurro)}
-.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links{display:flex;gap:28px;align-items:center}
+@media(max-width:1120px){.nav-links{gap:18px}}
 .nav-links a{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.75;transition:opacity .2s}
 .nav-links a:hover,.nav-links a:focus-visible{opacity:1}
 .btn{display:inline-block;font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:13px 26px;border:1px solid var(--paper);transition:all .2s;cursor:pointer;background:none;color:var(--paper)}
@@ -359,6 +360,29 @@ h2{font-weight:900;font-stretch:118%;text-transform:uppercase;font-size:clamp(34
 .photo-tag{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.45;position:relative}
 
 /* ---------- MEMBERSHIP (light section) ---------- */
+.private{padding:110px 0;border-bottom:1px solid var(--line)}
+.pv-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,80px);align-items:start}
+.pv-lede{font-size:18px;opacity:.8;max-width:46ch;margin-top:26px}
+.pv-list{list-style:none;margin-top:30px;border-bottom:1px solid var(--line)}
+.pv-list li{padding:13px 0;border-top:1px solid var(--line);font-size:15px;display:flex;gap:12px}
+.pv-list li::before{content:"—";color:var(--azzurro);flex-shrink:0}
+.pv-form{background:var(--night-2);border:1px solid var(--line);padding:clamp(22px,3.4vw,36px)}
+.pv-row{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.pv-f{display:block;margin-bottom:16px}
+.pv-f>span{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.65;margin-bottom:7px}
+.pv-f input,.pv-f select,.pv-f textarea{width:100%;background:var(--night);border:1px solid var(--line);color:var(--paper);font-family:var(--sans);font-size:16px;padding:12px 13px;outline:none;border-radius:0;appearance:none;-webkit-appearance:none}
+.pv-f textarea{min-height:110px;resize:vertical;line-height:1.5}
+.pv-f select{background-image:linear-gradient(45deg,transparent 50%,var(--sodium) 50%),linear-gradient(135deg,var(--sodium) 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat;padding-right:36px}
+.pv-f input:focus,.pv-f select:focus,.pv-f textarea:focus{border-color:var(--azzurro)}
+.pv-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.pv-form .btn{width:100%;margin-top:4px}
+.pv-form .btn[disabled]{opacity:.5;cursor:wait}
+.pv-err{display:none;font-family:var(--mono);font-size:12.5px;color:#ff8a65;margin-top:12px}
+.pv-note{font-family:var(--mono);font-size:11px;letter-spacing:.04em;line-height:1.6;opacity:.62;margin-top:14px}
+.pv-note a{text-decoration:underline;text-underline-offset:3px}
+.pv-done{font-family:var(--mono);letter-spacing:.06em;line-height:1.7;padding:8px 0}
+@media(max-width:960px){.pv-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.private{padding:72px 0}.pv-row{grid-template-columns:1fr}}
 .membership{background:var(--paper);color:var(--ink);padding:110px 0}
 .membership .sec-tag{color:#1774ab}
 .tiers{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:900px}
@@ -407,6 +431,9 @@ h2{font-weight:900;font-stretch:118%;text-transform:uppercase;font-size:clamp(34
 .sched-row.paused .sched-time{text-decoration:line-through}
 .sched-row.paused .sched-rsvp{color:var(--sodium);text-decoration:none;cursor:default;letter-spacing:.08em}
 @media(max-width:960px){.sched-row.paused .sched-rsvp{font-size:11px;letter-spacing:.04em}}
+.schedule:not(.all) .is-more{display:none}
+.sched-more{display:block;width:100%;background:none;border:0;border-top:1px solid var(--line);color:var(--azzurro);font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;padding:22px 0;cursor:pointer;text-align:left}
+.sched-more:hover,.sched-more:focus-visible{color:var(--paper)}
 .sched-note{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:rgba(245,243,238,.72);padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .sched-note a{color:var(--azzurro);text-decoration:underline;text-underline-offset:3px}
 .sched-psa{font-family:var(--mono);font-size:12px;line-height:1.6;letter-spacing:.08em;text-transform:uppercase;padding:14px 18px;margin:0 0 2px;border-left:3px solid var(--azzurro);background:rgba(255,255,255,.05)}
@@ -507,6 +534,7 @@ blockquote em{font-style:normal;color:var(--azzurro)}
 .foot-official{opacity:1}
 .partner{font-weight:900;font-stretch:118%;text-transform:uppercase;font-size:22px;letter-spacing:.04em;opacity:.45;transition:opacity .2s}
 .partner:hover{opacity:.85}
+.partners-cta{text-align:center;margin-top:34px}
 .partners-tag{text-align:center;font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;opacity:.5;margin-bottom:36px}
 
 /* ---------- APPLY ---------- */
@@ -603,6 +631,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
       <a href="#membership" data-i18n="nav_membership">Membership</a>
       <a href="#shop" data-i18n="nav_shop">Shop</a>
       <a href="#about" data-i18n="nav_about">About</a>
+      <a href="/brands.html" data-i18n="nav_brands">For brands</a>
     </div>
     <div class="nav-cta">
       <button class="menu-btn" id="menu-btn" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -619,7 +648,10 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 
 <header id="top">
   <div class="hero-bg"></div>
-  <img class="hero-video" src="heroposter.jpg" alt="LACE runners filling the Scarlatti steps in Vomero, Naples, at night" fetchpriority="high" width="900" height="1600">
+  <picture>
+    <source media="(min-width:900px)" srcset="img/hero-wide.jpg" width="2200" height="880">
+    <img class="hero-video" src="heroposter.jpg" alt="The LACE Napoli crew at night with the LACE Napoli run club flags" fetchpriority="high" width="900" height="1600">
+  </picture>
   <div class="hero-overlay"></div>
   <div class="hero-in">
     <div class="hero-eyebrow" data-i18n="hero_eyebrow">Napoli · Caserta · Milano · Salerno</div>
@@ -667,6 +699,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
       <span class="partner">On</span>
       <span class="partner">Saucony</span>
     </div>
+    <div class="partners-cta"><a class="btn btn-sm" href="/brands.html" data-i18n="p_cta">See the work and send a brief →</a></div>
     <div class="partners-note" data-i18n="p_note">Past client work. All trademarks belong to their owners. LACE is independent and not sponsored by, endorsed by or affiliated with these brands.</div>
   </div>
 </section>
@@ -759,6 +792,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
       <div class="sched-time">20:00</div>
       <a class="sched-rsvp" href="https://luma.com/hqu110pe" target="_blank" rel="noopener" data-i18n="rsvp">RSVP →</a>
     </div>
+    <button type="button" class="sched-more" id="sched-more" hidden></button>
     <div class="sched-note" id="sched-note" data-i18n-html="sched_note">More sessions run every week in Napoli, Milano and Salerno — times and meeting points change by season. DM <a href="https://www.instagram.com/lacenapoli" target="_blank" rel="noopener">@lacenapoli</a>, join the <a href="https://chat.whatsapp.com/L5UGTYFE6Db3BjlqvpoNIA?s=cl&amp;p=i&amp;mlu=4&amp;amv=0" target="_blank" rel="noopener">WhatsApp chat</a>, or email <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a> for this week\'s full schedule.</div>
   </div>
 </section>
@@ -773,16 +807,68 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
     </div>
     <div class="exp-grid">
       <div class="exp-card">
-        <div class="exp-img amber"><img src="img/race-prep.jpg" alt="LACE runners mid-session on a Naples street" loading="lazy" decoding="async" width="1280" height="640"><span class="exp-badge" data-i18n="exp_badge">25 places</span></div>
+        <div class="exp-img amber"><img src="img/race-prep.jpg" alt="LACE runners mid-session on a Naples street" loading="lazy" decoding="async" width="1280" height="640"><span class="exp-badge" data-i18n="exp_badge">In progress</span></div>
         <div class="exp-body">
           <div class="exp-date" data-i18n="hx_date">Napoli · 14 Sep — 6 Dec</div>
           <div class="exp-title" data-i18n="hx_title">Road to HYROX Milano</div>
           <p data-i18n="hx_p">Twelve weeks of coached hybrid training for runners who want a race result, not a workout. Sled, sandbag and compromised running, coached by a HYROX Performance Coach. Sessions run out of Naples. Race entry is bought separately from HYROX.</p>
-          <p class="exp-price" data-i18n="hx_price">€179 · €109 for Laced In members</p>
-          <p class="exp-deadline" data-i18n="hx_deadline">Enrolment closes 11 September</p>
-          <a href="/road-to-hyrox.html" class="exp-link" data-i18n="hx_link">See the block →</a>
+          <p class="exp-price" data-i18n="hx_price">Enrolment for this block is closed</p>
+          <p class="exp-deadline" data-i18n="hx_deadline">Next block: join the waitlist</p>
+          <a href="/road-to-hyrox.html#programmes" class="exp-link" data-i18n="hx_link">Join the waitlist →</a>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="private" id="private">
+  <div class="wrap">
+    <div class="pv-grid">
+      <div>
+        <div class="sec-tag" data-i18n="pv_tag">Private and corporate runs</div>
+        <h2 data-i18n-html="pv_h2">Your group.<br>Our route.</h2>
+        <p class="pv-lede" data-i18n="pv_p">Company teams, gym anniversaries, birthdays and visiting groups. We plan the route, bring the pacers and lead the run. You bring the people.</p>
+        <ul class="pv-list">
+          <li data-i18n="pv_li1">A route built for your group's pace and the time you have</li>
+          <li data-i18n="pv_li2">LACE pacers at the front and at the back</li>
+          <li data-i18n="pv_li3">Napoli, Caserta, Milano or Salerno</li>
+          <li data-i18n="pv_li4">Photo, video, race bibs and co-branded kit on request</li>
+        </ul>
+      </div>
+      <form class="pv-form" id="pv-form" novalidate>
+        <div class="pv-row">
+          <label class="pv-f"><span><span data-i18n="pv_name">Your name</span> *</span><input type="text" name="name" autocomplete="name" required maxlength="120"></label>
+          <label class="pv-f"><span><span data-i18n="pv_email">Email</span> *</span><input type="email" name="email" autocomplete="email" required maxlength="160"></label>
+        </div>
+        <div class="pv-row">
+          <label class="pv-f"><span><span data-i18n="pv_type">What is it for?</span> *</span>
+            <select name="type" required>
+              <option value="" data-i18n="pv_choose">Choose one</option>
+              <option value="Company team" data-i18n="pv_t1">Company team</option>
+              <option value="Celebration" data-i18n="pv_t2">Birthday or celebration</option>
+              <option value="Gym or club" data-i18n="pv_t3">Gym or club</option>
+              <option value="Visiting group" data-i18n="pv_t4">Visiting group</option>
+              <option value="Other" data-i18n="pv_t5">Something else</option>
+            </select></label>
+          <label class="pv-f"><span><span data-i18n="pv_city">City</span> *</span>
+            <select name="city" required>
+              <option value="" data-i18n="pv_choose">Choose one</option>
+              <option value="Napoli">Napoli</option>
+              <option value="Caserta">Caserta</option>
+              <option value="Milano">Milano</option>
+              <option value="Salerno">Salerno</option>
+            </select></label>
+        </div>
+        <div class="pv-row">
+          <label class="pv-f"><span data-i18n="pv_date">Date you have in mind</span><input type="text" name="date" maxlength="120"></label>
+          <label class="pv-f"><span data-i18n="pv_size">Group size</span><input type="text" name="size" inputmode="numeric" maxlength="20"></label>
+        </div>
+        <label class="pv-f"><span data-i18n="pv_msg">Anything else we should know</span><textarea name="message" maxlength="3000"></textarea></label>
+        <div class="pv-hp" aria-hidden="true"><label>Leave this empty <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"></label></div>
+        <button class="btn btn-solid" type="submit" id="pv-send" data-i18n="pv_send">Request a private run</button>
+        <p class="pv-err" id="pv-err" role="alert" data-i18n="pv_err">Please add your name, a valid email, what it is for and the city.</p>
+        <p class="pv-note" data-i18n-html="pv_note">We reply with a plan and a price. Your details are used only to answer this request. <a href="/privacy.html">Privacy policy</a></p>
+      </form>
     </div>
   </div>
 </section>
@@ -1009,6 +1095,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
           <a href="#shop" data-i18n="nav_shop">Shop</a>
           <a href="#membership" data-i18n="nav_membership">Membership</a>
           <a href="#about" data-i18n="nav_about">About</a>
+          <a href="/brands.html" data-i18n="nav_brands">For brands</a>
+          <a href="#private" data-i18n="ft_private">Private runs</a>
         </div>
         <div class="foot-col">
           <h4 data-i18n="ft_contact">Contact</h4>
@@ -1108,6 +1196,16 @@ en: {
   ev_mizuno:"Shoe Test — Mizuno x De Lucia Sport", ev_saucony:"Saucony Shoe Test", ev_norun:"No run — we are racing", ev_norun_loc:"HYROX Roma · Berlin Marathon", ev_norun_rsvp:"No session", ev_details:"Details →",
   sched_pause_note:"The season restarts <b>Wednesday 9 September</b>. Every September date, time and meeting point is below. From here LACE runs all year, every city, no season off.",
   d_wed:"Wed", d_thu:"Thu", d_sun:"Sun", d_tue:"Tue", rsvp:"RSVP →",
+  nav_brands:"For brands", ft_private:"Private runs", p_cta:"See the work and send a brief →",
+  sched_more:"Show all {n} dates", sched_less:"Show fewer dates −",
+  pv_tag:"Private and corporate runs", pv_h2:"Your group.<br>Our route.",
+  pv_p:"Company teams, gym anniversaries, birthdays and visiting groups. We plan the route, bring the pacers and lead the run. You bring the people.",
+  pv_li1:"A route built for your group's pace and the time you have", pv_li2:"LACE pacers at the front and at the back", pv_li3:"Napoli, Caserta, Milano or Salerno", pv_li4:"Photo, video, race bibs and co-branded kit on request",
+  pv_name:"Your name", pv_email:"Email", pv_type:"What is it for?", pv_city:"City", pv_date:"Date you have in mind", pv_size:"Group size", pv_msg:"Anything else we should know",
+  pv_choose:"Choose one", pv_t1:"Company team", pv_t2:"Birthday or celebration", pv_t3:"Gym or club", pv_t4:"Visiting group", pv_t5:"Something else",
+  pv_send:"Request a private run", pv_err:"Please add your name, a valid email, what it is for and the city.",
+  pv_note:'We reply with a plan and a price. Your details are used only to answer this request. <a href="/privacy.html">Privacy policy</a>',
+  pv_done:"Request received. We will reply to the email you gave us.", pv_done_mail:"Your mail app has opened with the request filled in. Press send there and it reaches the LACE team.",
   ev_sunday:"Sunday Easy 5K", ev_sunday_long:"Sunday Long Run", ev_hw_vomero:"Halloween Sprint Work", ev_hw_caserta:"Halloween Sprint Work — Caserta",
   ev_nike:"Nike Track Session", ev_nike_loc:"60 runners only · Location TBA", ev_tba:"TBA", ev_soon:"RSVP soon",
   psa_nike:"Nike track session for the new Pegasus Plus 2. 60 runners only. 6.4 km tempo run over 16 laps: 3 fast laps at 65 to 70% of lactate threshold plus 1 recovery lap, repeated 4 times. Start time and RSVP link coming soon.",
@@ -1116,7 +1214,7 @@ en: {
   psa_mizuno:"Caserta is back. Test the Mizuno range with De Lucia Sport, first 100 runners get a free Mizuno tee, food and drinks after for everyone.",
   sched_note:'More sessions run every week in Napoli, Milano and Salerno — times and meeting points change by season. DM <a href="https://www.instagram.com/lacenapoli" target="_blank" rel="noopener">@lacenapoli</a>, join the <a href="https://chat.whatsapp.com/L5UGTYFE6Db3BjlqvpoNIA?s=cl&p=i&mlu=4&amv=0" target="_blank" rel="noopener">WhatsApp chat</a>, or email <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a> for this week\'s full schedule.',
   nav_shop:"Shop",
-  exp_tag:"HYROX Milano — 4 to 6 December 2026", exp_h2:"Twelve weeks to the start line", exp_badge:"25 places", hx_date:"Napoli · 14 Sep — 6 Dec", hx_title:"Road to HYROX Milano", hx_p:"Twelve weeks of coached hybrid training for runners who want a race result, not a workout. Sled, sandbag and compromised running, coached by a HYROX Performance Coach. Sessions run out of Naples. Race entry is bought separately from HYROX.", hx_price:"€179 · €109 for Laced In members", hx_deadline:"Enrolment closes 11 September", hx_link:"See the block →",
+  exp_tag:"HYROX Milano — 4 to 6 December 2026", exp_h2:"Twelve weeks to the start line", exp_badge:"In progress", hx_date:"Napoli · 14 Sep — 6 Dec", hx_title:"Road to HYROX Milano", hx_p:"Twelve weeks of coached hybrid training for runners who want a race result, not a workout. Sled, sandbag and compromised running, coached by a HYROX Performance Coach. Sessions run out of Naples. Race entry is bought separately from HYROX.", hx_price:"Enrolment for this block is closed", hx_deadline:"Next block: join the waitlist", hx_link:"Join the waitlist →",
   e1_date:"Ischia · Capri", e1_title:"The Island Experience", e1_link:"Request a spot →",
   e1_p:"Full days on Ischia and Capri. Coastal run, sea swim, long table by the water. One boat, one crew, capped numbers. Dates confirmed as they land.",
   e2_date:"Napoli · Hybrid", e2_title:"Race Prep Block", e2_link:"Request a spot →",
@@ -1189,6 +1287,16 @@ it: {
   ev_mizuno:"Shoe Test — Mizuno x De Lucia Sport", ev_saucony:"Saucony Shoe Test", ev_norun:"Nessuna corsa — siamo in gara", ev_norun_loc:"HYROX Roma · Berlin Marathon", ev_norun_rsvp:"Nessuna sessione", ev_details:"Dettagli →",
   sched_pause_note:"La stagione riparte <b>mercoledì 9 settembre</b>. Qui sotto trovi tutte le date di settembre, con orari e punti di ritrovo. Da qui in poi LACE corre tutto l'anno, in ogni città, senza pause stagionali.",
   d_wed:"Mer", d_thu:"Gio", d_sun:"Dom", d_tue:"Mar", rsvp:"Iscriviti →",
+  nav_brands:"Per i brand", ft_private:"Corse private", p_cta:"Guarda i lavori e invia un brief →",
+  sched_more:"Mostra tutte le {n} date", sched_less:"Mostra meno date −",
+  pv_tag:"Corse private e aziendali", pv_h2:"Il tuo gruppo.<br>Il nostro percorso.",
+  pv_p:"Team aziendali, anniversari di palestre, compleanni e gruppi in visita. Noi studiamo il percorso, portiamo i pacer e guidiamo la corsa. Tu porti le persone.",
+  pv_li1:"Un percorso costruito sul ritmo del tuo gruppo e sul tempo che hai", pv_li2:"Pacer LACE in testa e in coda", pv_li3:"Napoli, Caserta, Milano o Salerno", pv_li4:"Foto, video, pettorali e kit co-brandizzato su richiesta",
+  pv_name:"Il tuo nome", pv_email:"Email", pv_type:"Per cosa?", pv_city:"Città", pv_date:"Data che hai in mente", pv_size:"Numero di persone", pv_msg:"Altro che dovremmo sapere",
+  pv_choose:"Scegli", pv_t1:"Team aziendale", pv_t2:"Compleanno o festa", pv_t3:"Palestra o club", pv_t4:"Gruppo in visita", pv_t5:"Altro",
+  pv_send:"Richiedi una corsa privata", pv_err:"Inserisci nome, un'email valida, il tipo di evento e la città.",
+  pv_note:'Ti rispondiamo con un piano e un prezzo. Usiamo i tuoi dati solo per rispondere a questa richiesta. <a href="/privacy.html">Informativa privacy</a>',
+  pv_done:"Richiesta ricevuta. Ti rispondiamo all'email che ci hai lasciato.", pv_done_mail:"Si è aperta la tua app di posta con la richiesta già compilata. Premi invia e arriva al team LACE.",
   ev_sunday:"5K della domenica", ev_sunday_long:"Lungo della domenica", ev_hw_vomero:"Halloween Sprint Work", ev_hw_caserta:"Halloween Sprint Work — Caserta",
   ev_nike:"Nike Track Session", ev_nike_loc:"Solo 60 runner · Luogo da definire", ev_tba:"TBA", ev_soon:"A breve",
   psa_nike:"Sessione in pista Nike per le nuove Pegasus Plus 2. Solo 60 runner. Tempo run di 6,4 km su 16 giri: 3 giri veloci al 65-70% della soglia del lattato più 1 giro di recupero, ripetuto 4 volte. Orario e link per iscriversi in arrivo.",
@@ -1197,7 +1305,7 @@ it: {
   psa_mizuno:"Caserta riparte. Prova le Mizuno con De Lucia Sport, i primi 100 runner ricevono una t-shirt Mizuno in regalo, cibo e drink offerti a tutti.",
   sched_note:'Ogni settimana ci sono altre sessioni a Napoli, Milano e Salerno — orari e punti di ritrovo cambiano con la stagione. Scrivici su <a href="https://www.instagram.com/lacenapoli" target="_blank" rel="noopener">@lacenapoli</a>, entra nella <a href="https://chat.whatsapp.com/L5UGTYFE6Db3BjlqvpoNIA?s=cl&p=i&mlu=4&amv=0" target="_blank" rel="noopener">chat WhatsApp</a>, o scrivi a <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a> per il programma completo della settimana.',
   nav_shop:"Shop",
-  exp_tag:"HYROX Milano — dal 4 al 6 dicembre 2026", exp_h2:"Dodici settimane alla linea di partenza", exp_badge:"25 posti", hx_date:"Napoli · 14 set — 6 dic", hx_title:"Road to HYROX Milano", hx_p:"Dodici settimane di allenamento ibrido con coach, per chi vuole un risultato in gara e non un workout. Slitta, sandbag e corsa compromessa, seguito da un HYROX Performance Coach. Le sessioni partono da Napoli. Il pettorale si acquista separatamente da HYROX.", hx_price:"€179 · €109 per i soci Laced In", hx_deadline:"Iscrizioni chiuse l'11 settembre", hx_link:"Guarda il blocco →",
+  exp_tag:"HYROX Milano — dal 4 al 6 dicembre 2026", exp_h2:"Dodici settimane alla linea di partenza", exp_badge:"In corso", hx_date:"Napoli · 14 set — 6 dic", hx_title:"Road to HYROX Milano", hx_p:"Dodici settimane di allenamento ibrido con coach, per chi vuole un risultato in gara e non un workout. Slitta, sandbag e corsa compromessa, seguito da un HYROX Performance Coach. Le sessioni partono da Napoli. Il pettorale si acquista separatamente da HYROX.", hx_price:"Le iscrizioni a questo blocco sono chiuse", hx_deadline:"Prossimo blocco: entra in lista d'attesa", hx_link:"Entra in lista d'attesa →",
   e1_date:"Ischia · Capri", e1_title:"The Island Experience", e1_link:"Richiedi un posto →",
   e1_p:"Giornate intere a Ischia e Capri. Corsa sulla costa, bagno a mare, tavolata a bordo mare. Una barca, un gruppo, posti limitati. Le date si confermano man mano.",
   e2_date:"Napoli · Hybrid", e2_title:"Race Prep Block", e2_link:"Richiedi un posto →",
@@ -1410,10 +1518,25 @@ renderSchedDates();
     if(psa) psa.style.display=(first && /Floridiana/i.test(first.city))?"":"none";
     const psaNike=document.getElementById("psa-nike"), nikeRow=document.getElementById("row-nike");
     if(psaNike) psaNike.style.display=(nikeRow && nikeRow.style.display!=="none")?"":"none";
-    const psaMiz=document.getElementById("psa-mizuno");
-    const mizRow=document.querySelector('.sched-row[data-luma*="zi4jd28p"]');
-    if(psaMiz) psaMiz.style.display=(mizRow && mizRow.style.display!=="none")?"":"none";
+    collapse();
   }
+  /* show the next few runs, keep the rest behind one button */
+  const SHOW_FIRST=4;
+  const sec=document.getElementById("runs"), moreBtn=document.getElementById("sched-more");
+  function collapse(){
+    const live=schedule().filter(e=>e.row.style.display!=="none");
+    live.forEach((e,i)=>e.row.classList.toggle("is-more", i>=SHOW_FIRST));
+    const psaNike=document.getElementById("psa-nike"), nikeRow=document.getElementById("row-nike");
+    if(psaNike && nikeRow) psaNike.classList.toggle("is-more", nikeRow.classList.contains("is-more"));
+    if(!moreBtn) return;
+    moreBtn.hidden = live.length<=SHOW_FIRST;
+    const open=sec.classList.contains("all");
+    moreBtn.setAttribute("aria-expanded", String(open));
+    moreBtn.textContent = open ? I18N[currentLang].sched_less
+                               : I18N[currentLang].sched_more.replace("{n}", live.length) + " +";
+  }
+  if(moreBtn) moreBtn.addEventListener("click",()=>{ sec.classList.toggle("all"); collapse(); });
+  document.getElementById("lang-select").addEventListener("change",()=>setTimeout(collapse,0));
   prune(); setInterval(prune,6e4);
 
   document.querySelectorAll(".sched-row[data-luma]").forEach(row=>{
@@ -1541,7 +1664,7 @@ const SOLD_OUT_SIZES = [];
   document.addEventListener("keydown",e=>{if(e.key==="Escape")close();});
 })();
 
-/* ---------- FOUNDING MEMBER PROMPT: fires on scroll engagement, not on landing ---------- */
+/* ---------- MEMBERSHIP PROMPT: fires once, after the schedule has been scrolled past ---------- */
 (function(){
   const modal=document.getElementById("fm-modal");
   if(!modal) return;
@@ -1565,8 +1688,12 @@ const SOLD_OUT_SIZES = [];
   document.getElementById("fm-x").addEventListener("click",close);
   modal.addEventListener("click",e=>{if(e.target===modal||e.target.closest(".fm-bg"))close();});
   document.addEventListener("keydown",e=>{if(e.key==="Escape"&&modal.classList.contains("open"))close();});
+  /* wait until the visitor has scrolled past the schedule, so it never covers the RSVP links */
+  const runsSec=document.getElementById("runs");
   function checkScroll(){
-    if(window.scrollY > window.innerHeight*0.6) open();
+    const past = runsSec ? runsSec.getBoundingClientRect().bottom < window.innerHeight*0.35
+                         : window.scrollY > window.innerHeight*2.5;
+    if(past) open();
   }
   window.addEventListener("scroll", checkScroll, {passive:true});
   checkScroll();
@@ -1724,6 +1851,47 @@ document.getElementById("apply-form").addEventListener("submit", function(e){
     source:"salerno_waitlist_footer", doneKey:"a_done"
   });
 });
+
+/* ---------- PRIVATE RUN ENQUIRY: same inbox as the waitlist, mail app as the fallback ---------- */
+(function(){
+  const form=document.getElementById("pv-form"); if(!form) return;
+  const err=document.getElementById("pv-err"), btn=document.getElementById("pv-send");
+  const val=n=>{const el=form.elements[n]; return el?String(el.value||"").trim():"";};
+  function done(viaMail){
+    form.innerHTML='<p class="pv-done" role="status">'+I18N[currentLang][viaMail?"pv_done_mail":"pv_done"]+'</p>';
+  }
+  form.addEventListener("submit", async function(e){
+    e.preventDefault();
+    const d={name:val("name"),email:val("email"),type:val("type"),city:val("city"),date:val("date"),size:val("size"),message:val("message")};
+    const okEmail=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(d.email);
+    if(!d.name||!okEmail||!d.type||!d.city){
+      err.style.display="block";
+      const first=["name","email","type","city"].filter(n=>n==="email"?!okEmail:!d[n])[0];
+      if(first) form.elements[first].focus();
+      return;
+    }
+    err.style.display="none";
+    if(form.elements.botcheck && form.elements.botcheck.checked){ done(false); return; }
+    btn.disabled=true;
+    let delivered=false;
+    try{
+      const res=await fetch("https://api.web3forms.com/submit",{
+        method:"POST", headers:{"Content-Type":"application/json","Accept":"application/json"},
+        body:JSON.stringify({access_key:WEB3FORMS_ACCESS_KEY,
+          subject:"Private run enquiry — "+d.type+", "+d.city, from_name:"lacenapoli.com private runs", replyto:d.email,
+          name:d.name, email:d.email, type:d.type, city:d.city, date:d.date||"-", group_size:d.size||"-", message:d.message||"-",
+          source:"private_runs_home", lang:currentLang})
+      });
+      const j=await res.json(); delivered=!!(j&&j.success);
+    }catch(x){}
+    if(!delivered){
+      const lines=["Name: "+d.name,"Email: "+d.email,"For: "+d.type,"City: "+d.city,"Date: "+(d.date||"-"),"Group size: "+(d.size||"-"),"",d.message||""];
+      window.location.href="mailto:customersupport@lacenapoli.com?subject="+encodeURIComponent("Private run enquiry — "+d.type+", "+d.city)+"&body="+encodeURIComponent(lines.join("\n"));
+    }
+    if(typeof gtag==="function") gtag("event","generate_lead",{method:delivered?"web3forms":"mailto_fallback",lead_source:"private_runs_home",type:d.type,city:d.city,lang:currentLang});
+    done(!delivered);
+  });
+})();
 
 const catchForm = document.getElementById("catch-form");
 if (catchForm) {
