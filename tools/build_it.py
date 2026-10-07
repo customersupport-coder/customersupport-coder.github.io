@@ -172,6 +172,73 @@ def swap_static_text(src, strings):
     return src, sorted(loc.missing), len(kept)
 
 
+# ------------------------------------- pages that carry both languages inline
+class EnglishFinder(HTMLParser):
+    """Find every element marked data-en (brands and HYROX pages keep an English
+    and an Italian span side by side). The Italian twin drops the English ones."""
+
+    def __init__(self, src):
+        super().__init__(convert_charrefs=False)
+        self.src = src
+        self.line_starts = [0]
+        for line in src.split("\n"):
+            self.line_starts.append(self.line_starts[-1] + len(line) + 1)
+        self.stack = []   # (tag, start or None)
+        self.cuts = []    # (start, end)
+
+    def abs_pos(self):
+        line, col = self.getpos()
+        return self.line_starts[line - 1] + col
+
+    def handle_starttag(self, tag, attrs):
+        if tag in VOID:
+            return
+        marked = any(k == "data-en" for k, _ in attrs)
+        self.stack.append((tag, self.abs_pos() if marked else None))
+
+    def handle_endtag(self, tag):
+        if tag in VOID:
+            return
+        for i in range(len(self.stack) - 1, -1, -1):
+            if self.stack[i][0] == tag:
+                break
+        else:
+            return
+        el = self.stack[i]
+        del self.stack[i:]
+        if el[1] is not None:
+            self.cuts.append((el[1], self.src.index(">", self.abs_pos()) + 1))
+
+
+def drop_english(src, english_url):
+    f = EnglishFinder(src)
+    f.feed(src)
+    f.close()
+    cuts, last_end, kept = sorted(f.cuts), -1, []
+    for s, e in cuts:
+        if s >= last_end:
+            kept.append((s, e))
+            last_end = e
+    for s, e in reversed(kept):
+        src = src[:s] + src[e:]
+    # form options carry both labels as attributes: show the Italian one
+    src = re.sub(r'(<option\b[^>]*\bdata-it-label="([^"]*)"[^>]*>)[^<]*(</option>)',
+                 lambda m: m.group(1) + m.group(2) + m.group(3), src)
+    # with the English text gone, the EN button goes to the English page instead
+    switch = ("<script>\n/* Italian twin: the English text lives at its own address */\n"
+              "document.addEventListener(\"click\", function(e){\n"
+              "  var b = e.target.closest ? e.target.closest('.lang button[data-lang=\"en\"]') : null;\n"
+              "  if (!b) return;\n"
+              "  e.preventDefault(); e.stopPropagation();\n"
+              "  try { localStorage.setItem(\"lace-lang\", \"en\"); } catch(x){}\n"
+              "  location.href = \"%s\" + location.hash;\n"
+              "}, true);\n</script>\n" % english_url)
+    if "</body>" not in src:
+        raise SystemExit("build_it: no </body> found")
+    i = src.rindex("</body>")
+    return src[:i] + switch + src[i:], len(kept)
+
+
 # ------------------------------------------------------------------- URLs
 def fix_url(u):
     if not u or re.match(r"(?i)^(https?:|//|mailto:|tel:|#|data:|javascript:|sms:)", u):
@@ -251,6 +318,10 @@ def build():
                 notes.append("%s: WARNING no Italian string for: %s" % (name, ", ".join(missing)))
         src = fix_urls(src)
         src = fix_head(src, name, cfg)
+        if name != "index.html":
+            # after fix_urls, so the link back to the English page is left alone
+            src, n = drop_english(src, "/" + name)
+            notes.append("%s: %d English blocks dropped from the Italian twin" % (name, n))
         out[cfg["out"]] = src
     return out, notes
 
