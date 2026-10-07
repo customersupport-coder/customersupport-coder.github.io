@@ -135,6 +135,8 @@ figure{margin:0}
 .shots-grid.is-mix img.wide{grid-column:span 2;aspect-ratio:auto}
 .shots-grid.is-one{grid-template-columns:1fr}
 .shots-grid.is-one img{aspect-ratio:5/2}
+.shots-grid.is-duo{grid-template-columns:repeat(3,1fr)}
+.shots + .shots{margin-top:26px}
 .shots figcaption{font-family:var(--data);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:12px;line-height:1.6}
 .disc{max-width:72ch;font-family:var(--data);font-size:11.5px;color:var(--muted);line-height:1.7;margin:22px 0 0}
 
@@ -216,6 +218,8 @@ figure{margin:0}
   .shots-grid.is-one{grid-template-columns:1fr}
   .shots-grid.is-mix{grid-template-columns:repeat(3,1fr)}
   .shots-grid.is-mix img.wide{grid-column:1/-1;aspect-ratio:3/2;height:auto}
+  .shots-grid.is-duo{grid-template-columns:1fr}
+  .shots-grid.is-duo img:not(.wide){aspect-ratio:1/1;height:auto;object-position:50% 34%}
   .incl,.brief{grid-template-columns:1fr}
 }
 @media(max-width:520px){
@@ -345,6 +349,16 @@ figure{margin:0}
           <figcaption>
             <span data-en>HOKA Run Club · run from the HOKA store</span>
             <span data-it>HOKA Run Club · corsa con partenza dallo store HOKA</span>
+          </figcaption>
+        </figure>
+        <figure class="shots">
+          <div class="shots-grid is-mix is-duo">
+            <img class="wide" src="/img/work/hoka-5.jpg" width="1600" height="1067" loading="lazy" decoding="async" alt="Around ninety runners in black HOKA long sleeves grouped under a street lamp on the Naples seafront at night, holding the LACE Napoli run club banner">
+            <img src="/img/work/hoka-6.jpg" width="720" height="960" loading="lazy" decoding="async" alt="A runner carrying the LACE Napoli run club flag through the streets of Naples at night, with the group running alongside">
+          </div>
+          <figcaption>
+            <span data-en>HOKA night run · Napoli</span>
+            <span data-it>Night run HOKA · Napoli</span>
           </figcaption>
         </figure>
       </div>
