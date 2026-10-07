@@ -360,6 +360,16 @@ blockquote em{font-style:normal;color:var(--azzurro)}
   .crowd-strip figure{flex:0 0 84%;scroll-snap-align:start}
 }
 
+.voices{margin-top:64px}
+.voices-tag{margin-bottom:26px}
+.voices-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 48px;border-top:1px solid var(--line)}
+.voice{margin:0;padding:30px 0;border-bottom:1px solid var(--line);font-weight:300;font-size:clamp(20px,2.1vw,27px);line-height:1.35}
+@media(max-width:760px){
+  .voices{margin-top:44px}
+  .voices-grid{grid-template-columns:1fr}
+  .voice{padding:22px 0;font-size:20px}
+}
+
 /* ---------- STICKY MOBILE CTA ---------- */
 .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:150;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(13,16,23,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);transform:translateY(100%);transition:transform .3s ease;display:none}
 .sticky-cta.show{transform:translateY(0)}
@@ -634,12 +644,21 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
     </div>
   </div>
   <div class="crowd-strip" role="group" aria-label="Photos from LACE runs" tabindex="0">
-    <figure><img src="img/crowd-1.jpg" width="900" height="600" loading="lazy" decoding="async" alt="Around ninety LACE runners in black long sleeves under a street lamp on the Naples seafront at night, holding the LACE Napoli banner"><figcaption>Napoli</figcaption></figure>
+    <figure><img src="img/crowd-1.jpg" width="900" height="600" loading="lazy" decoding="async" alt="The whole LACE group in black long sleeves under a street lamp on the Naples seafront at night, holding the LACE Napoli banner"><figcaption>Napoli</figcaption></figure>
     <figure><img src="img/crowd-2.jpg" width="900" height="600" loading="lazy" decoding="async" alt="The LACE crew filling the Scarlatti steps in Vomero after a night run"><figcaption>Vomero</figcaption></figure>
     <figure><img src="img/crowd-3.jpg" width="900" height="600" loading="lazy" decoding="async" alt="A large group of runners in white tees setting off together in Milan"><figcaption>Milano</figcaption></figure>
     <figure><img src="img/crowd-4.jpg" width="900" height="600" loading="lazy" decoding="async" alt="The whole group in white tees after a night run in Caserta"><figcaption>Caserta</figcaption></figure>
     <figure><img src="img/crowd-5.jpg" width="900" height="600" loading="lazy" decoding="async" alt="The crew in front of the Arco della Pace in Milan"><figcaption>Milano</figcaption></figure>
     <figure><img src="img/crowd-6.jpg" width="900" height="600" loading="lazy" decoding="async" alt="Runners crossing towards the war memorial arch in Caserta at night"><figcaption>Caserta</figcaption></figure>
+  </div>
+  <div class="wrap voices">
+    <div class="sec-tag voices-tag" data-i18n="q_tag">From our runners</div>
+    <div class="voices-grid">
+      <blockquote class="voice" data-i18n="q1">“It was better than I expected.”</blockquote>
+      <blockquote class="voice" data-i18n="q2">“This is an amazing group of people.”</blockquote>
+      <blockquote class="voice" data-i18n="q3">“We love what you have brought to this city.”</blockquote>
+      <blockquote class="voice" data-i18n="q4">“Because of this community I have a group of friends that have the same values as me.”</blockquote>
+    </div>
   </div>
 </section>
 
@@ -966,7 +985,8 @@ en: {
   t3_li1:"Laced In member number, permanent", t3_li2:"Guaranteed spot at every experience", t3_li3:"Member kit and early access to every merch drop", t3_li4:"Member pricing at every capped event", t3_li5:"Partner perks: RunKD, NEVERSECOND, Naturale Beach Club", t3_li6:"Structured training blocks and race prep", t3_li7:"A voice in where LACE goes next",
   t3_btn:"Get Laced In — €70/year", t3_note:"First 100 only. €120/year after that. Your rate is locked for life.",
   mem_foot:"We don't gate the run. We gate the inside. Anyone can train with us for free every week. Laced In is for the people building this with us, now open in Napoli, Caserta and Milano. 100 places total, then the price goes to €120. Salerno opens once the local crew there is ready.",
-  sched_tag:"Napoli and Caserta · every upcoming date", sched_h2:"The schedule", cr_tag:"The crew", cr_h2:"Who you run with", sched_btn:"Follow on Instagram",
+  sched_tag:"Napoli and Caserta · every upcoming date", sched_h2:"The schedule", cr_tag:"The crew", cr_h2:"Who you run with",
+  q_tag:"From our runners", q1:"“It was better than I expected.”", q2:"“This is an amazing group of people.”", q3:"“We love what you have brought to this city.”", q4:"“Because of this community I have a group of friends that have the same values as me.”", sched_btn:"Follow on Instagram",
   ev_mizuno:"Shoe Test — Mizuno x De Lucia Sport", ev_saucony:"Saucony Shoe Test", ev_norun:"No run — we are racing", ev_norun_loc:"HYROX Roma · Berlin Marathon", ev_norun_rsvp:"No session", ev_details:"Details →",
   sched_pause_note:"The season restarts <b>Wednesday 9 September</b>. Every September date, time and meeting point is below. From here LACE runs all year, every city, no season off.",
   d_wed:"Wed", d_thu:"Thu", d_sun:"Sun", d_tue:"Tue", rsvp:"RSVP →",
@@ -1048,7 +1068,8 @@ it: {
   t3_li1:"Numero Laced In, per sempre", t3_li2:"Posto garantito a ogni esperienza", t3_li3:"Member kit e accesso anticipato a ogni drop", t3_li4:"Prezzo riservato ai soci a ogni evento a numero chiuso", t3_li5:"Vantaggi partner: RunKD, NEVERSECOND, Naturale Beach Club", t3_li6:"Programmi di allenamento e preparazione gare", t3_li7:"Voce in capitolo su dove va LACE",
   t3_btn:"Entra in Laced In — 70€/anno", t3_note:"Solo i primi 100. Poi 120€/anno. Il tuo prezzo resta bloccato a vita.",
   mem_foot:"Non mettiamo cancelli sulla corsa. Li mettiamo su ciò che c'è dentro. Chiunque può allenarsi con noi gratis ogni settimana. Laced In è per chi vuole costruire questa cosa con noi, ora aperto a Napoli, Caserta e Milano. 100 posti totali, poi il prezzo sale a 120€. Salerno apre quando il gruppo locale sarà pronto.",
-  sched_tag:"Napoli e Caserta · tutte le prossime date", sched_h2:"Il programma", cr_tag:"La crew", cr_h2:"Con chi corri", sched_btn:"Seguici su Instagram",
+  sched_tag:"Napoli e Caserta · tutte le prossime date", sched_h2:"Il programma", cr_tag:"La crew", cr_h2:"Con chi corri",
+  q_tag:"Dai nostri runner", q1:"“È stato meglio di quanto mi aspettassi.”", q2:"“È un gruppo di persone fantastico.”", q3:"“Amiamo quello che avete portato in questa città.”", q4:"“Grazie a questa community ho un gruppo di amici con i miei stessi valori.”", sched_btn:"Seguici su Instagram",
   ev_mizuno:"Shoe Test — Mizuno x De Lucia Sport", ev_saucony:"Saucony Shoe Test", ev_norun:"Nessuna corsa — siamo in gara", ev_norun_loc:"HYROX Roma · Berlin Marathon", ev_norun_rsvp:"Nessuna sessione", ev_details:"Dettagli →",
   sched_pause_note:"La stagione riparte <b>mercoledì 9 settembre</b>. Qui sotto trovi tutte le date di settembre, con orari e punti di ritrovo. Da qui in poi LACE corre tutto l'anno, in ogni città, senza pause stagionali.",
   d_wed:"Mer", d_thu:"Gio", d_sun:"Dom", d_tue:"Mar", rsvp:"Iscriviti →",
