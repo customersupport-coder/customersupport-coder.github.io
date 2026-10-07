@@ -221,6 +221,7 @@ button.btn{font-family:var(--data);width:100%}
 .crew{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
 .face{border:var(--rule);border-radius:3px;overflow:hidden;background:var(--ink-2)}
 .face img{aspect-ratio:4/5;object-fit:cover;width:100%}
+.face-ph{aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:900;font-stretch:118%;font-size:44px;letter-spacing:.06em;color:var(--muted);opacity:.35}
 .face-b{padding:18px}
 .face-n{font-family:var(--display);font-weight:800;font-stretch:106%;font-size:18px;text-transform:uppercase}
 .face-r{font-family:var(--data);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--azzurro);margin-top:4px}
@@ -503,7 +504,7 @@ button.btn{font-family:var(--data);width:100%}
     </div>
     <div class="crew">
       <article class="face">
-        <img src="/img/team-jamal.jpg" alt="Jamal Allen" loading="lazy">
+        <img src="/img/team-jamal.jpg" alt="Jamal Allen" loading="lazy" width="640" height="800" onerror="var d=document.createElement('div');d.className='face-ph';d.textContent='JA';d.setAttribute('aria-hidden','true');this.replaceWith(d)">
         <div class="face-b">
           <div class="face-n">Jamal Allen</div>
           <div class="face-r"><span data-en>Founder · HYROX Performance Coach</span><span data-it>Founder · HYROX Performance Coach</span></div>
@@ -511,7 +512,7 @@ button.btn{font-family:var(--data);width:100%}
         </div>
       </article>
       <article class="face">
-        <img src="/img/team-victoriya.jpg" alt="Victoriya Mauriello" loading="lazy">
+        <img src="/img/team-victoriya.jpg" alt="Victoriya Mauriello" loading="lazy" width="640" height="800" onerror="var d=document.createElement('div');d.className='face-ph';d.textContent='VM';d.setAttribute('aria-hidden','true');this.replaceWith(d)">
         <div class="face-b">
           <div class="face-n">Victoriya Mauriello</div>
           <div class="face-r"><span data-en>Head of LACE Women</span><span data-it>Responsabile LACE Women</span></div>
@@ -519,7 +520,7 @@ button.btn{font-family:var(--data);width:100%}
         </div>
       </article>
       <article class="face">
-        <img src="/img/team-simone.jpg" alt="Simone Palumbo" loading="lazy">
+        <img src="/img/team-simone.jpg" alt="Simone Palumbo" loading="lazy" width="640" height="800" onerror="var d=document.createElement('div');d.className='face-ph';d.textContent='SP';d.setAttribute('aria-hidden','true');this.replaceWith(d)">
         <div class="face-b">
           <div class="face-n">Simone Palumbo</div>
           <div class="face-r"><span data-en>Pacer</span><span data-it>Pacer</span></div>
