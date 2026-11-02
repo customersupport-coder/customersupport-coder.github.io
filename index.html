@@ -135,7 +135,10 @@ header{min-height:100svh;display:flex;flex-direction:column;justify-content:flex
    finished downloading on mobile, which is where nearly all traffic lands.
    The overlay below keeps type readable on top of it. */
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.9}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,16,23,.30) 0%,rgba(13,16,23,.42) 45%,rgba(13,16,23,.88) 82%,rgba(13,16,23,.98) 100%)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,16,23,.45) 0%,rgba(13,16,23,.62) 45%,rgba(13,16,23,.9) 80%,rgba(13,16,23,.98) 100%)}
+.hero-next{display:inline-flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin:0 0 22px;padding:12px 16px;border:1px solid var(--azzurro);background:rgba(13,16,23,.72);font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--paper);text-decoration:none}
+.hero-next .hn-lab{color:var(--azzurro)}.hero-next .hn-go{background:var(--azzurro);color:var(--night);padding:6px 10px;font-weight:700}
+.hero-next:hover .hn-go,.hero-next:focus-visible .hn-go{background:var(--paper)}
 .hero-in{position:relative;max-width:1240px;margin:0 auto;padding:100px 24px 56px;width:100%}
 .hero-eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--azzurro);margin-bottom:20px;display:flex;align-items:center;gap:12px}
 .hero-eyebrow::before{content:"";width:36px;height:1px;background:var(--azzurro)}
@@ -183,6 +186,9 @@ h2{font-weight:900;font-stretch:118%;text-transform:uppercase;font-size:clamp(34
 
 /* ---------- MEMBERSHIP (light section) ---------- */
 .private{padding:110px 0;border-bottom:1px solid var(--line)}
+.pv-open{margin-top:26px}
+.pv-form.is-closed{display:none}
+.pv-open[aria-expanded="true"]{display:none}
 .pv-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,80px);align-items:start}
 .pv-lede{font-size:18px;opacity:.8;max-width:46ch;margin-top:26px}
 .pv-list{list-style:none;margin-top:30px;border-bottom:1px solid var(--line)}
@@ -291,6 +297,9 @@ a.sf-cta:hover,a.sf-cta:focus-visible{background:var(--paper);border-color:var(-
 
 /* ---------- EXPERIENCES ---------- */
 .exp{padding:110px 0;border-bottom:1px solid var(--line)}
+.exp-slim{padding:44px 0}
+.hx-strip{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.hx-line{font-size:18px;line-height:1.5;margin-top:6px}.hx-line b{font-weight:900;text-transform:uppercase;margin-right:6px}.hx-line span{opacity:.75}
 .exp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,590px));gap:24px;justify-content:center}
 .exp-card{border:1px solid var(--line);display:flex;flex-direction:column;transition:border-color .2s}
 .exp-card:hover{border-color:var(--azzurro)}
@@ -321,12 +330,15 @@ blockquote em{font-style:normal;color:var(--azzurro)}
 .tm-photo::before{content:attr(data-initials);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:900;font-stretch:118%;font-size:44px;letter-spacing:.06em;color:var(--paper);opacity:.14}
 .tm-photo img{position:relative;z-index:1}
 .tm-photo img{width:100%;height:100%;object-fit:cover;display:block}
+/* no photo yet: a small initials badge instead of an empty 4:5 box */
+.tm-photo:not(:has(img)){aspect-ratio:auto;width:64px;height:64px;border-radius:50%;margin:22px 20px 0;border:1px solid var(--line)}
+.tm-photo:not(:has(img))::before{font-size:20px;opacity:.6}
 .tm-body{padding:22px 20px 26px;flex:1;display:flex;flex-direction:column}
 .tm-name{font-weight:900;font-stretch:112%;text-transform:uppercase;font-size:19px;line-height:1.1}
 .tm-role{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sodium);margin:8px 0 14px}
 .tm-bio{font-size:14px;opacity:.72;flex:1;margin-bottom:18px;line-height:1.55}
 @media(max-width:960px){.team-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.team-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.team-grid{grid-template-columns:1fr;gap:14px;margin-top:36px}.tm-photo:has(img){aspect-ratio:1/1}.tm-photo img{object-position:50% 20%}.tm-body{padding:18px 18px 20px}.founder{padding:72px 0}}
 
 /* ---------- PARTNERS ---------- */
 .partners{padding:70px 0;border-bottom:1px solid var(--line)}
@@ -407,7 +419,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 .foot-grid{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-bottom:48px}
 .foot-links{display:flex;gap:40px;flex-wrap:wrap}
 .foot-col h4{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--azzurro);margin-bottom:16px}
-.foot-col a{display:block;font-size:14px;opacity:.7;padding:5px 0;transition:opacity .2s}
+.foot-col a{display:block;font-size:15px;opacity:.75;padding:10px 0;transition:opacity .2s}
 .foot-col a:hover{opacity:1}
 .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;opacity:.62;border-top:1px solid var(--line);padding-top:28px}
 
@@ -440,10 +452,162 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
   .sec-head{margin-bottom:36px}
   .apply-form{flex-direction:column}
   .hero-row{flex-direction:column;align-items:stretch}
-  .clock{min-width:0}
+  .clock{min-width:0;display:none}
+  header{min-height:0}
+  .hero-in{padding:96px 20px 40px}
+  .hero-sub{margin-bottom:26px;font-size:17px}
 }
 :focus-visible{outline:2px solid var(--azzurro);outline-offset:3px}
 </style>
+<!-- EVENTS:START -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "SportsEvent",
+   "name": "LACE Sprint Work",
+   "startDate": "2026-11-04T20:00:00+01:00",
+   "endDate": "2026-11-04T21:30:00+01:00",
+   "eventStatus": "https://schema.org/EventScheduled",
+   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+   "isAccessibleForFree": true,
+   "url": "https://luma.com/khrs9nvd",
+   "image": "https://lacenapoli.com/og-image.jpg",
+   "description": "Free group run with LACE. Villa Floridiana gates · Via D. Cimarosa 156, Vomero. RSVP on Luma.",
+   "location": {
+    "@type": "Place",
+    "name": "Villa Floridiana gates · Via D. Cimarosa 156, Vomero",
+    "address": {
+     "@type": "PostalAddress",
+     "streetAddress": "Villa Floridiana gates · Via D. Cimarosa 156, Vomero",
+     "addressLocality": "Napoli",
+     "addressRegion": "Campania",
+     "addressCountry": "IT"
+    }
+   },
+   "organizer": {
+    "@type": "SportsClub",
+    "name": "LACE",
+    "url": "https://lacenapoli.com/"
+   },
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "url": "https://luma.com/khrs9nvd"
+   }
+  },
+  {
+   "@type": "SportsEvent",
+   "name": "LACE Sprint Work — Caserta",
+   "startDate": "2026-11-05T20:00:00+01:00",
+   "endDate": "2026-11-05T21:30:00+01:00",
+   "eventStatus": "https://schema.org/EventScheduled",
+   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+   "isAccessibleForFree": true,
+   "url": "https://luma.com/bg14r5su",
+   "image": "https://lacenapoli.com/og-image.jpg",
+   "description": "Free group run with LACE. Via Vincenzo Crispo 18 · Caserta. RSVP on Luma.",
+   "location": {
+    "@type": "Place",
+    "name": "Via Vincenzo Crispo 18 · Caserta",
+    "address": {
+     "@type": "PostalAddress",
+     "streetAddress": "Via Vincenzo Crispo 18 · Caserta",
+     "addressLocality": "Caserta",
+     "addressRegion": "Campania",
+     "addressCountry": "IT"
+    }
+   },
+   "organizer": {
+    "@type": "SportsClub",
+    "name": "LACE",
+    "url": "https://lacenapoli.com/"
+   },
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "url": "https://luma.com/bg14r5su"
+   }
+  },
+  {
+   "@type": "SportsEvent",
+   "name": "LACE Sunday Long Run",
+   "startDate": "2026-11-08T11:00:00+01:00",
+   "endDate": "2026-11-08T12:30:00+01:00",
+   "eventStatus": "https://schema.org/EventScheduled",
+   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+   "isAccessibleForFree": true,
+   "url": "https://luma.com/trhags3p",
+   "image": "https://lacenapoli.com/og-image.jpg",
+   "description": "Free group run with LACE. Porta Piccola · Parco di Capodimonte, Napoli. RSVP on Luma.",
+   "location": {
+    "@type": "Place",
+    "name": "Porta Piccola · Parco di Capodimonte, Napoli",
+    "address": {
+     "@type": "PostalAddress",
+     "streetAddress": "Porta Piccola · Parco di Capodimonte, Napoli",
+     "addressLocality": "Napoli",
+     "addressRegion": "Campania",
+     "addressCountry": "IT"
+    }
+   },
+   "organizer": {
+    "@type": "SportsClub",
+    "name": "LACE",
+    "url": "https://lacenapoli.com/"
+   },
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "url": "https://luma.com/trhags3p"
+   }
+  },
+  {
+   "@type": "SportsEvent",
+   "name": "LACE Sprint Work",
+   "startDate": "2026-11-11T20:00:00+01:00",
+   "endDate": "2026-11-11T21:30:00+01:00",
+   "eventStatus": "https://schema.org/EventScheduled",
+   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+   "isAccessibleForFree": true,
+   "url": "https://luma.com/esevk4bo",
+   "image": "https://lacenapoli.com/og-image.jpg",
+   "description": "Free group run with LACE. Villa Floridiana gates · Via D. Cimarosa 156, Vomero. RSVP on Luma.",
+   "location": {
+    "@type": "Place",
+    "name": "Villa Floridiana gates · Via D. Cimarosa 156, Vomero",
+    "address": {
+     "@type": "PostalAddress",
+     "streetAddress": "Villa Floridiana gates · Via D. Cimarosa 156, Vomero",
+     "addressLocality": "Napoli",
+     "addressRegion": "Campania",
+     "addressCountry": "IT"
+    }
+   },
+   "organizer": {
+    "@type": "SportsClub",
+    "name": "LACE",
+    "url": "https://lacenapoli.com/"
+   },
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "url": "https://luma.com/esevk4bo"
+   }
+  }
+ ]
+}
+</script>
+<!-- EVENTS:END -->
 </head>
 <body>
 
@@ -480,7 +644,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
   <div class="hero-in">
     <div class="hero-eyebrow" data-i18n="hero_eyebrow">Napoli · Caserta · Milano · Salerno</div>
     <h1 data-i18n-html="hero_h1">When we run,<br>we move <em>the city.</em></h1>
-    <p class="hero-sub" data-i18n="hero_sub">LACE is a running network born in the streets of Naples. 3,000+ runners across four cities. Weekly sessions are free and open. Laced In membership is capped at 100, open in Napoli, Caserta and Milano.</p>
+    <a class="hero-next" id="hero-next" href="https://luma.com/khrs9nvd" target="_blank" rel="noopener"><span class="hn-lab" data-i18n="hn_lab">Next run</span><span class="hn-when" id="hero-next-when">Wed 4 Nov · 20:00 — Via D. Cimarosa 156, Vomero</span><span class="hn-go" data-i18n="rsvp">RSVP →</span></a>
+    <p class="hero-sub" data-i18n="hero_sub">Free group runs in Napoli, Caserta, Milano and Salerno. 3,000+ runners. Just show up.</p>
     <div class="hero-row">
       <div class="hero-ctas">
         <a href="#runs" class="btn" data-i18n="hero_cta1">Run with us — free</a>
@@ -489,7 +654,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
       <div class="clock" aria-live="off">
         <div class="clock-label" data-i18n="clock_label">Next start line</div>
         <div class="clock-time" id="countdown">00:00:00:00</div>
-        <div class="clock-meta" id="clock-meta">Wed 7 Oct · 20:00 — Vomero, Napoli</div>
+        <div class="clock-meta" id="clock-meta">Wed 4 Nov · 20:00 — Via D. Cimarosa 156, Vomero</div>
       </div>
     </div>
   </div>
@@ -526,7 +691,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
       <span class="partner">Red Bull</span>
     </div>
     <div class="partners-cta"><a class="btn btn-sm" href="/brands.html" data-i18n="p_cta">See the work and send a brief →</a></div>
-    <div class="partners-note" data-i18n="p_note">Past client work. All trademarks belong to their owners. LACE is independent and not sponsored by, endorsed by or affiliated with these brands.</div>
+    <div class="partners-note" data-i18n="p_note">Past client work. All trademarks belong to their owners. A name here means we produced an activation with that brand, not an ongoing endorsement.</div>
   </div>
 </section>
 
@@ -542,100 +707,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
         <a href="https://www.instagram.com/lacenapoli" target="_blank" rel="noopener" class="btn btn-sm" data-i18n="sched_btn">Follow on Instagram</a>
       </div>
     </div>
-    <div class="sched-row rsvp" data-start="2026-10-07T20:00" data-luma="https://luma.com/oia7jqyb">
-      <div class="sched-day" data-i18n="d_wed">Wed</div>
-      <div><div class="sched-title" data-i18n="s1_title">Sprint Work</div><div class="sched-date">7 Oct</div></div>
-      <div class="sched-city">Villa Floridiana gates · Via D. Cimarosa 156, Vomero</div>
-      <div class="sched-time">20:00</div>
-      <a class="sched-rsvp" href="https://luma.com/oia7jqyb" target="_blank" rel="noopener" data-i18n="rsvp">RSVP →</a>
-    </div>
     <div class="sched-psa" id="psa-bagdrop" data-i18n="psa_bagdrop">PSA: no bag drop this week. Start and finish at the Villa Floridiana gates. Carry only what you can run with.</div>
-    <div class="sched-row rsvp" data-start="2026-10-08T20:00" data-luma="https://luma.com/41sihgkk">
-      <div class="sched-day" data-i18n="d_thu">Thu</div>
-      <div><div class="sched-title" data-i18n="s2_title">Sprint Work — Caserta</div><div class="sched-date">8 Oct</div></div>
-      <div class="sched-city">Via Vincenzo Crispo 18 · Caserta</div>
-      <div class="sched-time">20:00</div>
-      <a class="sched-rsvp" href="https://luma.com/41sihgkk" target="_blank" rel="noopener" data-i18n="rsvp">RSVP →</a>
-    </div>
-    <div class="sched-row rsvp" data-start="2026-10-11T11:00" data-luma="https://luma.com/1idpo7wq">
-      <div class="sched-day" data-i18n="d_sun">Sun</div>
-      <div><div class="sched-title" data-i18n="ev_sunday">Sunday Easy 5K</div><div class="sched-date">11 Oct</div></div>
-      <div class="sched-city">Porta Piccola · Parco di Capodimonte, Napoli</div>
-      <div class="sched-time">11:00</div>
-      <a class="sched-rsvp" href="https://luma.com/1idpo7wq" target="_blank" rel="noopener" data-i18n="rsvp">RSVP →</a>
-    </div>
-    <div class="sched-row rsvp" id="row-nike" data-start="2026-10-13T18:30" data-luma="https://luma.com/zh7yrcjf">
-      <div class="sched-day" data-i18n="d_tue">Tue</div>
-      <div><div class="sched-title" data-i18n="ev_nike">Nike Tempo Sessions</div><div class="sched-date">13 Oct</div></div>
-      <div class="sched-city" data-i18n="ev_nike_loc">60 runners only · Via Campegna 267, Napoli</div>
-      <div class="sched-time">18:30</div>
-      <a class="sched-rsvp" href="https://luma.com/zh7yrcjf" target="_blank" rel="noopener" data-i18n="rsvp">RSVP →</a>
-    </div>
-    <div class="sched-feature" id="psa-nike">
-      <a class="sf-flyer" href="img/nike-tempo-sessions.jpg" target="_blank" rel="noopener">
-        <img src="img/nike-tempo-sessions-sm.jpg" srcset="img/nike-tempo-sessions-sm.jpg 560w, img/nike-tempo-sessions.jpg 1240w" sizes="(max-width:640px) 100px, 240px" width="1240" height="1754" loading="lazy" decoding="async" alt="Flyer: Pegasus Plus 2 presents Tempo Sessions, Napoli, Via Campegna 267, 13 October, 18:30">
-      </a>
-      <div class="sf-body">
-        <div class="sf-kicker" data-i18n="nike_kicker">Pegasus Plus 2 presents</div>
-        <h3 class="sf-title" data-i18n="nike_h">Tempo Sessions</h3>
-        <ul class="sf-facts">
-          <li data-i18n-html="nike_f1"><span class="sf-long">Tuesday 13 October</span><span class="sf-short">Tue 13 Oct</span> · 18:30</li>
-          <li data-i18n="nike_f2">Via Campegna 267, Napoli</li>
-          <li data-i18n="nike_f3">60 runners only</li>
-        </ul>
-        <p class="sf-text" data-i18n="psa_nike">6.4 km tempo run over 16 laps: 3 fast laps at 65 to 70% of lactate threshold plus 1 recovery lap, repeated 4 times.</p>
-        <a class="sf-cta" id="nike-cta" href="https://luma.com/zh7yrcjf" target="_blank" rel="noopener" data-i18n="rsvp">RSVP →</a>
-      </div>
-    </div>
-    <div class="sched-row rsvp" data-start="2026-10-14T20:00" data-luma="https://luma.com/9371c56u">
-      <div class="sched-day" data-i18n="d_wed">Wed</div>
-      <div><div class="sched-title" data-i18n="s1_title">Sprint Work</div><div class="sched-date">14 Oct</div></div>
-      <div class="sched-city">Villa Floridiana gates · Via D. Cimarosa 156, Vomero</div>
-      <div class="sched-time">20:00</div>
-      <a class="sched-rsvp" href="https://luma.com/9371c56u" target="_blank" rel="noopener" data-i18n="rsvp">RSVP →</a>
-    </div>
-    <div class="sched-row rsvp" data-start="2026-10-15T20:00" data-luma="https://luma.com/jk5ja6fj">
-      <div class="sched-day" data-i18n="d_thu">Thu</div>
-      <div><div class="sched-title" data-i18n="s2_title">Sprint Work — Caserta</div><div class="sched-date">15 Oct</div></div>
-      <div class="sched-city">Via Vincenzo Crispo 18 · Caserta</div>
-      <div class="sched-time">20:00</div>
-      <a class="sched-rsvp" href="https://luma.com/jk5ja6fj" target="_blank" rel="noopener" data-i18n="rsvp">RSVP →</a>
-    </div>
-    <div class="sched-row rsvp" data-start="2026-10-18T11:00" data-luma="https://luma.com/n7k9hjzm">
-      <div class="sched-day" data-i18n="d_sun">Sun</div>
-      <div><div class="sched-title" data-i18n="ev_sunday_long">Sunday Long Run</div><div class="sched-date">18 Oct</div></div>
-      <div class="sched-city">Porta Piccola · Parco di Capodimonte, Napoli</div>
-      <div class="sched-time">11:00</div>
-      <a class="sched-rsvp" href="https://luma.com/n7k9hjzm" target="_blank" rel="noopener" data-i18n="rsvp">RSVP →</a>
-    </div>
-    <div class="sched-row rsvp" data-start="2026-10-21T20:00" data-luma="https://luma.com/87pef9d9">
-      <div class="sched-day" data-i18n="d_wed">Wed</div>
-      <div><div class="sched-title" data-i18n="s1_title">Sprint Work</div><div class="sched-date">21 Oct</div></div>
-      <div class="sched-city">Villa Floridiana gates · Via D. Cimarosa 156, Vomero</div>
-      <div class="sched-time">20:00</div>
-      <a class="sched-rsvp" href="https://luma.com/87pef9d9" target="_blank" rel="noopener" data-i18n="rsvp">RSVP →</a>
-    </div>
-    <div class="sched-row rsvp" data-start="2026-10-22T20:00" data-luma="https://luma.com/aiz9caw0">
-      <div class="sched-day" data-i18n="d_thu">Thu</div>
-      <div><div class="sched-title" data-i18n="s2_title">Sprint Work — Caserta</div><div class="sched-date">22 Oct</div></div>
-      <div class="sched-city">Via Vincenzo Crispo 18 · Caserta</div>
-      <div class="sched-time">20:00</div>
-      <a class="sched-rsvp" href="https://luma.com/aiz9caw0" target="_blank" rel="noopener" data-i18n="rsvp">RSVP →</a>
-    </div>
-    <div class="sched-row rsvp" data-start="2026-10-28T20:00" data-luma="https://luma.com/p4eo8ecm">
-      <div class="sched-day" data-i18n="d_wed">Wed</div>
-      <div><div class="sched-title" data-i18n="ev_hw_vomero">Halloween Sprint Work</div><div class="sched-date">28 Oct</div></div>
-      <div class="sched-city">Villa Floridiana gates · Via D. Cimarosa 156, Vomero</div>
-      <div class="sched-time">20:00</div>
-      <a class="sched-rsvp" href="https://luma.com/p4eo8ecm" target="_blank" rel="noopener" data-i18n="rsvp">RSVP →</a>
-    </div>
-    <div class="sched-row rsvp" data-start="2026-10-29T20:00" data-luma="https://luma.com/hqu110pe">
-      <div class="sched-day" data-i18n="d_thu">Thu</div>
-      <div><div class="sched-title" data-i18n="ev_hw_caserta">Halloween Sprint Work — Caserta</div><div class="sched-date">29 Oct</div></div>
-      <div class="sched-city">Via Vincenzo Crispo 18 · Caserta</div>
-      <div class="sched-time">20:00</div>
-      <a class="sched-rsvp" href="https://luma.com/hqu110pe" target="_blank" rel="noopener" data-i18n="rsvp">RSVP →</a>
-    </div>
     <div class="sched-row rsvp" data-start="2026-11-04T20:00" data-luma="https://luma.com/khrs9nvd">
       <div class="sched-day" data-i18n="d_wed">Wed</div>
       <div><div class="sched-title" data-i18n="s1_title">Sprint Work</div><div class="sched-date">4 Nov</div></div>
@@ -698,27 +770,13 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
   </div>
 </section>
 
-<section class="exp" id="hyrox">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <div class="sec-tag" data-i18n="exp_tag">HYROX Milano — 4 to 6 December 2026</div>
-        <h2 data-i18n="exp_h2">Twelve weeks to the start line</h2>
-      </div>
+<section class="exp exp-slim" id="hyrox">
+  <div class="wrap hx-strip">
+    <div>
+      <div class="sec-tag" data-i18n="exp_tag">HYROX Milano — 4 to 6 December 2026</div>
+      <div class="hx-line"><b data-i18n="hx_title">Road to HYROX Milano</b> <span data-i18n="hx_short">A twelve week coached block is underway. Enrolment is closed.</span></div>
     </div>
-    <div class="exp-grid">
-      <div class="exp-card">
-        <div class="exp-img amber"><img src="img/race-prep.jpg" alt="LACE runners mid-session on a Naples street" loading="lazy" decoding="async" width="1280" height="640"><span class="exp-badge" data-i18n="exp_badge">In progress</span></div>
-        <div class="exp-body">
-          <div class="exp-date" data-i18n="hx_date">Napoli · 14 Sep — 6 Dec</div>
-          <div class="exp-title" data-i18n="hx_title">Road to HYROX Milano</div>
-          <p data-i18n="hx_p">Twelve weeks of coached hybrid training for runners who want a race result, not a workout. Sled, sandbag and compromised running, coached by a HYROX Performance Coach. Sessions run out of Naples. Race entry is bought separately from HYROX.</p>
-          <p class="exp-price" data-i18n="hx_price">Enrolment for this block is closed</p>
-          <p class="exp-deadline" data-i18n="hx_deadline">Next block: join the waitlist</p>
-          <a href="/road-to-hyrox.html#programmes" class="exp-link" data-i18n="hx_link">Join the waitlist →</a>
-        </div>
-      </div>
-    </div>
+    <a href="/road-to-hyrox.html#programmes" class="btn btn-sm" data-i18n="hx_link">Join the waitlist →</a>
   </div>
 </section>
 
@@ -735,6 +793,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
           <li data-i18n="pv_li3">Napoli, Caserta, Milano or Salerno</li>
           <li data-i18n="pv_li4">Photo, video, race bibs and co-branded kit on request</li>
         </ul>
+        <button type="button" class="btn btn-solid pv-open" id="pv-open" aria-controls="pv-form" aria-expanded="false" data-i18n="pv_open">Plan a private run</button>
       </div>
       <form class="pv-form" id="pv-form" novalidate>
         <div class="pv-row">
@@ -862,7 +921,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
         </div>
       </div>
       <div class="tm-card">
-        <div class="tm-photo" data-initials="SP"><img src="img/team-simone.jpg" alt="Simone Palumbo" loading="lazy" onerror="this.remove()"></div>
+        <div class="tm-photo" data-initials="SP"></div>
         <div class="tm-body">
           <div class="tm-name">Simone Palumbo</div>
           <div class="tm-role" data-i18n="tm2_role">Pacer</div>
@@ -871,7 +930,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
         </div>
       </div>
       <div class="tm-card">
-        <div class="tm-photo" data-initials="AR"><img src="img/team-aquileo.jpg" alt="Aquileo Reyes Jr." loading="lazy" onerror="this.remove()"></div>
+        <div class="tm-photo" data-initials="AR"></div>
         <div class="tm-body">
           <div class="tm-name">Aquileo Reyes Jr.</div>
           <div class="tm-role" data-i18n="tm3_role">Trail Coach · Pacer</div>
@@ -912,8 +971,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
       <div class="foot-links">
         <div class="foot-col">
           <h4 data-i18n="ft_cities">Cities</h4>
-          <a href="#runs">Napoli</a>
-          <a href="#membership">Caserta</a>
+          <a href="/napoli.html">Napoli</a>
+          <a href="/caserta.html">Caserta</a>
           <a href="#membership">Milano</a>
           <a href="#" class="cs-link" data-city="Salerno">Salerno</a>
         </div>
@@ -1001,8 +1060,8 @@ en: {
   nav_runs:"Weekly Runs", nav_membership:"Membership", nav_exp:"HYROX", nav_about:"About", nav_apply:"Get Laced In", sk_k:"Next run", sk_rsvp:"RSVP", sk_join:"Laced In €70",
   hero_eyebrow:"Napoli · Caserta · Milano · Salerno",
   hero_h1:'When we run,<br>we move <em>the city.</em>',
-  hero_sub:"LACE is a running network born in the streets of Naples. 3,000+ runners across four cities. Weekly sessions are free and open. Laced In membership is capped at 100, open in Napoli, Caserta and Milano.",
-  hero_cta1:"Run with us — free", hero_cta2:"Get Laced In",
+  hero_sub:"Free group runs in Napoli, Caserta, Milano and Salerno. 3,000+ runners. Just show up.",
+  hero_cta1:"Run with us — free", hn_lab:"Next run", hx_short:"A twelve week coached block is underway. Enrolment is closed.", pv_open:"Plan a private run", hero_cta2:"Get Laced In",
   clock_label:"Next start line",
   clock_label_paused:"Back on the road in",
   sched_paused_until:"Paused until 9 Sep",
@@ -1077,15 +1136,15 @@ en: {
 
   ft_legal:"Legal", ft_contactpage:"Contact & about", ft_privacy:"Privacy policy", ft_terms:"Terms & refunds", ft_cookies:"Cookie settings",
   ft_official:"lacenapoli.com is the official LACE website.", ft_operator:"Operated by Lace Company, a corporation registered in Texas, USA.",
-  p_note:"Past client work. All trademarks belong to their owners. LACE is independent and not sponsored by, endorsed by or affiliated with these brands."
+  p_note:"Past client work. All trademarks belong to their owners. A name here means we produced an activation with that brand, not an ongoing endorsement."
 },
 it: {
   ann_text:"Pausa in tutte le città da oggi. Si riparte <b>mercoledì 9 settembre</b>. È l'ultima volta — da qui in poi LACE corre tutto l'anno.",
   sk_k:"Prossima corsa", sk_rsvp:"Iscriviti", sk_join:"Laced In €70", nav_runs:"Corse settimanali", nav_membership:"Membership", nav_exp:"HYROX", nav_about:"Chi siamo", nav_apply:"Entra in Laced In",
   hero_eyebrow:"Napoli · Caserta · Milano · Salerno",
   hero_h1:'Quando corriamo,<br>muoviamo <em>la città.</em>',
-  hero_sub:"LACE è un network di running nato nelle strade di Napoli. Oltre 3.000 runner in quattro città. Le corse settimanali sono gratuite e aperte a tutti. I posti Laced In sono 100, aperti a Napoli, Caserta e Milano.",
-  hero_cta1:"Corri con noi — gratis", hero_cta2:"Entra in Laced In",
+  hero_sub:"Corse di gruppo gratuite a Napoli, Caserta, Milano e Salerno. Oltre 3.000 runner. Basta presentarsi.",
+  hero_cta1:"Corri con noi — gratis", hn_lab:"Prossima corsa", hx_short:"Un blocco di dodici settimane con coach è in corso. Iscrizioni chiuse.", pv_open:"Organizza una corsa privata", hero_cta2:"Entra in Laced In",
   clock_label:"Prossima partenza",
   clock_label_paused:"Si riparte tra",
   sched_paused_until:"In pausa fino al 9 set",
@@ -1160,7 +1219,7 @@ it: {
 
   ft_legal:"Note legali", ft_contactpage:"Contatti e chi siamo", ft_privacy:"Informativa privacy", ft_terms:"Termini e rimborsi", ft_cookies:"Impostazioni cookie",
   ft_official:"lacenapoli.com è il sito ufficiale di LACE.", ft_operator:"Gestito da Lace Company, società registrata in Texas, USA.",
-  p_note:"Lavori già realizzati per questi clienti. Tutti i marchi appartengono ai rispettivi proprietari. LACE è indipendente e non è sponsorizzata, approvata o affiliata a questi brand."
+  p_note:"Lavori già realizzati per questi clienti. Tutti i marchi appartengono ai rispettivi proprietari. Un nome qui indica un'attivazione realizzata con quel brand, non un endorsement continuativo."
 }
 };
 
@@ -1270,6 +1329,9 @@ function renderClockMeta(){
   const where=e ? e.city.split("·").pop().trim() : "Vomero, Napoli";
   const hh=String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0");
   el.textContent=DAYS[currentLang][d.getDay()]+" "+d.getDate()+" "+MONTHS[currentLang][d.getMonth()]+" · "+hh+" — "+where;
+  const hn=document.getElementById("hero-next"), hw=document.getElementById("hero-next-when");
+  if(hw) hw.textContent=el.textContent;
+  if(hn) hn.href=(e&&e.url)?e.url:LUMA_ALL;
   if(typeof renderSticky==="function"){try{renderSticky()}catch(err){}}
 }
 
@@ -1284,36 +1346,7 @@ function renderClockMeta(){
   renderClockMeta(); setInterval(renderClockMeta,3e4);
 })();
 
-/* describe the upcoming runs to search engines as events (built from the same rows) */
-(function(){
-  try{
-    const now=new Date();
-    const evs=schedule().filter(e=>e.url && e.at>now && /luma\.com\//.test(e.url)).map(e=>{
-      const title=((e.row.querySelector(".sched-title")||{}).textContent||"Run").trim();
-      const place=e.city.trim();
-      return {
-        "@type":"SportsEvent",
-        "name":"LACE "+title,
-        "startDate":e.at.toISOString(),
-        "endDate":new Date(e.at.getTime()+90*6e4).toISOString(),
-        "eventStatus":"https://schema.org/EventScheduled",
-        "eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode",
-        "isAccessibleForFree":true,
-        "url":e.url,
-        "image":"https://lacenapoli.com/og-image.jpg",
-        "description":"Free group run with LACE. "+place+". RSVP on Luma.",
-        "location":{"@type":"Place","name":place,"address":{"@type":"PostalAddress","streetAddress":place,"addressLocality":/Caserta/i.test(place)?"Caserta":"Napoli","addressRegion":"Campania","addressCountry":"IT"}},
-        "organizer":{"@type":"SportsClub","name":"LACE","url":"https://lacenapoli.com/"},
-        "offers":{"@type":"Offer","price":"0","priceCurrency":"EUR","availability":"https://schema.org/InStock","url":e.url}
-      };
-    });
-    if(!evs.length) return;
-    const tag=document.createElement("script");
-    tag.type="application/ld+json";
-    tag.textContent=JSON.stringify({"@context":"https://schema.org","@graph":evs});
-    document.head.appendChild(tag);
-  }catch(err){}
-})();
+/* event data for search engines is written into <head> by tools/sync_schedule.py */
 
 /* localise each row's date label from data-start */
 function renderSchedDates(){
@@ -1590,6 +1623,11 @@ document.getElementById("apply-form").addEventListener("submit", function(e){
 /* ---------- PRIVATE RUN ENQUIRY: same inbox as the waitlist, mail app as the fallback ---------- */
 (function(){
   const form=document.getElementById("pv-form"); if(!form) return;
+  /* the form stays folded until someone asks for it, so the section is short */
+  const opener=document.getElementById("pv-open");
+  function openForm(focus){ form.classList.remove("is-closed"); if(opener) opener.setAttribute("aria-expanded","true"); if(focus){ const f=form.querySelector("input"); if(f) f.focus(); } }
+  if(opener){ form.classList.add("is-closed"); opener.addEventListener("click",()=>openForm(true)); }
+  if(/^#(private|pv-form)$/.test(location.hash)) openForm(false);
   const err=document.getElementById("pv-err"), btn=document.getElementById("pv-send");
   const val=n=>{const el=form.elements[n]; return el?String(el.value||"").trim():"";};
   function done(viaMail){
