@@ -259,6 +259,9 @@ a.sched-rsvp:hover,a.sched-rsvp:focus-visible,.sched-row.rsvp:hover a.sched-rsvp
 .schedule:not(.all) .is-more{display:none}
 .sched-more{display:block;width:100%;background:none;border:0;border-top:1px solid var(--line);color:var(--azzurro);font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;padding:22px 0;cursor:pointer;text-align:left}
 .sched-more:hover,.sched-more:focus-visible{color:var(--paper)}
+.sched-btns{display:flex;gap:10px;flex-wrap:wrap}
+.sched-empty{display:block;padding:26px 0;border-top:1px solid var(--line);font-family:var(--mono);font-size:14px;letter-spacing:.08em;color:var(--paper);text-decoration:underline;text-underline-offset:4px}
+.sched-empty[hidden],.sched-more[hidden]{display:none}
 .sched-note{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:rgba(245,243,238,.72);padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .sched-note a{color:var(--azzurro);text-decoration:underline;text-underline-offset:3px}
 .sched-feature{display:grid;grid-template-columns:240px 1fr;gap:32px;align-items:center;padding:26px;margin:0 0 2px;border-left:3px solid var(--azzurro);background:rgba(255,255,255,.05)}
@@ -536,7 +539,10 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
         <div class="sec-tag" data-i18n="sched_tag">Napoli e Caserta · tutte le prossime date</div>
         <h2 data-i18n="sched_h2">Il programma</h2>
       </div>
-      <a href="https://www.instagram.com/lacenapoli" target="_blank" rel="noopener" class="btn btn-sm" data-i18n="sched_btn">Seguici su Instagram</a>
+      <div class="sched-btns">
+        <a href="https://luma.com/user/lacenapoli" target="_blank" rel="noopener" class="btn btn-sm" data-i18n="sched_luma">Tutti gli eventi su Luma →</a>
+        <a href="https://www.instagram.com/lacenapoli" target="_blank" rel="noopener" class="btn btn-sm" data-i18n="sched_btn">Seguici su Instagram</a>
+      </div>
     </div>
     <div class="sched-row rsvp" data-start="2026-10-07T20:00" data-luma="https://luma.com/oia7jqyb">
       <div class="sched-day" data-i18n="d_wed">Mer</div>
@@ -632,6 +638,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
       <div class="sched-time">20:00</div>
       <a class="sched-rsvp" href="https://luma.com/hqu110pe" target="_blank" rel="noopener" data-i18n="rsvp">Iscriviti →</a>
     </div>
+    <a class="sched-empty" id="sched-empty" href="https://luma.com/user/lacenapoli" target="_blank" rel="noopener" hidden><span data-i18n="sched_empty">Le nuove date escono prima su Luma. Guarda tutte le prossime corse</span> →</a>
     <button type="button" class="sched-more" id="sched-more" hidden></button>
     <div class="sched-note" id="sched-note" data-i18n-html="sched_note">Ogni settimana ci sono altre sessioni a Napoli, Milano e Salerno — orari e punti di ritrovo cambiano con la stagione. Scrivici su <a href="https://www.instagram.com/lacenapoli" target="_blank" rel="noopener">@lacenapoli</a>, entra nella <a href="https://chat.whatsapp.com/L5UGTYFE6Db3BjlqvpoNIA?s=cl&p=i&mlu=4&amv=0" target="_blank" rel="noopener">chat WhatsApp</a>, o scrivi a <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a> per il programma completo della settimana.</div>
   </div>
@@ -898,6 +905,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
           <a href="https://www.instagram.com/lacenapoli" target="_blank" rel="noopener">Instagram</a>
           <a href="https://wa.me/393459309942" target="_blank" rel="noopener">WhatsApp +39 345 930 9942</a>
           <a href="https://chat.whatsapp.com/L5UGTYFE6Db3BjlqvpoNIA?s=cl&amp;p=i&amp;mlu=4&amp;amv=0" target="_blank" rel="noopener">WhatsApp community</a>
+          <a href="https://luma.com/user/lacenapoli" target="_blank" rel="noopener">Luma events</a>
           <a href="https://www.strava.com/clubs/1325540" target="_blank" rel="noopener">Strava Club</a>
           <a href="mailto:customersupport@lacenapoli.com">customersupport@lacenapoli.com</a>
         </div>
@@ -989,7 +997,7 @@ en: {
   t3_btn:"Get Laced In — €70/year", t3_note:"First 100 only. €120/year after that. Your rate is locked for life.",
   mem_foot:"We don't gate the run. We gate the inside. Anyone can train with us for free every week. Laced In is for the people building this with us, now open in Napoli, Caserta and Milano. 100 places total, then the price goes to €120. Salerno opens once the local crew there is ready.",
   sched_tag:"Napoli and Caserta · every upcoming date", sched_h2:"The schedule", cr_tag:"The crew", cr_h2:"Who you run with",
-  q_tag:"From our runners", q1:"“It was better than I expected.”", q2:"“This is an amazing group of people.”", q3:"“We love what you have brought to this city.”", q4:"“Because of this community I have a group of friends that have the same values as me.”", sched_btn:"Follow on Instagram",
+  q_tag:"From our runners", q1:"“It was better than I expected.”", q2:"“This is an amazing group of people.”", q3:"“We love what you have brought to this city.”", q4:"“Because of this community I have a group of friends that have the same values as me.”", sched_btn:"Follow on Instagram", sched_luma:"All events on Luma →", sched_empty:"New dates go up on Luma first. See every upcoming run",
   ev_mizuno:"Shoe Test — Mizuno x De Lucia Sport", ev_saucony:"Saucony Shoe Test", ev_norun:"No run — we are racing", ev_norun_loc:"HYROX Roma · Berlin Marathon", ev_norun_rsvp:"No session", ev_details:"Details →",
   sched_pause_note:"The season restarts <b>Wednesday 9 September</b>. Every September date, time and meeting point is below. From here LACE runs all year, every city, no season off.",
   d_wed:"Wed", d_thu:"Thu", d_sun:"Sun", d_tue:"Tue", rsvp:"RSVP →",
@@ -1072,7 +1080,7 @@ it: {
   t3_btn:"Entra in Laced In — 70€/anno", t3_note:"Solo i primi 100. Poi 120€/anno. Il tuo prezzo resta bloccato a vita.",
   mem_foot:"Non mettiamo cancelli sulla corsa. Li mettiamo su ciò che c'è dentro. Chiunque può allenarsi con noi gratis ogni settimana. Laced In è per chi vuole costruire questa cosa con noi, ora aperto a Napoli, Caserta e Milano. 100 posti totali, poi il prezzo sale a 120€. Salerno apre quando il gruppo locale sarà pronto.",
   sched_tag:"Napoli e Caserta · tutte le prossime date", sched_h2:"Il programma", cr_tag:"La crew", cr_h2:"Con chi corri",
-  q_tag:"Dai nostri runner", q1:"“È stato meglio di quanto mi aspettassi.”", q2:"“È un gruppo di persone fantastico.”", q3:"“Amiamo quello che avete portato in questa città.”", q4:"“Grazie a questa community ho un gruppo di amici con i miei stessi valori.”", sched_btn:"Seguici su Instagram",
+  q_tag:"Dai nostri runner", q1:"“È stato meglio di quanto mi aspettassi.”", q2:"“È un gruppo di persone fantastico.”", q3:"“Amiamo quello che avete portato in questa città.”", q4:"“Grazie a questa community ho un gruppo di amici con i miei stessi valori.”", sched_btn:"Seguici su Instagram", sched_luma:"Tutti gli eventi su Luma →", sched_empty:"Le nuove date escono prima su Luma. Guarda tutte le prossime corse",
   ev_mizuno:"Shoe Test — Mizuno x De Lucia Sport", ev_saucony:"Saucony Shoe Test", ev_norun:"Nessuna corsa — siamo in gara", ev_norun_loc:"HYROX Roma · Berlin Marathon", ev_norun_rsvp:"Nessuna sessione", ev_details:"Dettagli →",
   sched_pause_note:"La stagione riparte <b>mercoledì 9 settembre</b>. Qui sotto trovi tutte le date di settembre, con orari e punti di ritrovo. Da qui in poi LACE corre tutto l'anno, in ogni città, senza pause stagionali.",
   d_wed:"Mer", d_thu:"Gio", d_sun:"Dom", d_tue:"Mar", rsvp:"Iscriviti →",
@@ -1168,6 +1176,7 @@ document.getElementById("lang-select").addEventListener("change", e => {
    Rows with no data-luma are informational (e.g. a race weekend)
    and are skipped by the countdown.
    ============================================================ */
+const LUMA_ALL="https://luma.com/user/lacenapoli"; /* every LACE event; used when no dated run is left on the page */
 const DAYS={en:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],it:["Dom","Lun","Mar","Mer","Gio","Ven","Sab"]};
 const MONTHS={en:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],it:["gen","feb","mar","apr","mag","giu","lug","ago","set","ott","nov","dic"]};
 
@@ -1306,6 +1315,8 @@ renderSchedDates();
   const sec=document.getElementById("runs"), moreBtn=document.getElementById("sched-more");
   function collapse(){
     const live=schedule().filter(e=>e.row.style.display!=="none");
+    const empty=document.getElementById("sched-empty");
+    if(empty) empty.hidden = live.some(e=>e.url);
     live.forEach((e,i)=>e.row.classList.toggle("is-more", i>=SHOW_FIRST));
     const psaNike=document.getElementById("psa-nike"), nikeRow=document.getElementById("row-nike");
     if(psaNike && nikeRow) psaNike.classList.toggle("is-more", nikeRow.classList.contains("is-more"));
@@ -1423,7 +1434,7 @@ function renderSticky(){
   if(when && meta) when.textContent=meta.textContent;
   if(short) short.textContent=" · "+DAYS[currentLang][d.getDay()]+" "+hh;
   if(e && e.url){ btn.href=e.url; btn.target="_blank"; btn.rel="noopener"; }
-  else { btn.href="#runs"; btn.removeAttribute("target"); btn.removeAttribute("rel"); }
+  else { btn.href=LUMA_ALL; btn.target="_blank"; btn.rel="noopener"; }
 }
 (function(){
   const bar=document.getElementById("sticky-cta");
